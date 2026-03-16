@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ann — UGC Creator</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#F7F3EC;
+  --cream2:#EEE8DC;
+  --cream3:#E5DDD0;
+  --green:#2A4A2C;
+  --green2:#3B6640;
+  --green3:#C5D5BC;
+  --char:#1C1C19;
+  --gray:#8A8478;
+  --white:#FDFAF5;
+}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--char);font-family:'Outfit',sans-serif;font-weight:300;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.2rem 3rem;background:var(--cream)}
+.nav-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;letter-spacing:0.04em;text-decoration:none;color:var(--char)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover{color:var(--green)}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1.1fr 0.9fr;padding-top:64px}
+.hero-img-side{position:relative;overflow:hidden;background:var(--green);min-height:100vh;display:flex;align-items:center;justify-content:center}
+.hero-img-placeholder{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem}
+.hero-img-circle{width:110px;height:110px;border-radius:50%;border:1.5px dashed rgba(197,213,188,0.5);display:flex;align-items:center;justify-content:center}
+.hero-img-hint{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(197,213,188,0.5)}
+.hero-content{display:flex;flex-direction:column;justify-content:center;padding:4rem 3.5rem}
+.hero-tag{display:inline-flex;align-items:center;gap:0.5rem;margin-bottom:2rem}
+.hero-dot{width:7px;height:7px;border-radius:50%;background:var(--green2)}
+.hero-tag-text{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--green2)}
+.hero-hello{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,4.5vw,4rem);font-weight:400;line-height:1.1;color:var(--char);margin-bottom:0.4rem}
+.hero-hello em{font-style:italic;color:var(--green2)}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:var(--gray);margin-bottom:2rem}
+.hero-blurb{font-size:0.92rem;color:var(--gray);line-height:1.85;max-width:360px;margin-bottom:2.5rem}
+.hero-contacts{display:flex;flex-direction:column;gap:0.75rem;margin-bottom:2.5rem}
+.contact-row{display:flex;align-items:center;gap:0.75rem}
+.contact-label{font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--green2);min-width:70px}
+.contact-val{font-size:0.85rem;color:var(--char);text-decoration:none}
+.contact-val:hover{color:var(--green2)}
+.hero-cta{display:inline-block;background:var(--green);color:var(--cream);padding:0.8rem 2rem;font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;border-radius:2px;transition:background 0.2s,transform 0.15s;align-self:flex-start}
+.hero-cta:hover{background:var(--green2);transform:translateY(-2px)}
+
+/* SECTION SHARED */
+.section-label{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--green2);margin-bottom:0.6rem}
+.section-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.6rem);font-weight:400;line-height:1.15;color:var(--char);margin-bottom:0.5rem}
+.section-heading em{font-style:italic}
+.divider{width:40px;height:1px;background:var(--green3);margin:1.2rem 0 2.5rem}
+
+/* ABOUT */
+.about{background:var(--cream2);display:grid;grid-template-columns:1fr 1.4fr;gap:4rem;align-items:center;padding:5rem 3rem}
+.about-img{background:var(--cream3);aspect-ratio:3/4;border-radius:3px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.75rem}
+.about-img-hint{font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gray);opacity:0.6}
+.about-body{font-size:0.92rem;color:var(--gray);line-height:1.9;margin-bottom:1.5rem}
+.about-tags{display:flex;gap:0.6rem;flex-wrap:wrap}
+.tag{background:var(--cream);border:1px solid var(--cream3);padding:0.35rem 1rem;border-radius:40px;font-size:0.72rem;color:var(--char);letter-spacing:0.04em}
+
+/* VIDEO SECTIONS */
+.videos-section{padding:5rem 3rem}
+.videos-section.alt{background:var(--cream2)}
+.videos-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:0}
+.video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.video-card{border-radius:3px;overflow:hidden;cursor:pointer;transition:transform 0.25s}
+.video-card:hover{transform:translateY(-3px)}
+.video-card:first-child{grid-column:span 2}
+.video-thumb{aspect-ratio:16/10;position:relative;display:flex;align-items:center;justify-content:center}
+.v-tech .video-thumb{background:#2A4A2C}
+.v-tech2 .video-thumb{background:#3B5C3E}
+.v-tech3 .video-thumb{background:#1E3820}
+.v-life .video-thumb{background:#4A3C2A}
+.v-life2 .video-thumb{background:#5C4A35}
+.v-life3 .video-thumb{background:#382C1E}
+.v-travel .video-thumb{background:#2A3A4A}
+.v-travel2 .video-thumb{background:#1E2E3C}
+.v-travel3 .video-thumb{background:#35455A}
+.play-btn{width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(253,250,245,0.45);display:flex;align-items:center;justify-content:center}
+.play-btn::after{content:'';width:0;height:0;border-top:6px solid transparent;border-bottom:6px solid transparent;border-left:11px solid rgba(253,250,245,0.75);margin-left:3px}
+.video-info{padding:1rem 1.2rem;background:var(--cream)}
+.videos-section.alt .video-info{background:var(--cream2)}
+.video-cat{font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--green2);margin-bottom:0.2rem}
+.video-name{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--char)}
+.video-desc{font-size:0.78rem;color:var(--gray);margin-top:0.2rem}
+
+/* WORKFLOW */
+.workflow{background:var(--green);padding:5rem 3rem}
+.workflow .section-label{color:var(--green3)}
+.workflow .section-heading{color:var(--cream)}
+.workflow .divider{background:rgba(197,213,188,0.3)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.step{border-top:1px solid rgba(197,213,188,0.25);padding-top:1.5rem}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-style:italic;color:rgba(197,213,188,0.35);display:block;margin-bottom:0.75rem;line-height:1}
+.step-title{font-size:0.8rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--green3);margin-bottom:0.5rem}
+.step-body{font-size:0.82rem;color:rgba(197,213,188,0.6);line-height:1.7}
+
+/* PHOTOGRAPHY */
+.photo-section{padding:5rem 3rem;background:var(--cream)}
+.photo-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:220px 160px;gap:10px}
+.photo-card{border-radius:3px;overflow:hidden;position:relative}
+.photo-card:first-child{grid-column:span 2;grid-row:span 2}
+.photo-card:nth-child(4){grid-column:span 2}
+.p1{background:#C5D5BC}
+.p2{background:#A8BFA0}
+.p3{background:#8EAA87}
+.p4{background:#B8CCAF}
+.p5{background:#D5E0CF}
+.photo-label{position:absolute;bottom:0.75rem;left:0.9rem;font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(30,30,25,0.5)}
+
+/* CONTACT */
+.contact-section{background:var(--char);padding:6rem 3rem;text-align:center}
+.contact-section .section-label{color:var(--green3)}
+.contact-section .section-heading{color:var(--cream)}
+.contact-section .divider{margin-left:auto;margin-right:auto}
+.contact-sub{font-size:0.9rem;color:rgba(197,213,188,0.5);max-width:380px;margin:0 auto 2.5rem;line-height:1.8}
+.contact-email-big{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-style:italic;color:var(--green3);text-decoration:none;display:inline-block;border-bottom:1px solid rgba(197,213,188,0.25);padding-bottom:4px;margin-bottom:3rem;transition:color 0.2s}
+.contact-email-big:hover{color:var(--cream)}
+.socials{display:flex;justify-content:center;gap:2rem}
+.social{font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(138,132,120,0.7);text-decoration:none;transition:color 0.2s}
+.social:hover{color:var(--cream)}
+
+footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);padding:1.2rem 3rem;display:flex;justify-content:space-between}
+footer span{font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(138,132,120,0.5)}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-name">Ann</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#workflow">Process</a></li>
+    <li><a href="#photos">Photos</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-img-side">
+    <div class="hero-img-placeholder">
+      <div class="hero-img-circle">
+        <svg width="44" height="44" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="18" r="8" stroke="rgba(197,213,188,0.6)" stroke-width="1.5"/>
+          <path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="rgba(197,213,188,0.6)" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <span class="hero-img-hint">Your photo here</span>
+    </div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-tag">
+      <div class="hero-dot"></div>
+      <span class="hero-tag-text">Available for collabs</span>
+    </div>
+    <h1 class="hero-hello">Hello, I'm <em>Ann.</em></h1>
+    <p class="hero-title">UGC Content Creator</p>
+    <p class="hero-blurb">I create authentic, scroll-stopping content for brands in tech, lifestyle, wellness, and travel — content that feels real because it is.</p>
+    <div class="hero-contacts">
+      <div class="contact-row">
+        <span class="contact-label">Email</span>
+        <a href="mailto:hello@ann.com" class="contact-val">hello@ann.com</a>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">TikTok</span>
+        <a href="#" class="contact-val">@yourhandle</a>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">Instagram</span>
+        <a href="#" class="contact-val">@yourhandle</a>
+      </div>
+      <div class="contact-row">
+        <span class="contact-label">Based in</span>
+        <span class="contact-val">Your City</span>
+      </div>
+    </div>
+    <a href="#work" class="hero-cta">See my work</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-img">
+    <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+      <rect x="2" y="2" width="28" height="28" rx="2" stroke="#8A8478" stroke-width="1.5"/>
+      <circle cx="16" cy="12" r="5" stroke="#8A8478" stroke-width="1.5"/>
+      <path d="M4 30c0-6.627 5.373-12 12-12s12 5.373 12 12" stroke="#8A8478" stroke-width="1.5"/>
+    </svg>
+    <span class="about-img-hint">Optional second photo</span>
+  </div>
+  <div class="about-text">
+    <p class="section-label">About me</p>
+    <h2 class="section-heading">A little about <em>who I am</em></h2>
+    <div class="divider"></div>
+    <p class="about-body">Hey! I'm Ann — a UGC creator who loves storytelling through the lens. Whether it's a new app, a wellness routine, or a weekend getaway, I bring genuine curiosity and a clean aesthetic to everything I create.<br><br>Brands love working with me because I deliver content that fits natively into feeds — not content that screams "ad." Fast turnaround, easy communication, and always on-brief.</p>
+    <div class="about-tags">
+      <span class="tag">TikTok</span>
+      <span class="tag">Instagram Reels</span>
+      <span class="tag">YouTube Shorts</span>
+      <span class="tag">Hook writing</span>
+      <span class="tag">Voiceover</span>
+      <span class="tag">48h delivery</span>
+    </div>
+  </div>
+</section>
+
+<!-- TECH & APPS -->
+<section class="videos-section" id="work">
+  <p class="section-label">Video work</p>
+  <div class="videos-header">
+    <h2 class="section-heading">Tech <em>&amp; Apps</em></h2>
+  </div>
+  <div class="divider"></div>
+  <div class="video-grid">
+    <div class="video-card v-tech">
+      <div class="video-thumb"><div class="play-btn"></div></div>
+      <div class="video-info">
+        <p class="video-cat">App Review · TikTok</p>
+        <p class="video-name">App Demo — Your Video Title</p>
+        <p class="video-desc">Brand name · Paste your link here</p>
+      </div>
+    </div>
+    <div class="video-card v-tech2">
+      <div class="video-thumb"><div class="play-btn"></div></div>
+      <div class="video-info">
+        <p class="video-cat">Tech · Reels</p>
+        <p class="video-name">Gadget Unboxing</p>
+        <p class="video-desc">Brand name</p>
+      </div>
+    </div>
+    <div class="video-card v-tech3">
+      <div class="video-thumb"><div class="play-btn"></div></div>
+      <div class="video-info">
+        <p class="video-cat">Software · YouTube Shorts</p>
+        <p class="video-name">Tool Walkthrough</p>
+        <p class="video-desc">Brand name</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIFESTYLE & WELLNESS -->
+<section class="videos-section alt">
+  <div class="videos-header">
+    <div>
+      <p class="section-label">Video work</p>
+      <h2 class="section-heading">Lifestyle <em>&amp; Wellness</em></h2>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="video-grid">
+    <div class="video-card v-life">
+      <div class="video-thumb"><div class="play-btn"></div></div>
+      <div class="video-info" style="background:var(--cream2)">
+        <p class="video-cat">Wellness · TikTok</p>
+        <p class="video-name">Morning Routine — Your Video Title</p>
+        <p class="video-desc">Brand name · Paste your link here</p>
+      </div>
+    </div>
+    <div class="video-card v-life2">
+      <div class="video-thumb"><div class="play-btn"></div></div>
+      <div class="video-info" style="background:var(--cream2)">
+        <p class="video-cat">Lifestyle · Reels</p>
+        <p class="video-name">Supplement Review</p>
+        <p class="video-desc">Brand name</p>
+      </div>
+    </div>
+    <div class="video-card v-life3">
+      <div class="video-thumb"><div class="play-btn"></div></div>
+      <div class="video-info" style="background:var(--cream2)">
+        <p class="video-cat">Skincare · TikTok</p>
+        <p class="video-name">Skincare Haul</p>
+        <p class="video-desc">Brand name</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAVEL -->
+<section class="videos-section">
+  <div class="videos-header">
+    <div>
+      <p class="section-label">Video work</p>
+      <h2 class="section-heading"><em>Travel</em></h2>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="video-grid">
+    <div class="video-card v-travel">
+      <div class="video-thumb"><div class="play-btn"></div></div>
+      <div class="video-info">
+        <p class="video-cat">Travel · TikTok</p>
+        <p class="video-name">Weekend in [City] — Your Video Title</p>
+        <p class="video-desc">Brand name · Paste your link here</p>
+      </div>
+    </div>
+    <div class="video-card v-travel2">
+      <div class="video-thumb"><div class="play-btn"></div></div>
+      <div class="video-info">
+        <p class="video-cat">Hotel Review · Reels</p>
+        <p class="video-name">Hotel Tour</p>
+        <p class="video-desc">Brand name</p>
+      </div>
+    </div>
+    <div class="video-card v-travel3">
+      <div class="video-thumb"><div class="play-btn"></div></div>
+      <div class="video-info">
+        <p class="video-cat">Travel Gear · YouTube Shorts</p>
+        <p class="video-name">Pack With Me</p>
+        <p class="video-desc">Brand name</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORKFLOW -->
+<section class="workflow" id="workflow">
+  <p class="section-label">My process</p>
+  <h2 class="section-heading" style="color:var(--cream)">How it <em>works</em></h2>
+  <div class="divider"></div>
+  <div class="steps">
+    <div class="step">
+      <span class="step-num">01</span>
+      <p class="step-title">Discovery</p>
+      <p class="step-body">You share the brief, product, and any references. I ask a few questions to nail the vibe.</p>
+    </div>
+    <div class="step">
+      <span class="step-num">02</span>
+      <p class="step-title">Concept</p>
+      <p class="step-body">I put together a short concept + hook ideas for your approval before filming starts.</p>
+    </div>
+    <div class="step">
+      <span class="step-num">03</span>
+      <p class="step-title">Creation</p>
+      <p class="step-body">I film, edit, and deliver raw + final files within 48–72 hours of concept approval.</p>
+    </div>
+    <div class="step">
+      <span class="step-num">04</span>
+      <p class="step-title">Revisions</p>
+      <p class="step-body">One round of revisions included. I want you to love it — we'll get it right.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTOGRAPHY -->
+<section class="photo-section" id="photos">
+  <p class="section-label">Photography</p>
+  <h2 class="section-heading">Still <em>shots</em></h2>
+  <div class="divider"></div>
+  <div class="photo-grid">
+    <div class="photo-card p1"><span class="photo-label">Your photo</span></div>
+    <div class="photo-card p2"><span class="photo-label">Your photo</span></div>
+    <div class="photo-card p3"><span class="photo-label">Your photo</span></div>
+    <div class="photo-card p4"><span class="photo-label">Your photo</span></div>
+    <div class="photo-card p5"><span class="photo-label">Your photo</span></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <p class="section-label">Get in touch</p>
+  <h2 class="section-heading">Let's make <em>something.</em></h2>
+  <div class="divider"></div>
+  <p class="contact-sub">Open to brand deals, gifted collabs, and paid partnerships. I'll get back to you within 24 hours.</p>
+  <a href="mailto:hello@ann.com" class="contact-email-big">hello@ann.com</a>
+  <div class="socials">
+    <a href="#" class="social">TikTok</a>
+    <a href="#" class="social">Instagram</a>
+    <a href="#" class="social">LinkedIn</a>
+  </div>
+</section>
+
+<footer>
+  <span>Ann — UGC Creator</span>
+  <span>© 2026</span>
+</footer>
+
+</body>
+</html>
