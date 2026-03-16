@@ -21,7 +21,6 @@
 html{scroll-behavior:smooth}
 body{background:var(--cream);color:var(--char);font-family:'Outfit',sans-serif;font-weight:300;overflow-x:hidden}
 
-/* NAV — white */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.2rem 3rem;background:var(--cream);border-bottom:1px solid var(--cream3)}
 .nav-logo{display:inline-flex;align-items:center;gap:0.5rem;text-decoration:none;flex-shrink:0}
 .nav-logo-yan{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--char);line-height:1}
@@ -31,37 +30,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .nav-links a{font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color 0.2s}
 .nav-links a:hover{color:var(--green)}
 
-/* HERO — sage, full page, stacks ticker then content */
-.hero{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  background:var(--sage);
-  padding-top:64px;
-}
-
-/* TICKER — generous padding so it floats centered */
-.hero-ticker{
-  width:100%;
-  background:var(--sage);
-  padding:1.2rem 0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-}
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;background:var(--sage);padding-top:64px}
+.hero-ticker{width:100%;background:var(--sage);padding:2.5rem 0 1rem;display:flex;align-items:center;justify-content:center;overflow:hidden}
 #ticker-canvas{display:block;width:100%;height:50px}
-
-/* HERO CONTENT */
-.hero-inner{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  flex:1;
-}
+.hero-inner{display:grid;grid-template-columns:1fr 1fr;flex:1}
 .hero-left{padding:3rem 2.5rem 3rem 3rem;display:flex;align-items:center;justify-content:center}
 .hero-photo-frame{width:100%;max-width:420px;aspect-ratio:3/4;border-radius:4px;overflow:hidden;position:relative}
 .hero-photo-frame img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
 .hero-right{padding:3rem 3rem 3rem 2.5rem;display:flex;flex-direction:column;justify-content:center}
+.hero-right-inner{background:rgba(255,255,255,0.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-radius:8px;padding:2.5rem;display:flex;flex-direction:column}
 .avail-tag{display:inline-flex;align-items:center;gap:0.6rem;margin-bottom:1.8rem}
 .avail-dot{width:7px;height:7px;border-radius:50%;background:#4CAF50;box-shadow:0 0 0 2px rgba(76,175,80,0.25);flex-shrink:0}
 .avail-text{font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--green2)}
@@ -86,6 +64,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .btn-outline{background:transparent;color:var(--green);padding:0.75rem 1.8rem;font-family:'Outfit',sans-serif;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;border-radius:2px;border:1.5px solid var(--green);cursor:pointer;transition:all 0.2s;display:inline-block}
 .btn-outline:hover{background:var(--green);color:var(--cream);transform:translateY(-1px)}
 
+/* ABOUT */
 .about{background:var(--cream2);display:grid;grid-template-columns:1.2fr 0.8fr;gap:4rem;align-items:center;padding:6rem 3rem}
 .section-label{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--green2);margin-bottom:0.6rem}
 .section-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.6rem);font-weight:400;line-height:1.15;color:var(--char);margin-bottom:0.5rem}
@@ -100,6 +79,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .about-photo{border-radius:4px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;width:100%;height:100%}
 .about-photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
 
+/* EXAMPLES */
 .examples-section{padding:5rem 3rem}
 .examples-section.alt{background:var(--cream2)}
 .section-top{margin-bottom:2.5rem}
@@ -128,22 +108,24 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 #travel .video-card:nth-child(3) .video-thumb{background:#35455A}
 #travel .video-card:nth-child(4) .video-thumb{background:#253444}
 
+/* PHOTOS — portrait heights for iPhone style */
 .photos{padding:6rem 3rem;background:var(--cream)}
 .masonry{columns:4;column-gap:12px}
 .photo-item{break-inside:avoid;margin-bottom:12px;border-radius:4px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
 .photo-item img{width:100%;height:100%;object-fit:cover;display:block}
-.photo-item:nth-child(1){height:280px;background:#C5D5BC}
-.photo-item:nth-child(2){height:200px;background:#B8CCAF}
-.photo-item:nth-child(3){height:240px;background:#A8BFA0}
-.photo-item:nth-child(4){height:320px;background:#C0D4B8}
-.photo-item:nth-child(5){height:200px;background:#D5E0CF}
-.photo-item:nth-child(6){height:260px;background:#8EAA87}
-.photo-item:nth-child(7){height:300px;background:#B2C9AA}
-.photo-item:nth-child(8){height:220px;background:#D0DDC9}
+.photo-item:nth-child(1){height:420px;background:#C5D5BC}
+.photo-item:nth-child(2){height:340px;background:#B8CCAF}
+.photo-item:nth-child(3){height:380px;background:#A8BFA0}
+.photo-item:nth-child(4){height:460px;background:#C0D4B8}
+.photo-item:nth-child(5){height:350px;background:#D5E0CF}
+.photo-item:nth-child(6){height:420px;background:#8EAA87}
+.photo-item:nth-child(7){height:460px;background:#B2C9AA}
+.photo-item:nth-child(8){height:360px;background:#D0DDC9}
 .photo-hint-label{font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(42,74,44,0.35);position:absolute;bottom:0.6rem;left:0.75rem}
 .photo-item::after{content:'';position:absolute;inset:0;background:rgba(42,74,44,0);transition:background 0.25s;border-radius:4px}
 .photo-item:hover::after{background:rgba(42,74,44,0.08)}
 
+/* WORKFLOW */
 .workflow{background:var(--green);padding:6rem 3rem}
 .workflow .section-label{color:var(--green3)}
 .workflow .section-heading{color:var(--cream)}
@@ -156,6 +138,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .step-title{font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--green3);margin-bottom:0.75rem}
 .step-body{font-size:0.83rem;color:rgba(197,213,188,0.55);line-height:1.8}
 
+/* CONTACT */
 .contact-wrap{background:var(--char);position:relative;overflow:hidden}
 .contact{padding:7rem 3rem;text-align:center;position:relative;z-index:2}
 .contact .section-label{color:var(--green3)}
@@ -203,11 +186,12 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
   .nav-logo-yan{font-size:1.1rem}
   .nav-logo-ugc{font-size:0.52rem}
   #ticker-canvas{height:40px}
-  .hero-ticker{padding:0.8rem 0}
+  .hero-ticker{padding:1.5rem 0 0.75rem}
   .hero-inner{grid-template-columns:1fr}
   .hero-left{padding:2rem 1.5rem 1rem}
   .hero-photo-frame{max-width:240px;margin:0 auto}
   .hero-right{padding:1rem 1.5rem 3rem}
+  .hero-right-inner{padding:1.5rem}
   .hero-hello{font-size:2rem}
   .hero-ctas{flex-direction:column}
   .btn-primary,.btn-outline{text-align:center;width:100%}
@@ -216,6 +200,14 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
   .examples-section{padding:4rem 1.5rem}
   .photos{padding:4rem 1.5rem}
   .masonry{columns:2;column-gap:8px}
+  .photo-item:nth-child(1){height:260px}
+  .photo-item:nth-child(2){height:220px}
+  .photo-item:nth-child(3){height:240px}
+  .photo-item:nth-child(4){height:280px}
+  .photo-item:nth-child(5){height:220px}
+  .photo-item:nth-child(6){height:260px}
+  .photo-item:nth-child(7){height:280px}
+  .photo-item:nth-child(8){height:240px}
   .photo-item{margin-bottom:8px}
   .workflow{padding:4rem 1.5rem}
   .contact{padding:5rem 1.5rem}
@@ -257,39 +249,41 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
       </div>
     </div>
     <div class="hero-right">
-      <div class="avail-tag">
-        <div class="avail-dot"></div>
-        <span class="avail-text">Open for Collaborations</span>
-      </div>
-      <h1 class="hero-hello">Hello, I'm <em>Yan.</em></h1>
-      <p class="hero-subtitle">UGC Content Creator</p>
-      <div class="hero-niche">
-        <a href="#tech" class="niche-link">Tech + Apps</a>
-        <span class="niche-sep">|</span>
-        <a href="#lifestyle" class="niche-link">Lifestyle + Wellness</a>
-        <span class="niche-sep">|</span>
-        <a href="#travel" class="niche-link">Travel</a>
-      </div>
-      <ul class="hero-bullets">
-        <li>Gen-Z Creator | 25 Years Old | Asian-American</li>
-        <li>Engineer in Tech</li>
-        <li>Elopement Photographer</li>
-        <li>Traveled to 25+ Countries</li>
-        <li>Speaks Vietnamese, Spanish & Malay</li>
-      </ul>
-      <div class="hero-meta">
-        <div class="meta-row">
-          <span class="meta-label">Email</span>
-          <a href="mailto:yan.tran.ugc@gmail.com" class="meta-val">yan.tran.ugc@gmail.com</a>
+      <div class="hero-right-inner">
+        <div class="avail-tag">
+          <div class="avail-dot"></div>
+          <span class="avail-text">Open for Collaborations</span>
         </div>
-        <div class="meta-row">
-          <span class="meta-label">Based in</span>
-          <span class="meta-val">Seattle, USA</span>
+        <h1 class="hero-hello">Hello, I'm <em>Yan.</em></h1>
+        <p class="hero-subtitle">UGC Content Creator</p>
+        <div class="hero-niche">
+          <a href="#tech" class="niche-link">Tech + Apps</a>
+          <span class="niche-sep">|</span>
+          <a href="#lifestyle" class="niche-link">Lifestyle + Wellness</a>
+          <span class="niche-sep">|</span>
+          <a href="#travel" class="niche-link">Travel</a>
         </div>
-      </div>
-      <div class="hero-ctas">
-        <a href="#examples" class="btn-primary">See My Work</a>
-        <button class="btn-outline" onclick="document.getElementById('contactModal').classList.add('open')">Contact Me</button>
+        <ul class="hero-bullets">
+          <li>Gen-Z Creator | 25 Years Old | Asian-American</li>
+          <li>Engineer in Tech</li>
+          <li>Elopement Photographer</li>
+          <li>Traveled to 25+ Countries</li>
+          <li>Speaks Vietnamese, Spanish & Malay</li>
+        </ul>
+        <div class="hero-meta">
+          <div class="meta-row">
+            <span class="meta-label">Email</span>
+            <a href="mailto:yan.tran.ugc@gmail.com" class="meta-val">yan.tran.ugc@gmail.com</a>
+          </div>
+          <div class="meta-row">
+            <span class="meta-label">Based in</span>
+            <span class="meta-val">Seattle, USA</span>
+          </div>
+        </div>
+        <div class="hero-ctas">
+          <a href="#examples" class="btn-primary">See My Work</a>
+          <button class="btn-outline" onclick="document.getElementById('contactModal').classList.add('open')">Contact Me</button>
+        </div>
       </div>
     </div>
   </div>
@@ -500,7 +494,7 @@ function resize() {
   const h = canvas.offsetHeight;
   canvas.width = w * DPR;
   canvas.height = h * DPR;
-  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.setTransform(1,0,0,1,0,0);
   ctx.scale(DPR, DPR);
 }
 resize();
@@ -531,15 +525,15 @@ function drawHeart(cx, cy, size, angle) {
   ctx.beginPath();
   const s = size / 2;
   ctx.moveTo(0, s * 0.3);
-  ctx.bezierCurveTo(-s * 1.2, -s * 0.8, -s * 2.4, s * 0.2, 0, s * 1.4);
-  ctx.bezierCurveTo(s * 2.4, s * 0.2, s * 1.2, -s * 0.8, 0, s * 0.3);
-  ctx.fillStyle = '#5A7A54';
+  ctx.bezierCurveTo(-s*1.2,-s*0.8,-s*2.4,s*0.2,0,s*1.4);
+  ctx.bezierCurveTo(s*2.4,s*0.2,s*1.2,-s*0.8,0,s*0.3);
+  ctx.fillStyle = '#1C1C19';
   ctx.fill();
   ctx.restore();
 }
 function drawLetters(text, startX) {
   ctx.font = `400 ${FONT_SIZE}px "Cormorant Garamond", serif`;
-  ctx.fillStyle = '#3B6640';
+  ctx.fillStyle = '#1C1C19';
   ctx.textBaseline = 'middle';
   let x = startX;
   for (const ch of text) {
@@ -573,10 +567,8 @@ function buildLoop() {
   }
 }
 function draw() {
-  // fill with sage before clearing — fixes ghosting
   ctx.fillStyle = SAGE;
   ctx.fillRect(0, 0, W(), H());
-
   const loops = Math.ceil((W() + loopWidth) / loopWidth) + 2;
   for (let loop = 0; loop < loops; loop++) {
     let x = loop * loopWidth - (offset % loopWidth);
