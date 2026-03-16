@@ -20,14 +20,11 @@
 html{scroll-behavior:smooth}
 body{background:var(--cream);color:var(--char);font-family:'Outfit',sans-serif;font-weight:300;overflow-x:hidden}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.2rem 3rem;background:var(--cream);border-bottom:1px solid var(--cream3)}
-.nav-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;text-decoration:none;color:var(--char)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:flex-end;align-items:center;padding:1.2rem 3rem;background:var(--cream);border-bottom:1px solid var(--cream3)}
 .nav-links{display:flex;gap:2rem;list-style:none}
 .nav-links a{font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color 0.2s}
 .nav-links a:hover{color:var(--green)}
 
-/* HERO */
 .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:64px}
 .hero-left{padding:3rem 2.5rem 3rem 3rem;display:flex;align-items:center;justify-content:center}
 .hero-photo-frame{width:100%;max-width:420px;aspect-ratio:3/4;border-radius:4px;background:var(--green);overflow:hidden;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.75rem;position:relative}
@@ -58,8 +55,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .btn-outline{background:transparent;color:var(--green);padding:0.75rem 1.8rem;font-family:'Outfit',sans-serif;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;border-radius:2px;border:1.5px solid var(--green);cursor:pointer;transition:all 0.2s;display:inline-block}
 .btn-outline:hover{background:var(--green);color:var(--cream);transform:translateY(-1px)}
 
-/* ABOUT */
-.about{background:var(--cream2);display:grid;grid-template-columns:1.2fr 0.8fr;gap:5rem;align-items:center;padding:6rem 3rem}
+.about{background:var(--cream2);display:grid;grid-template-columns:1.2fr 0.8fr;gap:4rem;align-items:center;padding:6rem 3rem}
 .section-label{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--green2);margin-bottom:0.6rem}
 .section-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.6rem);font-weight:400;line-height:1.15;color:var(--char);margin-bottom:0.5rem}
 .section-heading em{font-style:italic;color:var(--green2)}
@@ -69,11 +65,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .about-p2{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-style:italic;color:var(--green2);line-height:1.6;margin-bottom:2rem;padding-left:1.2rem;border-left:2px solid var(--green3)}
 .about-tags{display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:1.5rem}
 .tag{background:var(--cream);border:1px solid var(--cream3);padding:0.35rem 1rem;border-radius:40px;font-size:0.72rem;color:var(--char);letter-spacing:0.04em}
-.about-img{background:var(--cream3);aspect-ratio:3/4;border-radius:4px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.75rem;position:relative;overflow:hidden}
-.about-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
-.img-hint{font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gray);opacity:0.5}
+.about-photos{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:6px;aspect-ratio:3/4}
+.about-photo{border-radius:4px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;width:100%;height:100%}
+.about-photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.about-photo:nth-child(1){background:#C5D5BC}
+.about-photo:nth-child(2){background:#A8BFA0}
+.about-photo:nth-child(3){background:#B8CCAF}
+.about-photo:nth-child(4){background:#8EAA87}
+.photo-hint-sm{font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(42,74,44,0.35)}
 
-/* EXAMPLES */
 .examples-section{padding:5rem 3rem}
 .examples-section.alt{background:var(--cream2)}
 .section-top{margin-bottom:2.5rem}
@@ -89,24 +89,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .video-category{font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--green2);margin-bottom:0.25rem}
 .video-type{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--char);margin-bottom:0.15rem;line-height:1.3}
 .video-brand{font-size:0.75rem;color:var(--gray)}
-
-/* tech thumbs */
 #tech .video-card:nth-child(1) .video-thumb{background:#2A4A2C}
 #tech .video-card:nth-child(2) .video-thumb{background:#344F36}
 #tech .video-card:nth-child(3) .video-thumb{background:#3B6640}
 #tech .video-card:nth-child(4) .video-thumb{background:#1E3820}
-/* lifestyle thumbs */
 #lifestyle .video-card:nth-child(1) .video-thumb{background:#4A3C2A}
 #lifestyle .video-card:nth-child(2) .video-thumb{background:#5C4A35}
 #lifestyle .video-card:nth-child(3) .video-thumb{background:#3D2E1A}
 #lifestyle .video-card:nth-child(4) .video-thumb{background:#6B573E}
-/* travel thumbs */
 #travel .video-card:nth-child(1) .video-thumb{background:#2A3A4A}
 #travel .video-card:nth-child(2) .video-thumb{background:#1E2E3C}
 #travel .video-card:nth-child(3) .video-thumb{background:#35455A}
 #travel .video-card:nth-child(4) .video-thumb{background:#253444}
 
-/* PHOTOS */
 .photos{padding:6rem 3rem;background:var(--cream)}
 .masonry{columns:4;column-gap:12px}
 .photo-item{break-inside:avoid;margin-bottom:12px;border-radius:4px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
@@ -115,19 +110,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .photo-item:nth-child(2){height:200px;background:#B8CCAF}
 .photo-item:nth-child(3){height:240px;background:#A8BFA0}
 .photo-item:nth-child(4){height:320px;background:#C0D4B8}
-.photo-item:nth-child(5){height:180px;background:#D5E0CF}
+.photo-item:nth-child(5){height:200px;background:#D5E0CF}
 .photo-item:nth-child(6){height:260px;background:#8EAA87}
 .photo-item:nth-child(7){height:300px;background:#B2C9AA}
-.photo-item:nth-child(8){height:200px;background:#C8D9C0}
-.photo-item:nth-child(9){height:240px;background:#9DB896}
-.photo-item:nth-child(10){height:180px;background:#BFCFB7}
-.photo-item:nth-child(11){height:260px;background:#A3BB9B}
-.photo-item:nth-child(12){height:220px;background:#D0DDC9}
+.photo-item:nth-child(8){height:220px;background:#D0DDC9}
 .photo-hint-label{font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(42,74,44,0.35);position:absolute;bottom:0.6rem;left:0.75rem}
 .photo-item::after{content:'';position:absolute;inset:0;background:rgba(42,74,44,0);transition:background 0.25s;border-radius:4px}
 .photo-item:hover::after{background:rgba(42,74,44,0.08)}
 
-/* WORKFLOW */
 .workflow{background:var(--green);padding:6rem 3rem}
 .workflow .section-label{color:var(--green3)}
 .workflow .section-heading{color:var(--cream)}
@@ -140,11 +130,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .step-title{font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--green3);margin-bottom:0.75rem}
 .step-body{font-size:0.83rem;color:rgba(197,213,188,0.55);line-height:1.8}
 
-/* CONTACT */
-.contact{background:var(--char);padding:7rem 3rem;text-align:center}
+.contact-wrap{background:var(--char);position:relative;overflow:hidden}
+.contact{padding:7rem 3rem;text-align:center;position:relative;z-index:2}
 .contact .section-label{color:var(--green3)}
-.contact .section-heading{color:var(--cream)}
-.contact .divider{margin-left:auto;margin-right:auto;background:rgba(197,213,188,0.25)}
+.contact .section-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.2rem);font-weight:400;line-height:1.15;color:var(--cream);margin-bottom:0.5rem}
+.contact .section-heading em{font-style:italic;color:var(--green3)}
+.contact .divider{width:40px;height:1px;background:rgba(197,213,188,0.25);margin:1.2rem auto 2.5rem}
 .contact-sub-main{font-size:1rem;color:rgba(197,213,188,0.7);margin-bottom:0.35rem;font-weight:300}
 .contact-sub-detail{font-size:0.95rem;color:rgba(197,213,188,0.35);margin-bottom:0.75rem;font-style:italic;font-family:'Cormorant Garamond',serif}
 .contact-reply{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(197,213,188,0.25);margin-bottom:3rem}
@@ -153,13 +144,15 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .contact-or{font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(197,213,188,0.2);margin-bottom:1.5rem}
 .btn-outline-light{background:transparent;color:var(--green3);padding:0.75rem 2rem;font-family:'Outfit',sans-serif;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;border:1.5px solid rgba(197,213,188,0.25);border-radius:2px;cursor:pointer;transition:all 0.2s;display:inline-block}
 .btn-outline-light:hover{background:rgba(197,213,188,0.08);border-color:rgba(197,213,188,0.5);color:var(--cream)}
+.cutout-wrap{position:absolute;bottom:0;right:6rem;z-index:1;width:240px;display:flex;align-items:flex-end;pointer-events:none}
+.cutout-photo{width:100%;aspect-ratio:2/3;background:var(--green2);border-radius:8px 8px 0 0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.5rem;opacity:0.5;position:relative;overflow:hidden}
+.cutout-photo img{width:100%;height:100%;object-fit:cover;object-position:top;position:absolute;inset:0;border-radius:8px 8px 0 0;opacity:1}
+.cutout-hint{font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(197,213,188,0.6);text-align:center;padding:0 1rem;line-height:1.6}
 
-/* FOOTER */
 footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);padding:1.5rem 3rem;display:flex;justify-content:space-between;align-items:center}
 .footer-name{font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:rgba(197,213,188,0.3)}
 .footer-right{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(138,132,120,0.35)}
 
-/* MODAL */
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(28,28,25,0.7);z-index:200;align-items:center;justify-content:center}
 .modal-overlay.open{display:flex}
 .modal{background:var(--cream);border-radius:4px;padding:2.5rem;width:92%;max-width:480px;position:relative}
@@ -171,7 +164,6 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
 .form-placeholder p{font-size:0.8rem;color:var(--gray);line-height:1.8}
 .form-placeholder code{font-size:0.72rem;background:var(--cream3);padding:0.2rem 0.5rem;border-radius:2px;color:var(--green2)}
 
-/* MOBILE */
 @media(max-width:900px){
   .video-grid{grid-template-columns:repeat(2,1fr)}
   .masonry{columns:3}
@@ -191,13 +183,14 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
   .hero-ctas{flex-direction:column}
   .btn-primary,.btn-outline{text-align:center;width:100%}
   .about{grid-template-columns:1fr;gap:2.5rem;padding:4rem 1.5rem}
-  .about-img{max-width:280px;margin:0 auto;width:100%}
+  .about-photos{max-width:280px;margin:0 auto;width:100%}
   .examples-section{padding:4rem 1.5rem}
   .photos{padding:4rem 1.5rem}
   .masonry{columns:2;column-gap:8px}
   .photo-item{margin-bottom:8px}
   .workflow{padding:4rem 1.5rem}
   .contact{padding:5rem 1.5rem}
+  .cutout-wrap{width:130px;right:0.5rem}
   footer{padding:1.2rem 1.5rem}
 }
 @media(max-width:480px){
@@ -208,9 +201,7 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <a href="#" class="nav-name">Yan — UGC Creator</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#examples">Examples</a></li>
@@ -220,7 +211,6 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-left">
     <div class="hero-photo-frame">
@@ -269,13 +259,12 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
   </div>
 </section>
 
-<!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-text">
     <p class="section-label">About me</p>
     <h2 class="section-heading">Why work <em>with me?</em></h2>
     <div class="divider"></div>
-    <p class="about-p">I'm constantly <strong>traveling</strong> to new locations, filming in a variety of <strong>exciting locations</strong>. I run an elopement <strong>photography</strong> business built on raw, documentary-style <strong>storytelling</strong>. And my background as an <strong>engineer</strong> in <strong>tech</strong> means I actually understand your product and can translate it into content your audience will get immediately. My blend of <strong>technical knowledge</strong> and <strong>creativity</strong> elevates a brand's digital presence.</p>
+    <p class="about-p">I'm constantly <strong>traveling</strong> to new locations, filming in a variety of <strong>exciting locations</strong>. I run an elopement <strong>photography</strong> business built on raw, documentary-style <strong>storytelling</strong>. And my background as an <strong>engineer</strong> in tech means I actually understand your product and can translate it into content your audience will get immediately. My blend of <strong>technical knowledge</strong> and <strong>creativity</strong> elevates a brand's digital presence.</p>
     <p class="about-p2">The result? Content that highlights what your product does, feels real to the people watching, and converts.</p>
     <div class="about-tags">
       <span class="tag">TikTok</span>
@@ -293,16 +282,14 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
       <span class="tag">Fast Turnaround</span>
     </div>
   </div>
-  <div class="about-img">
-    <svg width="36" height="36" viewBox="0 0 48 48" fill="none">
-      <circle cx="24" cy="18" r="8" stroke="#8A8478" stroke-width="1.5" opacity="0.4"/>
-      <path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="#8A8478" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
-    </svg>
-    <span class="img-hint">optional photo</span>
+  <div class="about-photos">
+    <div class="about-photo"><span class="photo-hint-sm">photo</span></div>
+    <div class="about-photo"><span class="photo-hint-sm">photo</span></div>
+    <div class="about-photo"><span class="photo-hint-sm">photo</span></div>
+    <div class="about-photo"><span class="photo-hint-sm">photo</span></div>
   </div>
 </section>
 
-<!-- TECH + APPS -->
 <section class="examples-section" id="examples">
   <div class="section-top">
     <p class="section-label">Examples</p>
@@ -329,7 +316,6 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
   </div>
 </section>
 
-<!-- LIFESTYLE + WELLNESS -->
 <section class="examples-section alt">
   <div class="section-top">
     <p class="section-label">Examples</p>
@@ -356,7 +342,6 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
   </div>
 </section>
 
-<!-- TRAVEL -->
 <section class="examples-section">
   <div class="section-top">
     <p class="section-label">Examples</p>
@@ -383,7 +368,6 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
   </div>
 </section>
 
-<!-- PHOTOS -->
 <section class="photos" id="photos">
   <div class="section-top">
     <p class="section-label">Photography</p>
@@ -399,14 +383,9 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
     <div class="photo-item"><span class="photo-hint-label">your photo</span></div>
     <div class="photo-item"><span class="photo-hint-label">your photo</span></div>
     <div class="photo-item"><span class="photo-hint-label">your photo</span></div>
-    <div class="photo-item"><span class="photo-hint-label">your photo</span></div>
-    <div class="photo-item"><span class="photo-hint-label">your photo</span></div>
-    <div class="photo-item"><span class="photo-hint-label">your photo</span></div>
-    <div class="photo-item"><span class="photo-hint-label">your photo</span></div>
   </div>
 </section>
 
-<!-- PROCESS -->
 <section class="workflow" id="process">
   <p class="section-label">My Process</p>
   <h2 class="section-heading">How it <em>works</em></h2>
@@ -435,25 +414,34 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
   </div>
 </section>
 
-<!-- CONTACT -->
-<section class="contact" id="contact">
-  <p class="section-label">Get in touch</p>
-  <h2 class="section-heading">Let's make something <em>together.</em></h2>
-  <div class="divider"></div>
-  <p class="contact-sub-main">0PEN TO ALL COLLABS —</p>
-  <p class="contact-sub-detail">big or small, short or long-term</p>
-  <p class="contact-reply">Reply within 24 hours</p>
-  <a href="mailto:yan.tran.ugc@gmail.com" class="contact-email">yan.tran.ugc@gmail.com</a>
-  <p class="contact-or">or</p>
-  <button class="btn-outline-light" onclick="document.getElementById('contactModal').classList.add('open')">Fill out my form</button>
-</section>
+<div class="contact-wrap">
+  <section class="contact" id="contact">
+    <p class="section-label">Get in touch</p>
+    <h2 class="section-heading">Let's make something <em>together.</em></h2>
+    <div class="divider"></div>
+    <p class="contact-sub-main">Open to all collabs —</p>
+    <p class="contact-sub-detail">big or small, short or long-term.</p>
+    <p class="contact-reply">Reply within 24 hours</p>
+    <a href="mailto:yan.tran.ugc@gmail.com" class="contact-email">yan.tran.ugc@gmail.com</a>
+    <p class="contact-or">or</p>
+    <button class="btn-outline-light" onclick="document.getElementById('contactModal').classList.add('open')">Fill out my form</button>
+  </section>
+  <div class="cutout-wrap">
+    <div class="cutout-photo">
+      <svg width="36" height="36" viewBox="0 0 48 48" fill="none">
+        <circle cx="24" cy="18" r="8" stroke="rgba(197,213,188,0.6)" stroke-width="1.5"/>
+        <path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="rgba(197,213,188,0.6)" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <span class="cutout-hint">your cutout photo — use remove.bg</span>
+    </div>
+  </div>
+</div>
 
 <footer>
   <span class="footer-name">Yan — UGC Creator</span>
   <span class="footer-right">© 2026</span>
 </footer>
 
-<!-- MODAL -->
 <div class="modal-overlay" id="contactModal">
   <div class="modal">
     <button class="modal-close" onclick="document.getElementById('contactModal').classList.remove('open')">✕</button>
