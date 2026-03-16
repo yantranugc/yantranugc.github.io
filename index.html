@@ -16,10 +16,12 @@
   --green3:#C5D5BC;
   --char:#1C1C19;
   --gray:#8A8478;
+  --sage:#C2D4BB;
 }
 html{scroll-behavior:smooth}
 body{background:var(--cream);color:var(--char);font-family:'Outfit',sans-serif;font-weight:300;overflow-x:hidden}
 
+/* NAV — white */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.2rem 3rem;background:var(--cream);border-bottom:1px solid var(--cream3)}
 .nav-logo{display:inline-flex;align-items:center;gap:0.5rem;text-decoration:none;flex-shrink:0}
 .nav-logo-yan{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--char);line-height:1}
@@ -29,11 +31,33 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .nav-links a{font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color 0.2s}
 .nav-links a:hover{color:var(--green)}
 
-/* TICKER */
-#ticker-canvas{display:block;width:100%;height:80px;margin-top:64px;background:linear-gradient(135deg,#D8E8D4 0%,#F7F3EC 55%)}
+/* HERO — sage, full page, stacks ticker then content */
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  background:var(--sage);
+  padding-top:64px;
+}
 
-/* HERO */
-.hero{min-height:calc(100vh - 144px);display:grid;grid-template-columns:1fr 1fr;background:linear-gradient(135deg,#D8E8D4 0%,#F7F3EC 55%);margin-top:0}
+/* TICKER — generous padding so it floats centered */
+.hero-ticker{
+  width:100%;
+  background:var(--sage);
+  padding:1.2rem 0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+#ticker-canvas{display:block;width:100%;height:50px}
+
+/* HERO CONTENT */
+.hero-inner{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  flex:1;
+}
 .hero-left{padding:3rem 2.5rem 3rem 3rem;display:flex;align-items:center;justify-content:center}
 .hero-photo-frame{width:100%;max-width:420px;aspect-ratio:3/4;border-radius:4px;overflow:hidden;position:relative}
 .hero-photo-frame img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
@@ -45,13 +69,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .hero-hello em{font-style:italic;color:var(--green2)}
 .hero-subtitle{font-size:0.75rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gray);margin-bottom:1.8rem}
 .hero-niche{display:flex;align-items:center;gap:0.5rem;margin-bottom:2rem;flex-wrap:wrap}
-.niche-link{font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--green2);text-decoration:none;border-bottom:1px solid var(--green3);padding-bottom:1px;transition:color 0.2s,border-color 0.2s}
+.niche-link{font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--green2);text-decoration:none;border-bottom:1px solid rgba(42,74,44,0.3);padding-bottom:1px;transition:color 0.2s,border-color 0.2s}
 .niche-link:hover{color:var(--green);border-color:var(--green)}
-.niche-sep{color:var(--green3);font-size:0.8rem}
+.niche-sep{color:var(--green2);font-size:0.8rem;opacity:0.4}
 .hero-bullets{list-style:none;display:flex;flex-direction:column;gap:0.65rem;margin-bottom:2rem}
 .hero-bullets li{display:flex;align-items:center;gap:0.75rem;font-size:0.86rem;color:var(--char)}
 .hero-bullets li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--green2);flex-shrink:0}
-.hero-meta{display:flex;flex-direction:column;gap:0.55rem;margin-bottom:2.5rem;padding-top:1.5rem;border-top:1px solid var(--cream3)}
+.hero-meta{display:flex;flex-direction:column;gap:0.55rem;margin-bottom:2.5rem;padding-top:1.5rem;border-top:1px solid rgba(42,74,44,0.15)}
 .meta-row{display:flex;align-items:center;gap:0.75rem}
 .meta-label{font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--green2);min-width:65px}
 .meta-val{font-size:0.82rem;color:var(--char);text-decoration:none}
@@ -178,8 +202,9 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
   .nav-links a{font-size:0.6rem}
   .nav-logo-yan{font-size:1.1rem}
   .nav-logo-ugc{font-size:0.52rem}
-  #ticker-canvas{height:60px}
-  .hero{grid-template-columns:1fr;min-height:auto}
+  #ticker-canvas{height:40px}
+  .hero-ticker{padding:0.8rem 0}
+  .hero-inner{grid-template-columns:1fr}
   .hero-left{padding:2rem 1.5rem 1rem}
   .hero-photo-frame{max-width:240px;margin:0 auto}
   .hero-right{padding:1rem 1.5rem 3rem}
@@ -221,48 +246,51 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
   </ul>
 </nav>
 
-<canvas id="ticker-canvas"></canvas>
-
 <section class="hero">
-  <div class="hero-left">
-    <div class="hero-photo-frame">
-      <img src="images/9J1A8205.jpg" alt="Yan">
-    </div>
+  <div class="hero-ticker">
+    <canvas id="ticker-canvas"></canvas>
   </div>
-  <div class="hero-right">
-    <div class="avail-tag">
-      <div class="avail-dot"></div>
-      <span class="avail-text">Open for Collaborations</span>
-    </div>
-    <h1 class="hero-hello">Hello, I'm <em>Yan.</em></h1>
-    <p class="hero-subtitle">UGC Content Creator</p>
-    <div class="hero-niche">
-      <a href="#tech" class="niche-link">Tech + Apps</a>
-      <span class="niche-sep">|</span>
-      <a href="#lifestyle" class="niche-link">Lifestyle + Wellness</a>
-      <span class="niche-sep">|</span>
-      <a href="#travel" class="niche-link">Travel</a>
-    </div>
-    <ul class="hero-bullets">
-      <li>Gen-Z Creator | 25 Years Old | Asian-American</li>
-      <li>Engineer in Tech</li>
-      <li>Elopement Photographer</li>
-      <li>Traveled to 25+ Countries</li>
-      <li>Speaks Vietnamese, Spanish & Malay</li>
-    </ul>
-    <div class="hero-meta">
-      <div class="meta-row">
-        <span class="meta-label">Email</span>
-        <a href="mailto:yan.tran.ugc@gmail.com" class="meta-val">yan.tran.ugc@gmail.com</a>
-      </div>
-      <div class="meta-row">
-        <span class="meta-label">Based in</span>
-        <span class="meta-val">Seattle, USA</span>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-photo-frame">
+        <img src="images/9J1A8205.jpg" alt="Yan">
       </div>
     </div>
-    <div class="hero-ctas">
-      <a href="#examples" class="btn-primary">See My Work</a>
-      <button class="btn-outline" onclick="document.getElementById('contactModal').classList.add('open')">Contact Me</button>
+    <div class="hero-right">
+      <div class="avail-tag">
+        <div class="avail-dot"></div>
+        <span class="avail-text">Open for Collaborations</span>
+      </div>
+      <h1 class="hero-hello">Hello, I'm <em>Yan.</em></h1>
+      <p class="hero-subtitle">UGC Content Creator</p>
+      <div class="hero-niche">
+        <a href="#tech" class="niche-link">Tech + Apps</a>
+        <span class="niche-sep">|</span>
+        <a href="#lifestyle" class="niche-link">Lifestyle + Wellness</a>
+        <span class="niche-sep">|</span>
+        <a href="#travel" class="niche-link">Travel</a>
+      </div>
+      <ul class="hero-bullets">
+        <li>Gen-Z Creator | 25 Years Old | Asian-American</li>
+        <li>Engineer in Tech</li>
+        <li>Elopement Photographer</li>
+        <li>Traveled to 25+ Countries</li>
+        <li>Speaks Vietnamese, Spanish & Malay</li>
+      </ul>
+      <div class="hero-meta">
+        <div class="meta-row">
+          <span class="meta-label">Email</span>
+          <a href="mailto:yan.tran.ugc@gmail.com" class="meta-val">yan.tran.ugc@gmail.com</a>
+        </div>
+        <div class="meta-row">
+          <span class="meta-label">Based in</span>
+          <span class="meta-val">Seattle, USA</span>
+        </div>
+      </div>
+      <div class="hero-ctas">
+        <a href="#examples" class="btn-primary">See My Work</a>
+        <button class="btn-outline" onclick="document.getElementById('contactModal').classList.add('open')">Contact Me</button>
+      </div>
     </div>
   </div>
 </section>
@@ -465,17 +493,21 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
 const canvas = document.getElementById('ticker-canvas');
 const ctx = canvas.getContext('2d');
 const DPR = window.devicePixelRatio || 1;
-const H = () => canvas.offsetHeight;
+const SAGE = '#C2D4BB';
 
 function resize() {
-  canvas.width = canvas.offsetWidth * DPR;
-  canvas.height = canvas.offsetHeight * DPR;
+  const w = canvas.offsetWidth;
+  const h = canvas.offsetHeight;
+  canvas.width = w * DPR;
+  canvas.height = h * DPR;
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
   ctx.scale(DPR, DPR);
 }
 resize();
 window.addEventListener('resize', () => { resize(); buildLoop(); });
 
 const W = () => canvas.offsetWidth;
+const H = () => canvas.offsetHeight;
 const FONT_SIZE = 16;
 const LETTER_SPACING = 1.5;
 const GAP = 28;
@@ -487,7 +519,7 @@ const words = ['UGC CREATOR', 'PHOTOGRAPHER', 'ENGINEER'];
 let offset = 0, t = 0, items = [], loopWidth = 0;
 
 function waveY(x) {
-  return canvas.offsetHeight / 2 + Math.sin(x * WAVE_FREQ + t) * WAVE_AMP;
+  return H() / 2 + Math.sin(x * WAVE_FREQ + t) * WAVE_AMP;
 }
 function waveAngle(x) {
   return Math.atan(WAVE_AMP * WAVE_FREQ * Math.cos(x * WAVE_FREQ + t));
@@ -501,13 +533,13 @@ function drawHeart(cx, cy, size, angle) {
   ctx.moveTo(0, s * 0.3);
   ctx.bezierCurveTo(-s * 1.2, -s * 0.8, -s * 2.4, s * 0.2, 0, s * 1.4);
   ctx.bezierCurveTo(s * 2.4, s * 0.2, s * 1.2, -s * 0.8, 0, s * 0.3);
-  ctx.fillStyle = '#8A8478';
+  ctx.fillStyle = '#5A7A54';
   ctx.fill();
   ctx.restore();
 }
 function drawLetters(text, startX) {
   ctx.font = `400 ${FONT_SIZE}px "Cormorant Garamond", serif`;
-  ctx.fillStyle = '#8A8478';
+  ctx.fillStyle = '#3B6640';
   ctx.textBaseline = 'middle';
   let x = startX;
   for (const ch of text) {
@@ -541,7 +573,10 @@ function buildLoop() {
   }
 }
 function draw() {
-  ctx.clearRect(0, 0, W(), canvas.offsetHeight);
+  // fill with sage before clearing — fixes ghosting
+  ctx.fillStyle = SAGE;
+  ctx.fillRect(0, 0, W(), H());
+
   const loops = Math.ceil((W() + loopWidth) / loopWidth) + 2;
   for (let loop = 0; loop < loops; loop++) {
     let x = loop * loopWidth - (offset % loopWidth);
