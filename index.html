@@ -29,7 +29,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .nav-links a{font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color 0.2s}
 .nav-links a:hover{color:var(--green)}
 
-.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:64px}
+/* TICKER */
+#ticker-canvas{display:block;width:100%;height:80px;margin-top:64px;background:linear-gradient(135deg,#D8E8D4 0%,#F7F3EC 55%)}
+
+/* HERO */
+.hero{min-height:calc(100vh - 144px);display:grid;grid-template-columns:1fr 1fr;background:linear-gradient(135deg,#D8E8D4 0%,#F7F3EC 55%);margin-top:0}
 .hero-left{padding:3rem 2.5rem 3rem 3rem;display:flex;align-items:center;justify-content:center}
 .hero-photo-frame{width:100%;max-width:420px;aspect-ratio:3/4;border-radius:4px;overflow:hidden;position:relative}
 .hero-photo-frame img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
@@ -142,8 +146,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .contact-or{font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(197,213,188,0.2);margin-bottom:1.5rem}
 .btn-outline-light{background:transparent;color:var(--green3);padding:0.75rem 2rem;font-family:'Outfit',sans-serif;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;border:1.5px solid rgba(197,213,188,0.25);border-radius:2px;cursor:pointer;transition:all 0.2s;display:inline-block}
 .btn-outline-light:hover{background:rgba(197,213,188,0.08);border-color:rgba(197,213,188,0.5);color:var(--cream)}
-
-/* cutout — no background, peeks from bottom right */
 .cutout-wrap{position:absolute;bottom:0;right:6rem;z-index:1;width:240px;display:flex;align-items:flex-end;pointer-events:none}
 .cutout-photo{width:100%;aspect-ratio:2/3;position:relative;overflow:hidden}
 .cutout-photo img{width:100%;height:100%;object-fit:cover;object-position:top;position:absolute;inset:0}
@@ -176,6 +178,7 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
   .nav-links a{font-size:0.6rem}
   .nav-logo-yan{font-size:1.1rem}
   .nav-logo-ugc{font-size:0.52rem}
+  #ticker-canvas{height:60px}
   .hero{grid-template-columns:1fr;min-height:auto}
   .hero-left{padding:2rem 1.5rem 1rem}
   .hero-photo-frame{max-width:240px;margin:0 auto}
@@ -217,6 +220,8 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
+
+<canvas id="ticker-canvas"></canvas>
 
 <section class="hero">
   <div class="hero-left">
@@ -286,8 +291,8 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
     </div>
   </div>
   <div class="about-photos">
-    <div class="about-photo"><img src="images/100_0656.jpg" alt="Yan"></div>
     <div class="about-photo"><img src="images/2020-08-23-23-05-36-774_Original-2.jpg" alt="Yan"></div>
+    <div class="about-photo"><img src="images/100_0656.jpg" alt="Yan"></div>
     <div class="about-photo"><img src="images/9J1A7894.jpg" alt="Yan"></div>
     <div class="about-photo"><img src="images/IMG_3325.jpg" alt="Yan"></div>
   </div>
@@ -431,7 +436,7 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
   </section>
   <div class="cutout-wrap">
     <div class="cutout-photo">
-      <img src="images/Subject.jpeg" alt="Yan">
+      <img src="images/Subject.png" alt="Yan">
     </div>
   </div>
 </div>
@@ -455,6 +460,109 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
     </div>
   </div>
 </div>
+
+<script>
+const canvas = document.getElementById('ticker-canvas');
+const ctx = canvas.getContext('2d');
+const DPR = window.devicePixelRatio || 1;
+const H = () => canvas.offsetHeight;
+
+function resize() {
+  canvas.width = canvas.offsetWidth * DPR;
+  canvas.height = canvas.offsetHeight * DPR;
+  ctx.scale(DPR, DPR);
+}
+resize();
+window.addEventListener('resize', () => { resize(); buildLoop(); });
+
+const W = () => canvas.offsetWidth;
+const FONT_SIZE = 16;
+const LETTER_SPACING = 1.5;
+const GAP = 28;
+const WAVE_AMP = 10;
+const WAVE_FREQ = 0.008;
+const WAVE_SPEED = 0.012;
+const SCROLL_SPEED = 0.55;
+const words = ['UGC CREATOR', 'PHOTOGRAPHER', 'ENGINEER'];
+let offset = 0, t = 0, items = [], loopWidth = 0;
+
+function waveY(x) {
+  return canvas.offsetHeight / 2 + Math.sin(x * WAVE_FREQ + t) * WAVE_AMP;
+}
+function waveAngle(x) {
+  return Math.atan(WAVE_AMP * WAVE_FREQ * Math.cos(x * WAVE_FREQ + t));
+}
+function drawHeart(cx, cy, size, angle) {
+  ctx.save();
+  ctx.translate(cx, cy);
+  ctx.rotate(angle);
+  ctx.beginPath();
+  const s = size / 2;
+  ctx.moveTo(0, s * 0.3);
+  ctx.bezierCurveTo(-s * 1.2, -s * 0.8, -s * 2.4, s * 0.2, 0, s * 1.4);
+  ctx.bezierCurveTo(s * 2.4, s * 0.2, s * 1.2, -s * 0.8, 0, s * 0.3);
+  ctx.fillStyle = '#8A8478';
+  ctx.fill();
+  ctx.restore();
+}
+function drawLetters(text, startX) {
+  ctx.font = `400 ${FONT_SIZE}px "Cormorant Garamond", serif`;
+  ctx.fillStyle = '#8A8478';
+  ctx.textBaseline = 'middle';
+  let x = startX;
+  for (const ch of text) {
+    const w = ctx.measureText(ch).width + LETTER_SPACING;
+    const wx = x + w / 2;
+    const wy = waveY(wx + offset);
+    const angle = waveAngle(wx + offset);
+    ctx.save();
+    ctx.translate(wx, wy);
+    ctx.rotate(angle);
+    ctx.fillText(ch, -ctx.measureText(ch).width / 2, 0);
+    ctx.restore();
+    x += w;
+  }
+  return x;
+}
+function measureWord(text) {
+  ctx.font = `400 ${FONT_SIZE}px "Cormorant Garamond", serif`;
+  let w = 0;
+  for (const ch of text) w += ctx.measureText(ch).width + LETTER_SPACING;
+  return w;
+}
+function buildLoop() {
+  items = []; loopWidth = 0;
+  for (const word of words) {
+    const tw = measureWord(word);
+    items.push({ type: 'word', text: word, width: tw });
+    loopWidth += tw + GAP;
+    items.push({ type: 'heart', width: 18 });
+    loopWidth += 18 + GAP;
+  }
+}
+function draw() {
+  ctx.clearRect(0, 0, W(), canvas.offsetHeight);
+  const loops = Math.ceil((W() + loopWidth) / loopWidth) + 2;
+  for (let loop = 0; loop < loops; loop++) {
+    let x = loop * loopWidth - (offset % loopWidth);
+    for (const item of items) {
+      if (item.type === 'word') {
+        x = drawLetters(item.text, x);
+        x += GAP;
+      } else {
+        const wy = waveY(x + offset + 9);
+        const angle = waveAngle(x + offset + 9);
+        drawHeart(x + 9, wy, 9, angle);
+        x += item.width + GAP;
+      }
+    }
+  }
+  offset += SCROLL_SPEED;
+  t += WAVE_SPEED;
+  requestAnimationFrame(draw);
+}
+document.fonts.ready.then(() => { buildLoop(); draw(); });
+</script>
 
 </body>
 </html>
