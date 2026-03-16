@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yan — UGC Creator</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#F7F3EC;
+  --cream2:#EEE8DC;
+  --cream3:#E5DDD0;
+  --green:#2A4A2C;
+  --green2:#3B6640;
+  --green3:#C5D5BC;
+  --char:#1C1C19;
+  --gray:#8A8478;
+}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--char);font-family:'Outfit',sans-serif;font-weight:300;overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.2rem 3rem;background:var(--cream);border-bottom:1px solid var(--cream3)}
+.nav-name{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;text-decoration:none;color:var(--char)}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color 0.2s}
+.nav-links a:hover{color:var(--green)}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:64px}
+.hero-left{padding:3rem 2.5rem 3rem 3rem;display:flex;align-items:center;justify-content:center}
+.hero-photo-frame{width:100%;max-width:420px;aspect-ratio:3/4;border-radius:4px;background:var(--green);overflow:hidden;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.75rem;position:relative}
+.hero-photo-frame img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.photo-hint{font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(197,213,188,0.5)}
+.hero-right{padding:3rem 3rem 3rem 2.5rem;display:flex;flex-direction:column;justify-content:center}
+.avail-tag{display:inline-flex;align-items:center;gap:0.6rem;margin-bottom:1.8rem}
+.avail-dot{width:7px;height:7px;border-radius:50%;background:#4CAF50;box-shadow:0 0 0 2px rgba(76,175,80,0.25);flex-shrink:0}
+.avail-text{font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--green2)}
+.hero-hello{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,3.5vw,3.4rem);font-weight:400;line-height:1.1;color:var(--char);margin-bottom:0.3rem}
+.hero-hello em{font-style:italic;color:var(--green2)}
+.hero-subtitle{font-size:0.75rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gray);margin-bottom:1.8rem}
+.hero-niche{display:flex;align-items:center;gap:0.5rem;margin-bottom:2rem;flex-wrap:wrap}
+.niche-link{font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--green2);text-decoration:none;border-bottom:1px solid var(--green3);padding-bottom:1px;transition:color 0.2s,border-color 0.2s}
+.niche-link:hover{color:var(--green);border-color:var(--green)}
+.niche-sep{color:var(--green3);font-size:0.8rem}
+.hero-bullets{list-style:none;display:flex;flex-direction:column;gap:0.65rem;margin-bottom:2rem}
+.hero-bullets li{display:flex;align-items:center;gap:0.75rem;font-size:0.86rem;color:var(--char)}
+.hero-bullets li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--green2);flex-shrink:0}
+.hero-meta{display:flex;flex-direction:column;gap:0.55rem;margin-bottom:2.5rem;padding-top:1.5rem;border-top:1px solid var(--cream3)}
+.meta-row{display:flex;align-items:center;gap:0.75rem}
+.meta-label{font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--green2);min-width:65px}
+.meta-val{font-size:0.82rem;color:var(--char);text-decoration:none}
+.meta-val:hover{color:var(--green2)}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:var(--green);color:var(--cream);padding:0.75rem 1.8rem;font-family:'Outfit',sans-serif;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;border-radius:2px;border:none;cursor:pointer;transition:background 0.2s,transform 0.15s;display:inline-block}
+.btn-primary:hover{background:var(--green2);transform:translateY(-1px)}
+.btn-outline{background:transparent;color:var(--green);padding:0.75rem 1.8rem;font-family:'Outfit',sans-serif;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;border-radius:2px;border:1.5px solid var(--green);cursor:pointer;transition:all 0.2s;display:inline-block}
+.btn-outline:hover{background:var(--green);color:var(--cream);transform:translateY(-1px)}
+
+/* ABOUT */
+.about{background:var(--cream2);display:grid;grid-template-columns:1.2fr 0.8fr;gap:5rem;align-items:center;padding:6rem 3rem}
+.section-label{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--green2);margin-bottom:0.6rem}
+.section-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.6rem);font-weight:400;line-height:1.15;color:var(--char);margin-bottom:0.5rem}
+.section-heading em{font-style:italic;color:var(--green2)}
+.divider{width:40px;height:1px;background:var(--green3);margin:1.2rem 0 2rem}
+.about-p{font-size:0.92rem;color:var(--gray);line-height:1.95;margin-bottom:1.25rem}
+.about-p strong{color:var(--char);font-weight:500}
+.about-p2{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-style:italic;color:var(--green2);line-height:1.6;margin-bottom:2rem;padding-left:1.2rem;border-left:2px solid var(--green3)}
+.about-tags{display:flex;gap:0.6rem;flex-wrap:wrap;margin-top:1.5rem}
+.tag{background:var(--cream);border:1px solid var(--cream3);padding:0.35rem 1rem;border-radius:40px;font-size:0.72rem;color:var(--char);letter-spacing:0.04em}
+.about-img{background:var(--cream3);aspect-ratio:3/4;border-radius:4px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.75rem;position:relative;overflow:hidden}
+.about-img img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.img-hint{font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gray);opacity:0.5}
+
+/* EXAMPLES */
+.examples-section{padding:5rem 3rem}
+.examples-section.alt{background:var(--cream2)}
+.section-top{margin-bottom:2.5rem}
+.video-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
+.video-card{display:flex;flex-direction:column;cursor:pointer;transition:transform 0.25s}
+.video-card:hover{transform:translateY(-4px)}
+.video-thumb{aspect-ratio:9/16;border-radius:8px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;margin-bottom:0.85rem}
+.phone-notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:40px;height:5px;background:rgba(0,0,0,0.2);border-radius:3px}
+.play-btn{width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(253,250,245,0.4);display:flex;align-items:center;justify-content:center;transition:background 0.2s,border-color 0.2s}
+.video-card:hover .play-btn{background:rgba(253,250,245,0.15);border-color:rgba(253,250,245,0.7)}
+.play-btn::after{content:'';width:0;height:0;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:12px solid rgba(253,250,245,0.75);margin-left:3px}
+.video-info{padding:0 0.2rem}
+.video-category{font-size:0.65rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--green2);margin-bottom:0.25rem}
+.video-type{font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--char);margin-bottom:0.15rem;line-height:1.3}
+.video-brand{font-size:0.75rem;color:var(--gray)}
+
+/* tech thumbs */
+#tech .video-card:nth-child(1) .video-thumb{background:#2A4A2C}
+#tech .video-card:nth-child(2) .video-thumb{background:#344F36}
+#tech .video-card:nth-child(3) .video-thumb{background:#3B6640}
+#tech .video-card:nth-child(4) .video-thumb{background:#1E3820}
+/* lifestyle thumbs */
+#lifestyle .video-card:nth-child(1) .video-thumb{background:#4A3C2A}
+#lifestyle .video-card:nth-child(2) .video-thumb{background:#5C4A35}
+#lifestyle .video-card:nth-child(3) .video-thumb{background:#3D2E1A}
+#lifestyle .video-card:nth-child(4) .video-thumb{background:#6B573E}
+/* travel thumbs */
+#travel .video-card:nth-child(1) .video-thumb{background:#2A3A4A}
+#travel .video-card:nth-child(2) .video-thumb{background:#1E2E3C}
+#travel .video-card:nth-child(3) .video-thumb{background:#35455A}
+#travel .video-card:nth-child(4) .video-thumb{background:#253444}
+
+/* PHOTOS */
+.photos{padding:6rem 3rem;background:var(--cream)}
+.masonry{columns:4;column-gap:12px}
+.photo-item{break-inside:avoid;margin-bottom:12px;border-radius:4px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
+.photo-item img{width:100%;height:100%;object-fit:cover;display:block}
+.photo-item:nth-child(1){height:280px;background:#C5D5BC}
+.photo-item:nth-child(2){height:200px;background:#B8CCAF}
+.photo-item:nth-child(3){height:240px;background:#A8BFA0}
+.photo-item:nth-child(4){height:320px;background:#C0D4B8}
+.photo-item:nth-child(5){height:180px;background:#D5E0CF}
+.photo-item:nth-child(6){height:260px;background:#8EAA87}
+.photo-item:nth-child(7){height:300px;background:#B2C9AA}
+.photo-item:nth-child(8){height:200px;background:#C8D9C0}
+.photo-item:nth-child(9){height:240px;background:#9DB896}
+.photo-item:nth-child(10){height:180px;background:#BFCFB7}
+.photo-item:nth-child(11){height:260px;background:#A3BB9B}
+.photo-item:nth-child(12){height:220px;background:#D0DDC9}
+.photo-hint-label{font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(42,74,44,0.35);position:absolute;bottom:0.6rem;left:0.75rem}
+.photo-item::after{content:'';position:absolute;inset:0;background:rgba(42,74,44,0);transition:background 0.25s;border-radius:4px}
+.photo-item:hover::after{background:rgba(42,74,44,0.08)}
+
+/* WORKFLOW */
+.workflow{background:var(--green);padding:6rem 3rem}
+.workflow .section-label{color:var(--green3)}
+.workflow .section-heading{color:var(--cream)}
+.workflow .divider{background:rgba(197,213,188,0.3)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+.step{padding:2rem 2rem 2rem 0;border-top:1px solid rgba(197,213,188,0.2)}
+.step:not(:last-child){border-right:1px solid rgba(197,213,188,0.1)}
+.step:not(:first-child){padding-left:2rem}
+.step-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-style:italic;color:rgba(197,213,188,0.2);display:block;margin-bottom:1rem;line-height:1}
+.step-title{font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--green3);margin-bottom:0.75rem}
+.step-body{font-size:0.83rem;color:rgba(197,213,188,0.55);line-height:1.8}
+
+/* CONTACT */
+.contact{background:var(--char);padding:7rem 3rem;text-align:center}
+.contact .section-label{color:var(--green3)}
+.contact .section-heading{color:var(--cream)}
+.contact .divider{margin-left:auto;margin-right:auto;background:rgba(197,213,188,0.25)}
+.contact-sub-main{font-size:1rem;color:rgba(197,213,188,0.7);margin-bottom:0.35rem;font-weight:300}
+.contact-sub-detail{font-size:0.95rem;color:rgba(197,213,188,0.35);margin-bottom:0.75rem;font-style:italic;font-family:'Cormorant Garamond',serif}
+.contact-reply{font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(197,213,188,0.25);margin-bottom:3rem}
+.contact-email{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,2.5vw,1.9rem);font-style:italic;color:var(--green3);text-decoration:none;display:inline-block;border-bottom:1px solid rgba(197,213,188,0.2);padding-bottom:4px;margin-bottom:2rem;transition:color 0.2s}
+.contact-email:hover{color:var(--cream)}
+.contact-or{font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(197,213,188,0.2);margin-bottom:1.5rem}
+.btn-outline-light{background:transparent;color:var(--green3);padding:0.75rem 2rem;font-family:'Outfit',sans-serif;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;border:1.5px solid rgba(197,213,188,0.25);border-radius:2px;cursor:pointer;transition:all 0.2s;display:inline-block}
+.btn-outline-light:hover{background:rgba(197,213,188,0.08);border-color:rgba(197,213,188,0.5);color:var(--cream)}
+
+/* FOOTER */
+footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);padding:1.5rem 3rem;display:flex;justify-content:space-between;align-items:center}
+.footer-name{font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:rgba(197,213,188,0.3)}
+.footer-right{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(138,132,120,0.35)}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(28,28,25,0.7);z-index:200;align-items:center;justify-content:center}
+.modal-overlay.open{display:flex}
+.modal{background:var(--cream);border-radius:4px;padding:2.5rem;width:92%;max-width:480px;position:relative}
+.modal-close{position:absolute;top:1rem;right:1.2rem;background:none;border:none;font-size:1.1rem;cursor:pointer;color:var(--gray);line-height:1}
+.modal h3{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-style:italic;color:var(--char);margin-bottom:0.25rem}
+.modal-sub{font-size:0.8rem;color:var(--gray);margin-bottom:1.5rem;line-height:1.7}
+.google-form-wrap{width:100%;border-radius:3px;overflow:hidden;border:1px solid var(--cream3)}
+.form-placeholder{background:var(--cream2);padding:2rem;text-align:center;border-radius:3px}
+.form-placeholder p{font-size:0.8rem;color:var(--gray);line-height:1.8}
+.form-placeholder code{font-size:0.72rem;background:var(--cream3);padding:0.2rem 0.5rem;border-radius:2px;color:var(--green2)}
+
+/* MOBILE */
+@media(max-width:900px){
+  .video-grid{grid-template-columns:repeat(2,1fr)}
+  .masonry{columns:3}
+  .steps{grid-template-columns:1fr 1fr;gap:2rem}
+  .step{border-right:none!important;padding:1.5rem 0!important}
+  .step:not(:first-child){padding-left:0!important}
+}
+@media(max-width:768px){
+  nav{padding:1rem 1.5rem}
+  .nav-links{gap:1rem}
+  .nav-links a{font-size:0.6rem}
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-left{padding:2rem 1.5rem 1rem}
+  .hero-photo-frame{max-width:240px;margin:0 auto}
+  .hero-right{padding:1rem 1.5rem 3rem}
+  .hero-hello{font-size:2rem}
+  .hero-ctas{flex-direction:column}
+  .btn-primary,.btn-outline{text-align:center;width:100%}
+  .about{grid-template-columns:1fr;gap:2.5rem;padding:4rem 1.5rem}
+  .about-img{max-width:280px;margin:0 auto;width:100%}
+  .examples-section{padding:4rem 1.5rem}
+  .photos{padding:4rem 1.5rem}
+  .masonry{columns:2;column-gap:8px}
+  .photo-item{margin-bottom:8px}
+  .workflow{padding:4rem 1.5rem}
+  .contact{padding:5rem 1.5rem}
+  footer{padding:1.2rem 1.5rem}
+}
+@media(max-width:480px){
+  .steps{grid-template-columns:1fr}
+  .video-grid{grid-template-columns:repeat(2,1fr);gap:0.75rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-name">Yan — UGC Creator</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#examples">Examples</a></li>
+    <li><a href="#photos">Photos</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-photo-frame">
+      <svg width="44" height="44" viewBox="0 0 48 48" fill="none">
+        <circle cx="24" cy="18" r="8" stroke="rgba(197,213,188,0.6)" stroke-width="1.5"/>
+        <path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="rgba(197,213,188,0.6)" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <span class="photo-hint">your photo here</span>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="avail-tag">
+      <div class="avail-dot"></div>
+      <span class="avail-text">Open for Collaborations</span>
+    </div>
+    <h1 class="hero-hello">Hello, I'm <em>Yan.</em></h1>
+    <p class="hero-subtitle">UGC Content Creator</p>
+    <div class="hero-niche">
+      <a href="#tech" class="niche-link">Tech + Apps</a>
+      <span class="niche-sep">|</span>
+      <a href="#lifestyle" class="niche-link">Lifestyle + Wellness</a>
+      <span class="niche-sep">|</span>
+      <a href="#travel" class="niche-link">Travel</a>
+    </div>
+    <ul class="hero-bullets">
+      <li>Gen-Z Creator | 25 Years Old | Asian-American</li>
+      <li>Engineer in Tech</li>
+      <li>Elopement Photographer</li>
+      <li>Traveled to 25+ Countries</li>
+      <li>Speaks Vietnamese, Spanish & Malay</li>
+    </ul>
+    <div class="hero-meta">
+      <div class="meta-row">
+        <span class="meta-label">Email</span>
+        <a href="mailto:yan.tran.ugc@gmail.com" class="meta-val">yan.tran.ugc@gmail.com</a>
+      </div>
+      <div class="meta-row">
+        <span class="meta-label">Based in</span>
+        <span class="meta-val">Seattle, USA</span>
+      </div>
+    </div>
+    <div class="hero-ctas">
+      <a href="#examples" class="btn-primary">See My Work</a>
+      <button class="btn-outline" onclick="document.getElementById('contactModal').classList.add('open')">Contact Me</button>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="about-text">
+    <p class="section-label">About me</p>
+    <h2 class="section-heading">Why work <em>with me?</em></h2>
+    <div class="divider"></div>
+    <p class="about-p">I'm constantly <strong>traveling</strong> to new locations, filming in a variety of <strong>exciting locations</strong>. I run an elopement <strong>photography</strong> business built on raw, documentary-style <strong>storytelling</strong>. And my background as an <strong>engineer</strong> in <strong>tech</strong> means I actually understand your product and can translate it into content your audience will get immediately. My blend of <strong>technical knowledge</strong> and <strong>creativity</strong> elevates a brand's digital presence.</p>
+    <p class="about-p2">The result? Content that highlights what your product does, feels real to the people watching, and converts.</p>
+    <div class="about-tags">
+      <span class="tag">TikTok</span>
+      <span class="tag">Instagram Reels</span>
+      <span class="tag">YouTube Shorts</span>
+      <span class="tag">Talking Head</span>
+      <span class="tag">B-Roll</span>
+      <span class="tag">Paid Ads</span>
+      <span class="tag">Organic</span>
+      <span class="tag">Voiceover</span>
+      <span class="tag">Script Writing</span>
+      <span class="tag">Strong Hooks</span>
+      <span class="tag">Faceless</span>
+      <span class="tag">Professional Photography</span>
+      <span class="tag">Fast Turnaround</span>
+    </div>
+  </div>
+  <div class="about-img">
+    <svg width="36" height="36" viewBox="0 0 48 48" fill="none">
+      <circle cx="24" cy="18" r="8" stroke="#8A8478" stroke-width="1.5" opacity="0.4"/>
+      <path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="#8A8478" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/>
+    </svg>
+    <span class="img-hint">optional photo</span>
+  </div>
+</section>
+
+<!-- TECH + APPS -->
+<section class="examples-section" id="examples">
+  <div class="section-top">
+    <p class="section-label">Examples</p>
+    <h2 class="section-heading">Tech <em>+ Apps</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="video-grid" id="tech">
+    <div class="video-card">
+      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
+      <div class="video-info"><p class="video-category">Tech</p><p class="video-type">Demo</p><p class="video-brand">Brand Name</p></div>
+    </div>
+    <div class="video-card">
+      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
+      <div class="video-info"><p class="video-category">Tech</p><p class="video-type">Unboxing</p><p class="video-brand">Brand Name</p></div>
+    </div>
+    <div class="video-card">
+      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
+      <div class="video-info"><p class="video-category">App</p><p class="video-type">Problem / Solution</p><p class="video-brand">Brand Name</p></div>
+    </div>
+    <div class="video-card">
+      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
+      <div class="video-info"><p class="video-category">Finance</p><p class="video-type">Greenscreen</p><p class="video-brand">Brand Name</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- LIFESTYLE + WELLNESS -->
+<section class="examples-section alt">
+  <div class="section-top">
+    <p class="section-label">Examples</p>
+    <h2 class="section-heading">Lifestyle <em>+ Wellness</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="video-grid" id="lifestyle">
+    <div class="video-card">
+      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
+      <div class="video-info"><p class="video-category">Skincare</p><p class="video-type">Routine</p><p class="video-brand">Brand Name</p></div>
+    </div>
+    <div class="video-card">
+      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
+      <div class="video-info"><p class="video-category">Wellness</p><p class="video-type">Unboxing</p><p class="video-brand">Brand Name</p></div>
+    </div>
+    <div class="video-card">
+      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
+      <div class="video-info"><p class="video-category">Lifestyle</p><p class="video-type">Day in my Life</p><p class="video-brand">Brand Name</p></div>
+    </div>
+    <div class="video-card">
+      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
+      <div class="video-info"><p class="video-category">Fashion</p><p class="video-type">Haul</p><p class="video-brand">Brand Name</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAVEL -->
+<section class="examples-section">
+  <div class="section-top">
+    <p class="section-label">Examples</p>
+    <h2 class="section-heading"><em>Travel</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="video-grid" id="travel">
+    <div class="video-card">
+      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
+      <div class="video-info"><p class="video-category">Travel</p><p class="video-type">Hotel Review</p><p class="video-brand">Brand Name</p></div>
+    </div>
+    <div class="video-card">
+      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
+      <div class="video-info"><p class="video-category">Travel</p><p class="video-type">Pack With Me</p><p class="video-brand">Brand Name</p></div>
+    </div>
+    <div class="video-card">
+      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
+      <div class="video-info"><p class="video-category">Travel</p><p class="video-type">Destination Guide</p><p class="video-brand">Brand Name</p></div>
+    </div>
+    <div class="video-card">
+      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
+      <div class="video-info"><p class="video-category">Travel</p><p class="video-type">Vlog Style</p><p class="video-brand">Brand Name</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTOS -->
+<section class="photos" id="photos">
+  <div class="section-top">
+    <p class="section-label">Photography</p>
+    <h2 class="section-heading">Still <em>shots</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="masonry">
+    <div class="photo-item"><span class="photo-hint-label">your photo</span></div>
+    <div class="photo-item"><span class="photo-hint-label">your photo</span></div>
+    <div class="photo-item"><span class="photo-hint-label">your photo</span></div>
+    <div class="photo-item"><span class="photo-hint-label">your photo</span></div>
+    <div class="photo-item"><span class="photo-hint-label">your photo</span></div>
+    <div class="photo-item"><span class="photo-hint-label">your photo</span></div>
+    <div class="photo-item"><span class="photo-hint-label">your photo</span></div>
+    <div class="photo-item"><span class="photo-hint-label">your photo</span></div>
+    <div class="photo-item"><span class="photo-hint-label">your photo</span></div>
+    <div class="photo-item"><span class="photo-hint-label">your photo</span></div>
+    <div class="photo-item"><span class="photo-hint-label">your photo</span></div>
+    <div class="photo-item"><span class="photo-hint-label">your photo</span></div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="workflow" id="process">
+  <p class="section-label">My Process</p>
+  <h2 class="section-heading">How it <em>works</em></h2>
+  <div class="divider"></div>
+  <div class="steps">
+    <div class="step">
+      <span class="step-num">01</span>
+      <p class="step-title">Discovery</p>
+      <p class="step-body">You share the brief, product, and any examples. I ask a few questions to completely understand the scope of work.</p>
+    </div>
+    <div class="step">
+      <span class="step-num">02</span>
+      <p class="step-title">Concept</p>
+      <p class="step-body">I put together a short concept + hook + script for your approval before filming starts.</p>
+    </div>
+    <div class="step">
+      <span class="step-num">03</span>
+      <p class="step-title">Creation</p>
+      <p class="step-body">I film, edit, and deliver raw + final files within 3–6 days — or the agreed upon timeline — of concept approval and receiving the product.</p>
+    </div>
+    <div class="step">
+      <span class="step-num">04</span>
+      <p class="step-title">Revisions</p>
+      <p class="step-body">One round of revisions included. I want you to love it — we'll get it right!</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <p class="section-label">Get in touch</p>
+  <h2 class="section-heading">Let's make something <em>together.</em></h2>
+  <div class="divider"></div>
+  <p class="contact-sub-main">0PEN TO ALL COLLABS —</p>
+  <p class="contact-sub-detail">big or small, short or long-term</p>
+  <p class="contact-reply">Reply within 24 hours</p>
+  <a href="mailto:yan.tran.ugc@gmail.com" class="contact-email">yan.tran.ugc@gmail.com</a>
+  <p class="contact-or">or</p>
+  <button class="btn-outline-light" onclick="document.getElementById('contactModal').classList.add('open')">Fill out my form</button>
+</section>
+
+<footer>
+  <span class="footer-name">Yan — UGC Creator</span>
+  <span class="footer-right">© 2026</span>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="contactModal">
+  <div class="modal">
+    <button class="modal-close" onclick="document.getElementById('contactModal').classList.remove('open')">✕</button>
+    <h3>Let's work together.</h3>
+    <p class="modal-sub">Fill out the form below and I'll get back to you within 24 hours.</p>
+    <div class="google-form-wrap">
+      <div class="form-placeholder">
+        <p>Your Google Form will live here.<br><br>Once you create your Google Form, replace this placeholder with:<br><br><code>&lt;iframe src="YOUR_GOOGLE_FORM_URL" width="100%" height="480" frameborder="0"&gt;&lt;/iframe&gt;</code></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
