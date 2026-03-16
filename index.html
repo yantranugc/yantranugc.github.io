@@ -31,9 +31,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 
 .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:64px}
 .hero-left{padding:3rem 2.5rem 3rem 3rem;display:flex;align-items:center;justify-content:center}
-.hero-photo-frame{width:100%;max-width:420px;aspect-ratio:3/4;border-radius:4px;background:var(--green);overflow:hidden;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.75rem;position:relative}
+.hero-photo-frame{width:100%;max-width:420px;aspect-ratio:3/4;border-radius:4px;overflow:hidden;position:relative}
 .hero-photo-frame img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
-.photo-hint{font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(197,213,188,0.5)}
 .hero-right{padding:3rem 3rem 3rem 2.5rem;display:flex;flex-direction:column;justify-content:center}
 .avail-tag{display:inline-flex;align-items:center;gap:0.6rem;margin-bottom:1.8rem}
 .avail-dot{width:7px;height:7px;border-radius:50%;background:#4CAF50;box-shadow:0 0 0 2px rgba(76,175,80,0.25);flex-shrink:0}
@@ -72,11 +71,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .about-photos{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:6px;aspect-ratio:3/4}
 .about-photo{border-radius:4px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;width:100%;height:100%}
 .about-photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
-.about-photo:nth-child(1){background:#C5D5BC}
-.about-photo:nth-child(2){background:#A8BFA0}
-.about-photo:nth-child(3){background:#B8CCAF}
-.about-photo:nth-child(4){background:#8EAA87}
-.photo-hint-sm{font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(42,74,44,0.35)}
 
 .examples-section{padding:5rem 3rem}
 .examples-section.alt{background:var(--cream2)}
@@ -148,10 +142,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .contact-or{font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(197,213,188,0.2);margin-bottom:1.5rem}
 .btn-outline-light{background:transparent;color:var(--green3);padding:0.75rem 2rem;font-family:'Outfit',sans-serif;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;border:1.5px solid rgba(197,213,188,0.25);border-radius:2px;cursor:pointer;transition:all 0.2s;display:inline-block}
 .btn-outline-light:hover{background:rgba(197,213,188,0.08);border-color:rgba(197,213,188,0.5);color:var(--cream)}
+
+/* cutout — no background, peeks from bottom right */
 .cutout-wrap{position:absolute;bottom:0;right:6rem;z-index:1;width:240px;display:flex;align-items:flex-end;pointer-events:none}
-.cutout-photo{width:100%;aspect-ratio:2/3;background:var(--green2);border-radius:8px 8px 0 0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.5rem;opacity:0.5;position:relative;overflow:hidden}
-.cutout-photo img{width:100%;height:100%;object-fit:cover;object-position:top;position:absolute;inset:0;border-radius:8px 8px 0 0;opacity:1}
-.cutout-hint{font-size:0.58rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(197,213,188,0.6);text-align:center;padding:0 1rem;line-height:1.6}
+.cutout-photo{width:100%;aspect-ratio:2/3;position:relative;overflow:hidden}
+.cutout-photo img{width:100%;height:100%;object-fit:cover;object-position:top;position:absolute;inset:0}
 
 footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);padding:1.5rem 3rem;display:flex;justify-content:space-between;align-items:center}
 .footer-name{font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:rgba(197,213,188,0.3)}
@@ -226,7 +221,7 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
 <section class="hero">
   <div class="hero-left">
     <div class="hero-photo-frame">
-      <img src="images/2020-08-23-23-05-36-774_Original.jpg">
+      <img src="images/9J1A8205.jpg" alt="Yan">
     </div>
   </div>
   <div class="hero-right">
@@ -291,10 +286,10 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
     </div>
   </div>
   <div class="about-photos">
-    <div class="about-photo"><span class="photo-hint-sm">photo</span></div>
-    <div class="about-photo"><span class="photo-hint-sm">photo</span></div>
-    <div class="about-photo"><span class="photo-hint-sm">photo</span></div>
-    <div class="about-photo"><span class="photo-hint-sm">photo</span></div>
+    <div class="about-photo"><img src="images/100_0656.jpg" alt="Yan"></div>
+    <div class="about-photo"><img src="images/2020-08-23-23-05-36-774_Original-2.jpg" alt="Yan"></div>
+    <div class="about-photo"><img src="images/9J1A7894.jpg" alt="Yan"></div>
+    <div class="about-photo"><img src="images/IMG_3325.jpg" alt="Yan"></div>
   </div>
 </section>
 
@@ -436,11 +431,7 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
   </section>
   <div class="cutout-wrap">
     <div class="cutout-photo">
-      <svg width="36" height="36" viewBox="0 0 48 48" fill="none">
-        <circle cx="24" cy="18" r="8" stroke="rgba(197,213,188,0.6)" stroke-width="1.5"/>
-        <path d="M8 40c0-8.837 7.163-16 16-16s16 7.163 16 16" stroke="rgba(197,213,188,0.6)" stroke-width="1.5" stroke-linecap="round"/>
-      </svg>
-      <span class="cutout-hint">your cutout photo — use remove.bg</span>
+      <img src="images/Subject.jpeg" alt="Yan">
     </div>
   </div>
 </div>
