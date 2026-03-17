@@ -22,7 +22,6 @@
 html{scroll-behavior:smooth}
 body{background:var(--cream);color:var(--char);font-family:'Outfit',sans-serif;font-weight:300;overflow-x:hidden}
 
-/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.2rem 3rem;background:var(--cream);border-bottom:1px solid var(--cream3)}
 .nav-favicon{display:inline-flex;align-items:center;text-decoration:none;flex-shrink:0}
 .nav-favicon img{width:32px;height:32px;border-radius:4px}
@@ -30,7 +29,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .nav-links a{font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color 0.2s}
 .nav-links a:hover{color:var(--green)}
 
-/* HERO */
 .hero{min-height:100vh;display:flex;flex-direction:column;background:var(--sage);padding-top:64px}
 .hero-ticker{width:100%;background:var(--sage);padding:4rem 0 1rem;display:flex;align-items:center;justify-content:center;overflow:hidden}
 #ticker-canvas{display:block;width:100%;height:50px}
@@ -66,7 +64,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .btn-outline{background:transparent;color:var(--green);padding:0.75rem 1.4rem;font-family:'Outfit',sans-serif;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;border-radius:2px;border:1.5px solid var(--green);cursor:pointer;transition:all 0.2s;display:inline-block}
 .btn-outline:hover{background:var(--green);color:var(--cream);transform:translateY(-1px)}
 
-/* ABOUT */
 .about{background:var(--cream2);display:grid;grid-template-columns:1.2fr 0.8fr;gap:4rem;align-items:center;padding:6rem 3rem}
 .section-label{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--green2);margin-bottom:0.6rem}
 .section-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.6rem);font-weight:400;line-height:1.15;color:var(--char);margin-bottom:0.5rem}
@@ -81,7 +78,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .about-photo{border-radius:4px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;width:100%;height:100%}
 .about-photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
 
-/* EXAMPLES */
 .examples-section{padding:5rem 3rem}
 .examples-section.alt{background:var(--cream2)}
 .section-top{margin-bottom:2.5rem}
@@ -110,7 +106,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 #travel .video-card:nth-child(3) .video-thumb{background:#35455A}
 #travel .video-card:nth-child(4) .video-thumb{background:#253444}
 
-/* PHOTOS */
 .photos{padding:6rem 3rem;background:var(--cream)}
 .masonry{columns:4;column-gap:12px}
 .photo-item{break-inside:avoid;margin-bottom:12px;border-radius:4px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
@@ -127,8 +122,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .photo-item::after{content:'';position:absolute;inset:0;background:rgba(42,74,44,0);transition:background 0.25s;border-radius:4px}
 .photo-item:hover::after{background:rgba(42,74,44,0.08)}
 
-/* WORKFLOW */
-.workflow{background:var(--green);padding:6rem 3rem}
+.workflow{background:var(--green);padding:6rem 3rem;border:none;outline:none}
 .workflow .section-label{color:var(--green3)}
 .workflow .section-heading{color:var(--cream)}
 .workflow .divider{background:rgba(197,213,188,0.3)}
@@ -139,11 +133,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .step-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-style:italic;color:rgba(197,213,188,0.2);display:block;margin-bottom:1rem;line-height:1}
 .step-title{font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--green3);margin-bottom:0.75rem}
 .step-body{font-size:0.83rem;color:rgba(197,213,188,0.55);line-height:1.8}
-.workflow{border-bottom:none}
 
-/* CONTACT */
-.contact-wrap{background:var(--char);position:relative;overflow:visible;overflow-x:hidden}
-.contact-wrap{border-bottom:none}
+/* CONTACT — no dividing line anywhere */
+.contact-wrap{background:var(--char);position:relative;overflow:visible;overflow-x:hidden;border:none;outline:none;margin:0;padding:0}
 .contact{padding:7rem 3rem;text-align:center;position:relative;z-index:2}
 .contact .section-label{color:var(--green3)}
 .contact .section-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.2rem);font-weight:400;line-height:1.15;color:var(--cream);margin-bottom:0.5rem}
@@ -162,13 +154,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .cutout-photo{width:100%;aspect-ratio:2/3;position:relative;overflow:hidden}
 .cutout-photo img{width:100%;height:100%;object-fit:cover;object-position:top;position:absolute;inset:0}
 
-/* FOOTER */
-footer{background:var(--char);border-top:none;padding:1.5rem 3rem;display:flex;justify-content:space-between;align-items:center}
+footer{background:var(--char);border:none;outline:none;padding:1.5rem 3rem;display:flex;justify-content:space-between;align-items:center;margin:0}
 .footer-logo{display:inline-flex;align-items:center;gap:0.5rem;text-decoration:none}
 .footer-logo-yan{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(197,213,188,0.3);line-height:1}
 .footer-logo-dot{width:6px;height:6px;border-radius:50%;background:#4CAF50;opacity:0.5;flex-shrink:0}
 .footer-logo-ugc{font-size:0.55rem;letter-spacing:0.26em;text-transform:uppercase;color:rgba(197,213,188,0.25);font-weight:400}
 .footer-right{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(138,132,120,0.35)}
+
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(28,28,25,0.7);z-index:200;align-items:center;justify-content:center}
 .modal-overlay.open{display:flex}
 .modal{background:var(--cream);border-radius:4px;width:92%;max-width:480px;max-height:75vh;display:flex;flex-direction:column;overflow:hidden}
@@ -229,7 +221,6 @@ footer{background:var(--char);border-top:none;padding:1.5rem 3rem;display:flex;j
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a class="nav-favicon" href="#">
     <img src="favicon.svg" alt="Yan UGC">
@@ -243,7 +234,6 @@ footer{background:var(--char);border-top:none;padding:1.5rem 3rem;display:flex;j
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-ticker">
     <canvas id="ticker-canvas"></canvas>
@@ -298,7 +288,6 @@ footer{background:var(--char);border-top:none;padding:1.5rem 3rem;display:flex;j
   </div>
 </section>
 
-<!-- TECH + APPS -->
 <section class="examples-section" id="examples">
   <div class="section-top">
     <p class="section-label">Examples</p>
@@ -325,7 +314,6 @@ footer{background:var(--char);border-top:none;padding:1.5rem 3rem;display:flex;j
   </div>
 </section>
 
-<!-- LIFESTYLE + WELLNESS -->
 <section class="examples-section alt">
   <div class="section-top">
     <p class="section-label">Examples</p>
@@ -352,7 +340,6 @@ footer{background:var(--char);border-top:none;padding:1.5rem 3rem;display:flex;j
   </div>
 </section>
 
-<!-- TRAVEL -->
 <section class="examples-section">
   <div class="section-top">
     <p class="section-label">Examples</p>
@@ -379,7 +366,6 @@ footer{background:var(--char);border-top:none;padding:1.5rem 3rem;display:flex;j
   </div>
 </section>
 
-<!-- ABOUT — between examples and photos -->
 <section class="about" id="about">
   <div class="about-text">
     <p class="section-label">About me</p>
@@ -412,7 +398,6 @@ footer{background:var(--char);border-top:none;padding:1.5rem 3rem;display:flex;j
   </div>
 </section>
 
-<!-- PHOTOS -->
 <section class="photos" id="photos">
   <div class="section-top">
     <p class="section-label">Photography</p>
@@ -431,7 +416,6 @@ footer{background:var(--char);border-top:none;padding:1.5rem 3rem;display:flex;j
   </div>
 </section>
 
-<!-- PROCESS -->
 <section class="workflow" id="process">
   <p class="section-label">My Process</p>
   <h2 class="section-heading">How it <em>works</em></h2>
@@ -460,7 +444,6 @@ footer{background:var(--char);border-top:none;padding:1.5rem 3rem;display:flex;j
   </div>
 </section>
 
-<!-- CONTACT -->
 <div class="contact-wrap">
   <section class="contact" id="contact">
     <p class="section-label">Get in touch</p>
@@ -483,7 +466,6 @@ footer{background:var(--char);border-top:none;padding:1.5rem 3rem;display:flex;j
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <a class="footer-logo" href="#">
     <span class="footer-logo-yan">Yan</span>
@@ -493,7 +475,6 @@ footer{background:var(--char);border-top:none;padding:1.5rem 3rem;display:flex;j
   <span class="footer-right">© 2026</span>
 </footer>
 
-<!-- MODAL -->
 <div class="modal-overlay" id="contactModal">
   <div class="modal">
     <div class="modal-header">
@@ -514,38 +495,25 @@ const canvas = document.getElementById('ticker-canvas');
 const ctx = canvas.getContext('2d');
 const DPR = window.devicePixelRatio || 1;
 const SAGE = '#C2D4BB';
-
 function resize() {
-  const w = canvas.offsetWidth;
-  const h = canvas.offsetHeight;
-  canvas.width = w * DPR;
-  canvas.height = h * DPR;
-  ctx.setTransform(1,0,0,1,0,0);
-  ctx.scale(DPR, DPR);
+  const w = canvas.offsetWidth, h = canvas.offsetHeight;
+  canvas.width = w * DPR; canvas.height = h * DPR;
+  ctx.setTransform(1,0,0,1,0,0); ctx.scale(DPR, DPR);
 }
 resize();
 window.addEventListener('resize', () => { resize(); buildLoop(); });
-
 const W = () => canvas.offsetWidth;
 const H = () => canvas.offsetHeight;
-const FONT_SIZE = 16;
-const LETTER_SPACING = 1.5;
-const GAP = 28;
-const WAVE_AMP = 10;
-const WAVE_FREQ = 0.008;
-const WAVE_SPEED = 0.012;
-const SCROLL_SPEED = 0.55;
+const FONT_SIZE = 16, LETTER_SPACING = 1.5, GAP = 28;
+const WAVE_AMP = 10, WAVE_FREQ = 0.008, WAVE_SPEED = 0.012, SCROLL_SPEED = 0.55;
 const words = ['UGC CREATOR', 'PHOTOGRAPHER', 'ENGINEER'];
 let offset = 0, t = 0, items = [], loopWidth = 0;
-
 function waveY(x) { return H()/2 + Math.sin(x*WAVE_FREQ+t)*WAVE_AMP; }
 function waveAngle(x) { return Math.atan(WAVE_AMP*WAVE_FREQ*Math.cos(x*WAVE_FREQ+t)); }
 function drawHeart(cx,cy,size,angle) {
   ctx.save(); ctx.translate(cx,cy); ctx.rotate(angle);
-  ctx.beginPath();
-  const s=size/2;
-  ctx.moveTo(0,s*0.3);
-  ctx.bezierCurveTo(-s*1.2,-s*0.8,-s*2.4,s*0.2,0,s*1.4);
+  ctx.beginPath(); const s=size/2;
+  ctx.moveTo(0,s*0.3); ctx.bezierCurveTo(-s*1.2,-s*0.8,-s*2.4,s*0.2,0,s*1.4);
   ctx.bezierCurveTo(s*2.4,s*0.2,s*1.2,-s*0.8,0,s*0.3);
   ctx.fillStyle='#1C1C19'; ctx.fill(); ctx.restore();
 }
@@ -589,6 +557,5 @@ function draw() {
 }
 document.fonts.ready.then(()=>{ buildLoop(); draw(); });
 </script>
-
 </body>
 </html>
