@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Yan — UGC Creator</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -21,11 +22,10 @@
 html{scroll-behavior:smooth}
 body{background:var(--cream);color:var(--char);font-family:'Outfit',sans-serif;font-weight:300;overflow-x:hidden}
 
+/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.2rem 3rem;background:var(--cream);border-bottom:1px solid var(--cream3)}
-.nav-logo{display:inline-flex;align-items:center;gap:0.5rem;text-decoration:none;flex-shrink:0}
-.nav-logo-yan{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--char);line-height:1}
-.nav-logo-dot{width:6px;height:6px;border-radius:50%;background:#4CAF50;box-shadow:0 0 0 2px rgba(76,175,80,0.2);flex-shrink:0}
-.nav-logo-ugc{font-size:0.58rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--green2);font-weight:400}
+.nav-favicon{display:inline-flex;align-items:center;text-decoration:none;flex-shrink:0}
+.nav-favicon img{width:32px;height:32px;border-radius:4px}
 .nav-links{display:flex;gap:2rem;list-style:none}
 .nav-links a{font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color 0.2s}
 .nav-links a:hover{color:var(--green)}
@@ -34,30 +34,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .hero{min-height:100vh;display:flex;flex-direction:column;background:var(--sage);padding-top:64px}
 .hero-ticker{width:100%;background:var(--sage);padding:4rem 0 1rem;display:flex;align-items:center;justify-content:center;overflow:hidden}
 #ticker-canvas{display:block;width:100%;height:50px}
-
-/* centered two-col layout with max-width container */
-.hero-inner{
-  flex:1;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:2rem 4rem 3rem;
-}
-.hero-inner-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:3rem;
-  width:100%;
-  max-width:1100px;
-  align-items:center;
-}
+.hero-inner{flex:1;display:flex;align-items:center;justify-content:center;padding:2rem 4rem 3rem}
+.hero-inner-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;width:100%;max-width:1100px;align-items:center}
 .hero-left{display:flex;align-items:center;justify-content:center}
 .hero-photo-frame{width:100%;max-width:380px;aspect-ratio:3/4;border-radius:4px;overflow:hidden;position:relative}
 .hero-photo-frame img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
 .hero-right{display:flex;flex-direction:column;justify-content:center}
 .hero-right-inner{background:rgba(255,255,255,0.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-radius:8px;padding:2.5rem;display:flex;flex-direction:column}
 .avail-tag{display:inline-flex;align-items:center;gap:0.6rem;margin-bottom:1.8rem}
-.avail-dot{width:7px;height:7px;border-radius:50%;background:#4CAF50;box-shadow:0 0 0 2px rgba(76,175,80,0.25);flex-shrink:0}
+.avail-dot{width:7px;height:7px;border-radius:50%;background:#4CAF50;box-shadow:0 0 0 2px rgba(76,175,80,0.25);flex-shrink:0;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 2px rgba(76,175,80,0.25)}50%{box-shadow:0 0 0 5px rgba(76,175,80,0.1)}}
 .avail-text{font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--green2)}
 .hero-hello{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,3.5vw,3.4rem);font-weight:400;line-height:1.1;color:var(--char);margin-bottom:0.3rem}
 .hero-hello em{font-style:italic;color:var(--green2)}
@@ -74,10 +60,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .meta-label{font-size:0.62rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--green2);min-width:65px}
 .meta-val{font-size:0.82rem;color:var(--char);text-decoration:none}
 .meta-val:hover{color:var(--green2)}
-.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
-.btn-primary{background:var(--green);color:var(--cream);padding:0.75rem 1.8rem;font-family:'Outfit',sans-serif;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;border-radius:2px;border:none;cursor:pointer;transition:background 0.2s,transform 0.15s;display:inline-block}
+.hero-ctas{display:flex;gap:0.75rem;flex-wrap:wrap}
+.btn-primary{background:var(--green);color:var(--cream);padding:0.75rem 1.4rem;font-family:'Outfit',sans-serif;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;border-radius:2px;border:none;cursor:pointer;transition:background 0.2s,transform 0.15s;display:inline-block}
 .btn-primary:hover{background:var(--green2);transform:translateY(-1px)}
-.btn-outline{background:transparent;color:var(--green);padding:0.75rem 1.8rem;font-family:'Outfit',sans-serif;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;border-radius:2px;border:1.5px solid var(--green);cursor:pointer;transition:all 0.2s;display:inline-block}
+.btn-outline{background:transparent;color:var(--green);padding:0.75rem 1.4rem;font-family:'Outfit',sans-serif;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;border-radius:2px;border:1.5px solid var(--green);cursor:pointer;transition:all 0.2s;display:inline-block}
 .btn-outline:hover{background:var(--green);color:var(--cream);transform:translateY(-1px)}
 
 /* ABOUT */
@@ -124,7 +110,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 #travel .video-card:nth-child(3) .video-thumb{background:#35455A}
 #travel .video-card:nth-child(4) .video-thumb{background:#253444}
 
-/* PHOTOS — very tall portrait, iPhone ratio ~2:3 */
+/* PHOTOS */
 .photos{padding:6rem 3rem;background:var(--cream)}
 .masonry{columns:4;column-gap:12px}
 .photo-item{break-inside:avoid;margin-bottom:12px;border-radius:4px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
@@ -163,7 +149,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .contact .divider{width:40px;height:1px;background:rgba(197,213,188,0.25);margin:1.2rem auto 2.5rem}
 .contact-sub-main{font-size:1.4rem;color:rgba(197,213,188,0.7);margin-bottom:0.35rem;font-weight:300}
 .contact-sub-detail{font-size:1.2rem;color:rgba(197,213,188,0.35);margin-bottom:0.75rem;font-style:italic;font-family:'Cormorant Garamond',serif}
-.contact-reply{font-size:1rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(197,213,188,0.25);margin-bottom:3rem}
+.contact-reply-wrap{display:inline-flex;align-items:center;gap:0.5rem;justify-content:center;margin-bottom:3rem}
+.contact-reply{font-size:1rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(197,213,188,0.25)}
 .contact-email{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,2.5vw,1.9rem);font-style:italic;color:var(--green3);text-decoration:none;display:inline-block;border-bottom:1px solid rgba(197,213,188,0.2);padding-bottom:4px;margin-bottom:2rem;transition:color 0.2s}
 .contact-email:hover{color:var(--cream)}
 .contact-or{font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(197,213,188,0.2);margin-bottom:1.5rem}
@@ -173,8 +160,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .cutout-photo{width:100%;aspect-ratio:2/3;position:relative;overflow:hidden}
 .cutout-photo img{width:100%;height:100%;object-fit:cover;object-position:top;position:absolute;inset:0}
 
+/* FOOTER */
 footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);padding:1.5rem 3rem;display:flex;justify-content:space-between;align-items:center}
-.footer-name{font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:rgba(197,213,188,0.3)}
+.footer-logo{display:inline-flex;align-items:center;gap:0.5rem;text-decoration:none}
+.footer-logo-yan{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(197,213,188,0.3);line-height:1}
+.footer-logo-dot{width:6px;height:6px;border-radius:50%;background:#4CAF50;opacity:0.5;flex-shrink:0}
+.footer-logo-ugc{font-size:0.55rem;letter-spacing:0.26em;text-transform:uppercase;color:rgba(197,213,188,0.25);font-weight:400}
 .footer-right{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:rgba(138,132,120,0.35)}
 
 .modal-overlay{display:none;position:fixed;inset:0;background:rgba(28,28,25,0.7);z-index:200;align-items:center;justify-content:center}
@@ -196,15 +187,10 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
   .step:not(:first-child){padding-left:0!important}
 }
 @media(max-width:768px){
-  .nav-logo{display:none}
-  nav{justify-content:center}
-  nav{padding:1rem 1.5rem}
+  nav{padding:1rem 1.5rem;justify-content:space-between}
+  .nav-favicon img{width:24px;height:24px}
   .nav-links{gap:1rem}
   .nav-links a{font-size:0.6rem}
-  .nav-logo{flex-direction:column;align-items:flex-start;gap:0.2rem}
-  .nav-logo-yan{font-size:1.2rem}
-  .nav-logo-ugc{font-size:0.52rem}
-  .nav-logo-dot{display:none}
   #ticker-canvas{height:40px}
   .hero-ticker{padding:1.5rem 0 0.75rem}
   .hero-inner{padding:1rem 1.5rem 2rem}
@@ -242,21 +228,21 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
-  <a class="nav-logo" href="#">
-    <span class="nav-logo-yan">Yan</span>
-    <div class="nav-logo-dot"></div>
-    <span class="nav-logo-ugc">UGC</span>
+  <a class="nav-favicon" href="#">
+    <img src="favicon.svg" alt="Yan UGC">
   </a>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
     <li><a href="#examples">Examples</a></li>
+    <li><a href="#about">About</a></li>
     <li><a href="#photos">Photos</a></li>
     <li><a href="#process">Process</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-ticker">
     <canvas id="ticker-canvas"></canvas>
@@ -302,6 +288,7 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
           </div>
           <div class="hero-ctas">
             <a href="#examples" class="btn-primary">See My Work</a>
+            <a href="#about" class="btn-outline">Why Me?</a>
             <button class="btn-outline" onclick="document.getElementById('contactModal').classList.add('open')">Contact Me</button>
           </div>
         </div>
@@ -310,37 +297,7 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
   </div>
 </section>
 
-<section class="about" id="about">
-  <div class="about-text">
-    <p class="section-label">About me</p>
-    <h2 class="section-heading">Why work <em>with me?</em></h2>
-    <div class="divider"></div>
-    <p class="about-p">I'm constantly <strong>traveling</strong> to new locations, filming in a variety of <strong>exciting locations</strong>. I run an elopement <strong>photography</strong> business built on raw, documentary-style <strong>storytelling</strong>. And my background as an <strong>engineer</strong> in tech means I actually understand your product and can translate it into content your audience will get immediately. My blend of <strong>technical knowledge</strong> and <strong>creativity</strong> elevates a brand's digital presence.</p>
-    <p class="about-p2">The result? Content that highlights what your product does, feels real to the people watching, and converts.</p>
-    <div class="about-tags">
-      <span class="tag">TikTok</span>
-      <span class="tag">Instagram Reels</span>
-      <span class="tag">YouTube Shorts</span>
-      <span class="tag">Talking Head</span>
-      <span class="tag">B-Roll</span>
-      <span class="tag">Paid Ads</span>
-      <span class="tag">Organic</span>
-      <span class="tag">Voiceover</span>
-      <span class="tag">Script Writing</span>
-      <span class="tag">Strong Hooks</span>
-      <span class="tag">Faceless</span>
-      <span class="tag">Professional Photography</span>
-      <span class="tag">Fast Turnaround</span>
-    </div>
-  </div>
-  <div class="about-photos">
-    <div class="about-photo"><img src="images/2020-08-23-23-05-36-774_Original-2.jpg" alt="Yan"></div>
-    <div class="about-photo"><img src="images/100_0656.jpg" alt="Yan"></div>
-    <div class="about-photo"><img src="images/9J1A7894.jpg" alt="Yan"></div>
-    <div class="about-photo"><img src="images/IMG_3325.jpg" alt="Yan"></div>
-  </div>
-</section>
-
+<!-- TECH + APPS -->
 <section class="examples-section" id="examples">
   <div class="section-top">
     <p class="section-label">Examples</p>
@@ -367,6 +324,7 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
   </div>
 </section>
 
+<!-- LIFESTYLE + WELLNESS -->
 <section class="examples-section alt">
   <div class="section-top">
     <p class="section-label">Examples</p>
@@ -393,6 +351,7 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
   </div>
 </section>
 
+<!-- TRAVEL -->
 <section class="examples-section">
   <div class="section-top">
     <p class="section-label">Examples</p>
@@ -419,6 +378,40 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
   </div>
 </section>
 
+<!-- ABOUT — between examples and photos -->
+<section class="about" id="about">
+  <div class="about-text">
+    <p class="section-label">About me</p>
+    <h2 class="section-heading">Why work <em>with me?</em></h2>
+    <div class="divider"></div>
+    <p class="about-p">I bring something unique — a technical foundation. With a background in <strong>tech engineering</strong> and an elopement <strong>photography</strong> business built on raw, documentary-style <strong>storytelling</strong>, I understand both how products work and how to make them feel human on camera. I'm constantly traveling to new locations, which means fresh, dynamic content shot in a variety of <strong>exciting places</strong>.</p>
+    <p class="about-p">From storyboarding to video editing, my UGC production and strategy is built around one goal: content that converts. I approach every project with a deep understanding of <strong>brand needs</strong> and alignment with your social <strong>strategy</strong>.</p>
+    <p class="about-p2">The result? Content that highlights what your product does, feels real to the people watching, and converts.</p>
+    <div class="about-tags">
+      <span class="tag">TikTok</span>
+      <span class="tag">Instagram Reels</span>
+      <span class="tag">YouTube Shorts</span>
+      <span class="tag">Talking Head</span>
+      <span class="tag">B-Roll</span>
+      <span class="tag">Paid Ads</span>
+      <span class="tag">Organic</span>
+      <span class="tag">Voiceover</span>
+      <span class="tag">Script Writing</span>
+      <span class="tag">Strong Hooks</span>
+      <span class="tag">Faceless</span>
+      <span class="tag">Professional Photography</span>
+      <span class="tag">Fast Turnaround</span>
+    </div>
+  </div>
+  <div class="about-photos">
+    <div class="about-photo"><img src="images/2020-08-23-23-05-36-774_Original-2.jpg" alt="Yan"></div>
+    <div class="about-photo"><img src="images/100_0656.jpg" alt="Yan"></div>
+    <div class="about-photo"><img src="images/9J1A7894.jpg" alt="Yan"></div>
+    <div class="about-photo"><img src="images/IMG_3325.jpg" alt="Yan"></div>
+  </div>
+</section>
+
+<!-- PHOTOS -->
 <section class="photos" id="photos">
   <div class="section-top">
     <p class="section-label">Photography</p>
@@ -437,6 +430,7 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
   </div>
 </section>
 
+<!-- PROCESS -->
 <section class="workflow" id="process">
   <p class="section-label">My Process</p>
   <h2 class="section-heading">How it <em>works</em></h2>
@@ -465,6 +459,7 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
   </div>
 </section>
 
+<!-- CONTACT -->
 <div class="contact-wrap">
   <section class="contact" id="contact">
     <p class="section-label">Get in touch</p>
@@ -472,7 +467,10 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
     <div class="divider"></div>
     <p class="contact-sub-main">Open to all collabs —</p>
     <p class="contact-sub-detail">big or small, short or long-term.</p>
-    <p class="contact-reply">Reply within 24 hours</p>
+    <div class="contact-reply-wrap">
+      <div class="avail-dot"></div>
+      <p class="contact-reply">Reply within 24 hours</p>
+    </div>
     <a href="mailto:yan.tran.ugc@gmail.com" class="contact-email">yan.tran.ugc@gmail.com</a>
     <p class="contact-or">or</p>
     <button class="btn-outline-light" onclick="document.getElementById('contactModal').classList.add('open')">Fill out my form</button>
@@ -484,11 +482,17 @@ footer{background:var(--char);border-top:1px solid rgba(255,255,255,0.06);paddin
   </div>
 </div>
 
+<!-- FOOTER -->
 <footer>
-  <span class="footer-name">Yan — UGC Creator</span>
+  <a class="footer-logo" href="#">
+    <span class="footer-logo-yan">Yan</span>
+    <div class="footer-logo-dot"></div>
+    <span class="footer-logo-ugc">UGC</span>
+  </a>
   <span class="footer-right">© 2026</span>
 </footer>
 
+<!-- MODAL -->
 <div class="modal-overlay" id="contactModal">
   <div class="modal">
     <div class="modal-header">
