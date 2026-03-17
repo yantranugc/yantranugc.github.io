@@ -78,33 +78,38 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .about-photo{border-radius:4px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;width:100%;height:100%}
 .about-photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
 
+/* EXAMPLES */
 .examples-section{padding:5rem 3rem}
 .examples-section.alt{background:var(--cream2)}
 .section-top{margin-bottom:2.5rem}
 .video-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
 .video-card{display:flex;flex-direction:column;cursor:pointer;transition:transform 0.25s}
 .video-card:hover{transform:translateY(-4px)}
+
+/* brand logo slot above video */
+.video-logo{height:48px;display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem}
+.video-logo img{max-height:36px;max-width:100%;object-fit:contain}
+.video-logo-placeholder{width:80px;height:32px;border-radius:4px;background:var(--cream3);display:flex;align-items:center;justify-content:center}
+.video-logo-placeholder span{font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray)}
+
 .video-thumb{aspect-ratio:9/16;border-radius:8px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;margin-bottom:0.85rem}
 .phone-notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:40px;height:5px;background:rgba(0,0,0,0.2);border-radius:3px}
 .play-btn{width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(253,250,245,0.4);display:flex;align-items:center;justify-content:center;transition:background 0.2s,border-color 0.2s}
 .video-card:hover .play-btn{background:rgba(253,250,245,0.15);border-color:rgba(253,250,245,0.7)}
 .play-btn::after{content:'';width:0;height:0;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:12px solid rgba(253,250,245,0.75);margin-left:3px}
 .video-info{padding:0 0.2rem}
-.video-category{font-size:.9rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--green2);margin-bottom:0.25rem}
-.video-type{font-family:'Cormorant Garamond',serif;font-size:1.45rem;color:var(--char);margin-bottom:0.15rem;line-height:1.3}
-.video-brand{font-size:.9rem;color:var(--gray)}
-#tech .video-card:nth-child(1) .video-thumb{background:#2A4A2C}
-#tech .video-card:nth-child(2) .video-thumb{background:#344F36}
-#tech .video-card:nth-child(3) .video-thumb{background:#3B6640}
-#tech .video-card:nth-child(4) .video-thumb{background:#1E3820}
-#lifestyle .video-card:nth-child(1) .video-thumb{background:#4A3C2A}
-#lifestyle .video-card:nth-child(2) .video-thumb{background:#5C4A35}
-#lifestyle .video-card:nth-child(3) .video-thumb{background:#3D2E1A}
-#lifestyle .video-card:nth-child(4) .video-thumb{background:#6B573E}
-#travel .video-card:nth-child(1) .video-thumb{background:#2A3A4A}
-#travel .video-card:nth-child(2) .video-thumb{background:#1E2E3C}
-#travel .video-card:nth-child(3) .video-thumb{background:#35455A}
-#travel .video-card:nth-child(4) .video-thumb{background:#253444}
+.video-category{font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--green2);margin-bottom:0.2rem;font-weight:500}
+.video-type{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--char);margin-bottom:0.15rem;line-height:1.2;font-weight:600}
+.video-brand{font-size:0.82rem;color:var(--gray)}
+
+#paid .video-card:nth-child(1) .video-thumb{background:#2A4A2C}
+#paid .video-card:nth-child(2) .video-thumb{background:#344F36}
+#paid .video-card:nth-child(3) .video-thumb{background:#3B6640}
+#paid .video-card:nth-child(4) .video-thumb{background:#1E3820}
+#organic .video-card:nth-child(1) .video-thumb{background:#4A3C2A}
+#organic .video-card:nth-child(2) .video-thumb{background:#5C4A35}
+#organic .video-card:nth-child(3) .video-thumb{background:#3D2E1A}
+#organic .video-card:nth-child(4) .video-thumb{background:#6B573E}
 
 .photos{padding:6rem 3rem;background:var(--cream)}
 .masonry{columns:4;column-gap:12px}
@@ -194,6 +199,7 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
   .about{grid-template-columns:1fr;gap:2.5rem;padding:4rem 1.5rem}
   .about-photos{max-width:280px;margin:0 auto;width:100%}
   .examples-section{padding:4rem 1.5rem}
+  .video-type{font-size:1.3rem}
   .photos{padding:4rem 1.5rem}
   .masonry{columns:2;column-gap:8px}
   .photo-item:nth-child(1){height:300px}
@@ -214,6 +220,8 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
 @media(max-width:480px){
   .steps{grid-template-columns:1fr}
   .video-grid{grid-template-columns:repeat(2,1fr);gap:0.75rem}
+  .video-logo{height:40px}
+  .video-type{font-size:1.1rem}
 }
 </style>
 </head>
@@ -252,11 +260,11 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
           <h1 class="hero-hello">Hello, I'm <em>Yan.</em></h1>
           <p class="hero-subtitle">UGC Content Creator</p>
           <div class="hero-niche">
-            <a href="#tech" class="niche-link">Tech + Apps</a>
+            <a href="#paid" class="niche-link">Paid UGC</a>
             <span class="niche-sep">|</span>
-            <a href="#lifestyle" class="niche-link">Lifestyle + Wellness</a>
+            <a href="#organic" class="niche-link">Organic UGC</a>
             <span class="niche-sep">|</span>
-            <a href="#travel" class="niche-link">Travel</a>
+            <a href="#photos" class="niche-link">Photography</a>
           </div>
           <ul class="hero-bullets">
             <li>Gen-Z Creator | 25 Years Old | Asian-American</li>
@@ -286,56 +294,78 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
   </div>
 </section>
 
+<!-- PAID UGC -->
 <section class="examples-section" id="examples">
   <div class="section-top">
     <p class="section-label">Examples</p>
-    <h2 class="section-heading">Tech <em>+ Apps</em></h2>
+    <h2 class="section-heading">Paid <em>UGC</em></h2>
     <div class="divider"></div>
   </div>
-  <div class="video-grid" id="tech">
-    <div class="video-card"><div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div><div class="video-info"><p class="video-category">Tech</p><p class="video-type">Demo</p><p class="video-brand">Brand Name</p></div></div>
-    <div class="video-card"><div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div><div class="video-info"><p class="video-category">Tech</p><p class="video-type">Unboxing</p><p class="video-brand">Brand Name</p></div></div>
-    <div class="video-card"><div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div><div class="video-info"><p class="video-category">App</p><p class="video-type">Problem / Solution</p><p class="video-brand">Brand Name</p></div></div>
-    <div class="video-card"><div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div><div class="video-info"><p class="video-category">Finance</p><p class="video-type">Greenscreen</p><p class="video-brand">Brand Name</p></div></div>
+  <div class="video-grid" id="paid">
+    <div class="video-card">
+      <div class="video-logo"><div class="video-logo-placeholder"><span>Brand Logo</span></div></div>
+      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
+      <div class="video-info"><p class="video-category">Direct Response</p><p class="video-type">Demo</p><p class="video-brand">Brand Name</p></div>
+    </div>
+    <div class="video-card">
+      <div class="video-logo"><div class="video-logo-placeholder"><span>Brand Logo</span></div></div>
+      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
+      <div class="video-info"><p class="video-category">Paid Ad</p><p class="video-type">Unboxing</p><p class="video-brand">Brand Name</p></div>
+    </div>
+    <div class="video-card">
+      <div class="video-logo"><div class="video-logo-placeholder"><span>Brand Logo</span></div></div>
+      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
+      <div class="video-info"><p class="video-category">Paid Ad</p><p class="video-type">Problem / Solution</p><p class="video-brand">Brand Name</p></div>
+    </div>
+    <div class="video-card">
+      <div class="video-logo"><div class="video-logo-placeholder"><span>Brand Logo</span></div></div>
+      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
+      <div class="video-info"><p class="video-category">Paid Ad</p><p class="video-type">Greenscreen</p><p class="video-brand">Brand Name</p></div>
+    </div>
   </div>
 </section>
 
-<section class="examples-section alt">
+<!-- ORGANIC UGC -->
+<section class="examples-section alt" id="organic">
   <div class="section-top">
     <p class="section-label">Examples</p>
-    <h2 class="section-heading">Lifestyle <em>+ Wellness</em></h2>
+    <h2 class="section-heading">Organic <em>UGC</em></h2>
     <div class="divider"></div>
   </div>
-  <div class="video-grid" id="lifestyle">
-    <div class="video-card"><div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div><div class="video-info"><p class="video-category">Skincare</p><p class="video-type">Routine</p><p class="video-brand">Brand Name</p></div></div>
-    <div class="video-card"><div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div><div class="video-info"><p class="video-category">Wellness</p><p class="video-type">Unboxing</p><p class="video-brand">Brand Name</p></div></div>
-    <div class="video-card"><div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div><div class="video-info"><p class="video-category">Lifestyle</p><p class="video-type">Day in my Life</p><p class="video-brand">Brand Name</p></div></div>
-    <div class="video-card"><div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div><div class="video-info"><p class="video-category">Fashion</p><p class="video-type">Haul</p><p class="video-brand">Brand Name</p></div></div>
+  <div class="video-grid">
+    <div class="video-card">
+      <div class="video-logo"><div class="video-logo-placeholder"><span>Brand Logo</span></div></div>
+      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
+      <div class="video-info"><p class="video-category">Lifestyle</p><p class="video-type">Day in my Life</p><p class="video-brand">Brand Name</p></div>
+    </div>
+    <div class="video-card">
+      <div class="video-logo"><div class="video-logo-placeholder"><span>Brand Logo</span></div></div>
+      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
+      <div class="video-info"><p class="video-category">Soft Mention</p><p class="video-type">Routine</p><p class="video-brand">Brand Name</p></div>
+    </div>
+    <div class="video-card">
+      <div class="video-logo"><div class="video-logo-placeholder"><span>Brand Logo</span></div></div>
+      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
+      <div class="video-info"><p class="video-category">Travel</p><p class="video-type">Destination Vlog</p><p class="video-brand">Brand Name</p></div>
+    </div>
+    <div class="video-card">
+      <div class="video-logo"><div class="video-logo-placeholder"><span>Brand Logo</span></div></div>
+      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
+      <div class="video-info"><p class="video-category">Organic</p><p class="video-type">Storytelling</p><p class="video-brand">Brand Name</p></div>
+    </div>
   </div>
 </section>
 
-<section class="examples-section">
-  <div class="section-top">
-    <p class="section-label">Examples</p>
-    <h2 class="section-heading"><em>Travel</em></h2>
-    <div class="divider"></div>
-  </div>
-  <div class="video-grid" id="travel">
-    <div class="video-card"><div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div><div class="video-info"><p class="video-category">Travel</p><p class="video-type">Hotel Review</p><p class="video-brand">Brand Name</p></div></div>
-    <div class="video-card"><div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div><div class="video-info"><p class="video-category">Travel</p><p class="video-type">Pack With Me</p><p class="video-brand">Brand Name</p></div></div>
-    <div class="video-card"><div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div><div class="video-info"><p class="video-category">Travel</p><p class="video-type">Destination Guide</p><p class="video-brand">Brand Name</p></div></div>
-    <div class="video-card"><div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div><div class="video-info"><p class="video-category">Travel</p><p class="video-type">Vlog Style</p><p class="video-brand">Brand Name</p></div></div>
-  </div>
-</section>
-
+<!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-text">
     <p class="section-label">About me</p>
     <h2 class="section-heading">Why work <em>with me?</em></h2>
     <div class="divider"></div>
-    <p class="about-p">I bring something unique — a technical and creative foundation. With a background in <strong>tech engineering</strong> and an elopement <strong>photography</strong> business built on raw, documentary-style <strong>storytelling</strong>, I understand both how products work and how to make them feel human on camera. I'm constantly traveling to new locations, which means fresh, dynamic content shot in a variety of <strong>exciting places</strong>.</p>
-    <p class="about-p">From storyboarding to video editing, my UGC production and strategy is built around one goal: <strong>content that converts</strong>. I approach every project with a deep understanding of <strong>brand needs</strong> and alignment with your social <strong>strategy</strong>.</p>
-    <p class="about-p2">The result? Content that highlights what your product does, feels real to the people watching, and converts.</p>
+    <p class="about-p">I bring something unique — a technical and creative foundation. With a background in <strong>tech engineering</strong> and an elopement <strong>photography</strong> business built on raw, documentary-style <strong>storytelling</strong>, I understand both how products work and how to make them feel human on camera.</p>
+    <p class="about-p">As a <strong>remote worker</strong> and <strong>traveler</strong>, I shoot not only in studios but in real <strong>destinations</strong>. Imagine your brand captured in the mountains, on the beach, or in a charming city street — content that creates a genuine <strong>emotional connection</strong> and positions your brand as part of a <strong>lifestyle experience</strong>. What I film also gives you <strong>evergreen assets</strong> — timeless visuals you can repurpose across campaigns, seasons, and platforms all year long.</p>
+    <p class="about-p">Whether it's <strong>paid content</strong> built to convert or <strong>organic content</strong> built to connect — I approach every project with a deep understanding of <strong>brand needs</strong> and alignment with your <strong>social strategy</strong>. From storyboarding to video editing, my <strong>UGC production</strong> spans direct-response ads, relatable day-in-the-life content, and everything in between.</p>
+    <p class="about-p2">The result? Content that highlights what your product does, feels real to the people watching, builds brand awareness, and converts.</p>
     <div class="about-tags">
       <span class="tag">TikTok</span><span class="tag">Instagram Reels</span><span class="tag">YouTube Shorts</span><span class="tag">Talking Head</span><span class="tag">B-Roll</span><span class="tag">Paid Ads</span><span class="tag">Organic</span><span class="tag">Voiceover</span><span class="tag">Script Writing</span><span class="tag">Strong Hooks</span><span class="tag">Faceless</span><span class="tag">Professional Photography</span><span class="tag">Fast Turnaround</span>
     </div>
@@ -348,6 +378,7 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
   </div>
 </section>
 
+<!-- PHOTOS -->
 <section class="photos" id="photos">
   <div class="section-top">
     <p class="section-label">Photography</p>
@@ -366,6 +397,7 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
   </div>
 </section>
 
+<!-- PROCESS -->
 <section class="workflow" id="process">
   <p class="section-label">My Process</p>
   <h2 class="section-heading">How it <em>works</em></h2>
@@ -378,6 +410,7 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
   </div>
 </section>
 
+<!-- CONTACT -->
 <div class="contact-wrap">
   <section class="contact" id="contact">
     <p class="section-label">Get in touch</p>
