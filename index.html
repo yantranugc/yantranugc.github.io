@@ -118,11 +118,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .photo-item:nth-child(6){height:500px;background:#8EAA87}
 .photo-item:nth-child(7){height:540px;background:#B2C9AA}
 .photo-item:nth-child(8){height:440px;background:#D0DDC9}
-.photo-hint-label{font-size:0.6rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(42,74,44,0.35);position:absolute;bottom:0.6rem;left:0.75rem}
 .photo-item::after{content:'';position:absolute;inset:0;background:rgba(42,74,44,0);transition:background 0.25s;border-radius:4px}
 .photo-item:hover::after{background:rgba(42,74,44,0.08)}
 
-.workflow{background:var(--green);padding:6rem 3rem;border:none;outline:none}
+.workflow{background:var(--green);padding:6rem 3rem}
 .workflow .section-label{color:var(--green3)}
 .workflow .section-heading{color:var(--cream)}
 .workflow .divider{background:rgba(197,213,188,0.3)}
@@ -134,9 +133,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .step-title{font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--green3);margin-bottom:0.75rem}
 .step-body{font-size:0.83rem;color:rgba(197,213,188,0.55);line-height:1.8}
 
-/* CONTACT — no dividing line anywhere */
-.contact-wrap{background:var(--char);position:relative;overflow:visible;overflow-x:hidden;border:none;outline:none;margin:0;padding:0}
-.contact{padding:7rem 3rem;text-align:center;position:relative;z-index:2}
+/* ONE dark block — contact + footer, no seams */
+.dark-block{background:var(--char);position:relative;overflow:hidden}
+.contact{padding:7rem 3rem 320px;text-align:center;position:relative;z-index:2}
 .contact .section-label{color:var(--green3)}
 .contact .section-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.2rem);font-weight:400;line-height:1.15;color:var(--cream);margin-bottom:0.5rem}
 .contact .section-heading em{font-style:italic;color:var(--green3)}
@@ -145,17 +144,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .contact-sub-detail{font-size:1.2rem;color:rgba(197,213,188,0.35);margin-bottom:2rem;font-style:italic;font-family:'Cormorant Garamond',serif}
 .contact-reply-wrap{display:flex;align-items:center;gap:0.5rem;justify-content:center;margin-bottom:0.5rem}
 .contact-reply{font-size:1rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(197,213,188,0.25)}
-.contact-email{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,2.5vw,1.9rem);font-style:italic;color:var(--green3);text-decoration:none;display:block;border-bottom:1px solid rgba(197,213,188,0.2);padding-bottom:4px;margin-top:0.5rem;margin-bottom:2rem;transition:color 0.2s}
+.contact-email{font-family:'Cormorant Garamond',serif;font-size:clamp(1.4rem,2.5vw,1.9rem);font-style:italic;color:var(--green3);text-decoration:none;display:block;margin-top:0.5rem;margin-bottom:2rem;transition:color 0.2s}
 .contact-email:hover{color:var(--cream)}
 .contact-or{font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(197,213,188,0.2);margin-bottom:1.5rem}
 .btn-outline-light{background:transparent;color:var(--green3);padding:0.75rem 2rem;font-family:'Outfit',sans-serif;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;border:1.5px solid rgba(197,213,188,0.25);border-radius:2px;cursor:pointer;transition:all 0.2s;display:inline-block}
 .btn-outline-light:hover{background:rgba(197,213,188,0.08);border-color:rgba(197,213,188,0.5);color:var(--cream)}
-.cutout-wrap{position:absolute;bottom:0;right:6rem;z-index:1;width:240px;display:flex;align-items:flex-end;pointer-events:none}
-.cutout-photo{width:100%;aspect-ratio:2/3;position:relative;overflow:hidden;border-bottom:none;box-shadow:none}
-.cutout-wrap{position:absolute;bottom:-1px;right:6rem;z-index:1;width:240px;display:flex;align-items:flex-end;pointer-events:none}
+.cutout-wrap{position:absolute;bottom:48px;right:6rem;z-index:1;width:240px;display:flex;align-items:flex-end;pointer-events:none}
+.cutout-photo{width:100%;aspect-ratio:2/3;position:relative;overflow:hidden}
 .cutout-photo img{width:100%;height:100%;object-fit:cover;object-position:top;position:absolute;inset:0}
-
-footer{background:var(--char);border:none;outline:none;padding:1.5rem 3rem;display:flex;justify-content:space-between;align-items:center;margin:0}
+.footer-divider{height:1px;background:rgba(255,255,255,0.06);position:relative;z-index:2}
+footer{background:var(--char);padding:1.5rem 3rem;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2}
 .footer-logo{display:inline-flex;align-items:center;gap:0.5rem;text-decoration:none}
 .footer-logo-yan{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(197,213,188,0.3);line-height:1}
 .footer-logo-dot{width:6px;height:6px;border-radius:50%;background:#4CAF50;opacity:0.5;flex-shrink:0}
@@ -209,8 +207,8 @@ footer{background:var(--char);border:none;outline:none;padding:1.5rem 3rem;displ
   .photo-item:nth-child(8){height:270px}
   .photo-item{margin-bottom:8px}
   .workflow{padding:4rem 1.5rem}
-  .contact{padding:5rem 1.5rem}
-  .cutout-wrap{width:130px;right:0.5rem}
+  .contact{padding:5rem 1.5rem 200px}
+  .cutout-wrap{width:130px;right:0.5rem;bottom:48px}
   footer{padding:1.2rem 1.5rem}
   .modal{max-height:85vh}
 }
@@ -445,7 +443,8 @@ footer{background:var(--char);border:none;outline:none;padding:1.5rem 3rem;displ
   </div>
 </section>
 
-<div class="contact-wrap">
+<!-- CONTACT + FOOTER as one seamless dark block -->
+<div class="dark-block">
   <section class="contact" id="contact">
     <p class="section-label">Get in touch</p>
     <h2 class="section-heading">Let's make something <em>together.</em></h2>
@@ -465,16 +464,16 @@ footer{background:var(--char);border:none;outline:none;padding:1.5rem 3rem;displ
       <img src="images/Subject.png" alt="Yan">
     </div>
   </div>
+  <div class="footer-divider"></div>
+  <footer>
+    <a class="footer-logo" href="#">
+      <span class="footer-logo-yan">Yan</span>
+      <div class="footer-logo-dot"></div>
+      <span class="footer-logo-ugc">UGC</span>
+    </a>
+    <span class="footer-right">© 2026</span>
+  </footer>
 </div>
-
-<footer>
-  <a class="footer-logo" href="#">
-    <span class="footer-logo-yan">Yan</span>
-    <div class="footer-logo-dot"></div>
-    <span class="footer-logo-ugc">UGC</span>
-  </a>
-  <span class="footer-right">© 2026</span>
-</footer>
 
 <div class="modal-overlay" id="contactModal">
   <div class="modal">
@@ -497,66 +496,65 @@ const ctx = canvas.getContext('2d');
 const DPR = window.devicePixelRatio || 1;
 const SAGE = '#C2D4BB';
 function resize() {
-  const w = canvas.offsetWidth, h = canvas.offsetHeight;
-  canvas.width = w * DPR; canvas.height = h * DPR;
-  ctx.setTransform(1,0,0,1,0,0); ctx.scale(DPR, DPR);
+  const w=canvas.offsetWidth, h=canvas.offsetHeight;
+  canvas.width=w*DPR; canvas.height=h*DPR;
+  ctx.setTransform(1,0,0,1,0,0); ctx.scale(DPR,DPR);
 }
 resize();
-window.addEventListener('resize', () => { resize(); buildLoop(); });
-const W = () => canvas.offsetWidth;
-const H = () => canvas.offsetHeight;
-const FONT_SIZE = 16, LETTER_SPACING = 1.5, GAP = 28;
-const WAVE_AMP = 10, WAVE_FREQ = 0.008, WAVE_SPEED = 0.012, SCROLL_SPEED = 0.55;
-const words = ['UGC CREATOR', 'PHOTOGRAPHER', 'ENGINEER'];
-let offset = 0, t = 0, items = [], loopWidth = 0;
-function waveY(x) { return H()/2 + Math.sin(x*WAVE_FREQ+t)*WAVE_AMP; }
-function waveAngle(x) { return Math.atan(WAVE_AMP*WAVE_FREQ*Math.cos(x*WAVE_FREQ+t)); }
-function drawHeart(cx,cy,size,angle) {
-  ctx.save(); ctx.translate(cx,cy); ctx.rotate(angle);
-  ctx.beginPath(); const s=size/2;
-  ctx.moveTo(0,s*0.3); ctx.bezierCurveTo(-s*1.2,-s*0.8,-s*2.4,s*0.2,0,s*1.4);
+window.addEventListener('resize',()=>{ resize(); buildLoop(); });
+const W=()=>canvas.offsetWidth, H=()=>canvas.offsetHeight;
+const FONT_SIZE=16,LETTER_SPACING=1.5,GAP=28;
+const WAVE_AMP=10,WAVE_FREQ=0.008,WAVE_SPEED=0.012,SCROLL_SPEED=0.55;
+const words=['UGC CREATOR','PHOTOGRAPHER','ENGINEER'];
+let offset=0,t=0,items=[],loopWidth=0;
+function waveY(x){return H()/2+Math.sin(x*WAVE_FREQ+t)*WAVE_AMP;}
+function waveAngle(x){return Math.atan(WAVE_AMP*WAVE_FREQ*Math.cos(x*WAVE_FREQ+t));}
+function drawHeart(cx,cy,size,angle){
+  ctx.save();ctx.translate(cx,cy);ctx.rotate(angle);
+  ctx.beginPath();const s=size/2;
+  ctx.moveTo(0,s*0.3);ctx.bezierCurveTo(-s*1.2,-s*0.8,-s*2.4,s*0.2,0,s*1.4);
   ctx.bezierCurveTo(s*2.4,s*0.2,s*1.2,-s*0.8,0,s*0.3);
-  ctx.fillStyle='#1C1C19'; ctx.fill(); ctx.restore();
+  ctx.fillStyle='#1C1C19';ctx.fill();ctx.restore();
 }
-function drawLetters(text,startX) {
+function drawLetters(text,startX){
   ctx.font=`400 ${FONT_SIZE}px "Cormorant Garamond", serif`;
-  ctx.fillStyle='#1C1C19'; ctx.textBaseline='middle';
+  ctx.fillStyle='#1C1C19';ctx.textBaseline='middle';
   let x=startX;
-  for (const ch of text) {
+  for(const ch of text){
     const w=ctx.measureText(ch).width+LETTER_SPACING;
-    const wx=x+w/2, wy=waveY(wx+offset), angle=waveAngle(wx+offset);
-    ctx.save(); ctx.translate(wx,wy); ctx.rotate(angle);
+    const wx=x+w/2,wy=waveY(wx+offset),angle=waveAngle(wx+offset);
+    ctx.save();ctx.translate(wx,wy);ctx.rotate(angle);
     ctx.fillText(ch,-ctx.measureText(ch).width/2,0);
-    ctx.restore(); x+=w;
+    ctx.restore();x+=w;
   }
   return x;
 }
-function measureWord(text) {
+function measureWord(text){
   ctx.font=`400 ${FONT_SIZE}px "Cormorant Garamond", serif`;
-  let w=0; for (const ch of text) w+=ctx.measureText(ch).width+LETTER_SPACING; return w;
+  let w=0;for(const ch of text)w+=ctx.measureText(ch).width+LETTER_SPACING;return w;
 }
-function buildLoop() {
-  items=[]; loopWidth=0;
-  for (const word of words) {
+function buildLoop(){
+  items=[];loopWidth=0;
+  for(const word of words){
     const tw=measureWord(word);
-    items.push({type:'word',text:word,width:tw}); loopWidth+=tw+GAP;
-    items.push({type:'heart',width:18}); loopWidth+=18+GAP;
+    items.push({type:'word',text:word,width:tw});loopWidth+=tw+GAP;
+    items.push({type:'heart',width:18});loopWidth+=18+GAP;
   }
 }
-function draw() {
-  ctx.fillStyle=SAGE; ctx.fillRect(0,0,W(),H());
+function draw(){
+  ctx.fillStyle=SAGE;ctx.fillRect(0,0,W(),H());
   const loops=Math.ceil((W()+loopWidth)/loopWidth)+2;
-  for (let loop=0;loop<loops;loop++) {
+  for(let loop=0;loop<loops;loop++){
     let x=loop*loopWidth-(offset%loopWidth);
-    for (const item of items) {
-      if (item.type==='word') { x=drawLetters(item.text,x); x+=GAP; }
-      else { drawHeart(x+9,waveY(x+offset+9),9,waveAngle(x+offset+9)); x+=item.width+GAP; }
+    for(const item of items){
+      if(item.type==='word'){x=drawLetters(item.text,x);x+=GAP;}
+      else{drawHeart(x+9,waveY(x+offset+9),9,waveAngle(x+offset+9));x+=item.width+GAP;}
     }
   }
-  offset+=SCROLL_SPEED; t+=WAVE_SPEED;
+  offset+=SCROLL_SPEED;t+=WAVE_SPEED;
   requestAnimationFrame(draw);
 }
-document.fonts.ready.then(()=>{ buildLoop(); draw(); });
+document.fonts.ready.then(()=>{buildLoop();draw();});
 </script>
 </body>
 </html>
