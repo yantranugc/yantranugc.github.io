@@ -133,9 +133,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .step-title{font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--green3);margin-bottom:0.75rem}
 .step-body{font-size:0.83rem;color:rgba(197,213,188,0.55);line-height:1.8}
 
-/* ONE dark block — contact + footer, no seams */
-.dark-block{background:var(--char);position:relative;overflow:hidden}
-.contact{padding:7rem 3rem 320px;text-align:center;position:relative;z-index:2}
+.contact-wrap{background:var(--char);position:relative;overflow:hidden}
+.contact{padding:7rem 3rem;text-align:center;position:relative;z-index:2}
 .contact .section-label{color:var(--green3)}
 .contact .section-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.2rem);font-weight:400;line-height:1.15;color:var(--cream);margin-bottom:0.5rem}
 .contact .section-heading em{font-style:italic;color:var(--green3)}
@@ -149,11 +148,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .contact-or{font-size:0.65rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(197,213,188,0.2);margin-bottom:1.5rem}
 .btn-outline-light{background:transparent;color:var(--green3);padding:0.75rem 2rem;font-family:'Outfit',sans-serif;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;border:1.5px solid rgba(197,213,188,0.25);border-radius:2px;cursor:pointer;transition:all 0.2s;display:inline-block}
 .btn-outline-light:hover{background:rgba(197,213,188,0.08);border-color:rgba(197,213,188,0.5);color:var(--cream)}
-.cutout-wrap{position:absolute;bottom:48px;right:6rem;z-index:1;width:240px;display:flex;align-items:flex-end;pointer-events:none}
+.cutout-wrap{position:absolute;bottom:0;right:6rem;z-index:1;width:240px;display:flex;align-items:flex-end;pointer-events:none}
 .cutout-photo{width:100%;aspect-ratio:2/3;position:relative;overflow:hidden}
 .cutout-photo img{width:100%;height:100%;object-fit:cover;object-position:top;position:absolute;inset:0}
-.footer-divider{height:1px;background:rgba(255,255,255,0.06);position:relative;z-index:2}
-footer{background:var(--char);padding:1.5rem 3rem;display:flex;justify-content:space-between;align-items:center;position:relative;z-index:2}
+
+footer{background:var(--char);padding:1.5rem 3rem;display:flex;justify-content:space-between;align-items:center}
 .footer-logo{display:inline-flex;align-items:center;gap:0.5rem;text-decoration:none}
 .footer-logo-yan{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:rgba(197,213,188,0.3);line-height:1}
 .footer-logo-dot{width:6px;height:6px;border-radius:50%;background:#4CAF50;opacity:0.5;flex-shrink:0}
@@ -207,8 +206,8 @@ footer{background:var(--char);padding:1.5rem 3rem;display:flex;justify-content:s
   .photo-item:nth-child(8){height:270px}
   .photo-item{margin-bottom:8px}
   .workflow{padding:4rem 1.5rem}
-  .contact{padding:5rem 1.5rem 200px}
-  .cutout-wrap{width:130px;right:0.5rem;bottom:48px}
+  .contact{padding:5rem 1.5rem}
+  .cutout-wrap{width:130px;right:0.5rem}
   footer{padding:1.2rem 1.5rem}
   .modal{max-height:85vh}
 }
@@ -294,22 +293,10 @@ footer{background:var(--char);padding:1.5rem 3rem;display:flex;justify-content:s
     <div class="divider"></div>
   </div>
   <div class="video-grid" id="tech">
-    <div class="video-card">
-      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
-      <div class="video-info"><p class="video-category">Tech</p><p class="video-type">Demo</p><p class="video-brand">Brand Name</p></div>
-    </div>
-    <div class="video-card">
-      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
-      <div class="video-info"><p class="video-category">Tech</p><p class="video-type">Unboxing</p><p class="video-brand">Brand Name</p></div>
-    </div>
-    <div class="video-card">
-      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
-      <div class="video-info"><p class="video-category">App</p><p class="video-type">Problem / Solution</p><p class="video-brand">Brand Name</p></div>
-    </div>
-    <div class="video-card">
-      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
-      <div class="video-info"><p class="video-category">Finance</p><p class="video-type">Greenscreen</p><p class="video-brand">Brand Name</p></div>
-    </div>
+    <div class="video-card"><div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div><div class="video-info"><p class="video-category">Tech</p><p class="video-type">Demo</p><p class="video-brand">Brand Name</p></div></div>
+    <div class="video-card"><div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div><div class="video-info"><p class="video-category">Tech</p><p class="video-type">Unboxing</p><p class="video-brand">Brand Name</p></div></div>
+    <div class="video-card"><div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div><div class="video-info"><p class="video-category">App</p><p class="video-type">Problem / Solution</p><p class="video-brand">Brand Name</p></div></div>
+    <div class="video-card"><div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div><div class="video-info"><p class="video-category">Finance</p><p class="video-type">Greenscreen</p><p class="video-brand">Brand Name</p></div></div>
   </div>
 </section>
 
@@ -320,22 +307,10 @@ footer{background:var(--char);padding:1.5rem 3rem;display:flex;justify-content:s
     <div class="divider"></div>
   </div>
   <div class="video-grid" id="lifestyle">
-    <div class="video-card">
-      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
-      <div class="video-info"><p class="video-category">Skincare</p><p class="video-type">Routine</p><p class="video-brand">Brand Name</p></div>
-    </div>
-    <div class="video-card">
-      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
-      <div class="video-info"><p class="video-category">Wellness</p><p class="video-type">Unboxing</p><p class="video-brand">Brand Name</p></div>
-    </div>
-    <div class="video-card">
-      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
-      <div class="video-info"><p class="video-category">Lifestyle</p><p class="video-type">Day in my Life</p><p class="video-brand">Brand Name</p></div>
-    </div>
-    <div class="video-card">
-      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
-      <div class="video-info"><p class="video-category">Fashion</p><p class="video-type">Haul</p><p class="video-brand">Brand Name</p></div>
-    </div>
+    <div class="video-card"><div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div><div class="video-info"><p class="video-category">Skincare</p><p class="video-type">Routine</p><p class="video-brand">Brand Name</p></div></div>
+    <div class="video-card"><div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div><div class="video-info"><p class="video-category">Wellness</p><p class="video-type">Unboxing</p><p class="video-brand">Brand Name</p></div></div>
+    <div class="video-card"><div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div><div class="video-info"><p class="video-category">Lifestyle</p><p class="video-type">Day in my Life</p><p class="video-brand">Brand Name</p></div></div>
+    <div class="video-card"><div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div><div class="video-info"><p class="video-category">Fashion</p><p class="video-type">Haul</p><p class="video-brand">Brand Name</p></div></div>
   </div>
 </section>
 
@@ -346,22 +321,10 @@ footer{background:var(--char);padding:1.5rem 3rem;display:flex;justify-content:s
     <div class="divider"></div>
   </div>
   <div class="video-grid" id="travel">
-    <div class="video-card">
-      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
-      <div class="video-info"><p class="video-category">Travel</p><p class="video-type">Hotel Review</p><p class="video-brand">Brand Name</p></div>
-    </div>
-    <div class="video-card">
-      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
-      <div class="video-info"><p class="video-category">Travel</p><p class="video-type">Pack With Me</p><p class="video-brand">Brand Name</p></div>
-    </div>
-    <div class="video-card">
-      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
-      <div class="video-info"><p class="video-category">Travel</p><p class="video-type">Destination Guide</p><p class="video-brand">Brand Name</p></div>
-    </div>
-    <div class="video-card">
-      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
-      <div class="video-info"><p class="video-category">Travel</p><p class="video-type">Vlog Style</p><p class="video-brand">Brand Name</p></div>
-    </div>
+    <div class="video-card"><div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div><div class="video-info"><p class="video-category">Travel</p><p class="video-type">Hotel Review</p><p class="video-brand">Brand Name</p></div></div>
+    <div class="video-card"><div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div><div class="video-info"><p class="video-category">Travel</p><p class="video-type">Pack With Me</p><p class="video-brand">Brand Name</p></div></div>
+    <div class="video-card"><div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div><div class="video-info"><p class="video-category">Travel</p><p class="video-type">Destination Guide</p><p class="video-brand">Brand Name</p></div></div>
+    <div class="video-card"><div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div><div class="video-info"><p class="video-category">Travel</p><p class="video-type">Vlog Style</p><p class="video-brand">Brand Name</p></div></div>
   </div>
 </section>
 
@@ -374,19 +337,7 @@ footer{background:var(--char);padding:1.5rem 3rem;display:flex;justify-content:s
     <p class="about-p">From storyboarding to video editing, my UGC production and strategy is built around one goal: content that converts. I approach every project with a deep understanding of <strong>brand needs</strong> and alignment with your social <strong>strategy</strong>.</p>
     <p class="about-p2">The result? Content that highlights what your product does, feels real to the people watching, and converts.</p>
     <div class="about-tags">
-      <span class="tag">TikTok</span>
-      <span class="tag">Instagram Reels</span>
-      <span class="tag">YouTube Shorts</span>
-      <span class="tag">Talking Head</span>
-      <span class="tag">B-Roll</span>
-      <span class="tag">Paid Ads</span>
-      <span class="tag">Organic</span>
-      <span class="tag">Voiceover</span>
-      <span class="tag">Script Writing</span>
-      <span class="tag">Strong Hooks</span>
-      <span class="tag">Faceless</span>
-      <span class="tag">Professional Photography</span>
-      <span class="tag">Fast Turnaround</span>
+      <span class="tag">TikTok</span><span class="tag">Instagram Reels</span><span class="tag">YouTube Shorts</span><span class="tag">Talking Head</span><span class="tag">B-Roll</span><span class="tag">Paid Ads</span><span class="tag">Organic</span><span class="tag">Voiceover</span><span class="tag">Script Writing</span><span class="tag">Strong Hooks</span><span class="tag">Faceless</span><span class="tag">Professional Photography</span><span class="tag">Fast Turnaround</span>
     </div>
   </div>
   <div class="about-photos">
@@ -420,31 +371,14 @@ footer{background:var(--char);padding:1.5rem 3rem;display:flex;justify-content:s
   <h2 class="section-heading">How it <em>works</em></h2>
   <div class="divider"></div>
   <div class="steps">
-    <div class="step">
-      <span class="step-num">01</span>
-      <p class="step-title">Discovery</p>
-      <p class="step-body">You share the brief, product, and any examples. I ask a few questions to completely understand the scope of work.</p>
-    </div>
-    <div class="step">
-      <span class="step-num">02</span>
-      <p class="step-title">Concept</p>
-      <p class="step-body">I put together a short concept + hook + script for your approval before filming starts.</p>
-    </div>
-    <div class="step">
-      <span class="step-num">03</span>
-      <p class="step-title">Creation</p>
-      <p class="step-body">I film, edit, and deliver raw + final files within 3–6 days — or the agreed upon timeline — of concept approval and receiving the product.</p>
-    </div>
-    <div class="step">
-      <span class="step-num">04</span>
-      <p class="step-title">Revisions</p>
-      <p class="step-body">One round of revisions included. I want you to love it — we'll get it right!</p>
-    </div>
+    <div class="step"><span class="step-num">01</span><p class="step-title">Discovery</p><p class="step-body">You share the brief, product, and any examples. I ask a few questions to completely understand the scope of work.</p></div>
+    <div class="step"><span class="step-num">02</span><p class="step-title">Concept</p><p class="step-body">I put together a short concept + hook + script for your approval before filming starts.</p></div>
+    <div class="step"><span class="step-num">03</span><p class="step-title">Creation</p><p class="step-body">I film, edit, and deliver raw + final files within 3–6 days — or the agreed upon timeline — of concept approval and receiving the product.</p></div>
+    <div class="step"><span class="step-num">04</span><p class="step-title">Revisions</p><p class="step-body">One round of revisions included. I want you to love it — we'll get it right!</p></div>
   </div>
 </section>
 
-<!-- CONTACT + FOOTER as one seamless dark block -->
-<div class="dark-block">
+<div class="contact-wrap">
   <section class="contact" id="contact">
     <p class="section-label">Get in touch</p>
     <h2 class="section-heading">Let's make something <em>together.</em></h2>
@@ -464,16 +398,16 @@ footer{background:var(--char);padding:1.5rem 3rem;display:flex;justify-content:s
       <img src="images/Subject.png" alt="Yan">
     </div>
   </div>
-  <div class="footer-divider"></div>
-  <footer>
-    <a class="footer-logo" href="#">
-      <span class="footer-logo-yan">Yan</span>
-      <div class="footer-logo-dot"></div>
-      <span class="footer-logo-ugc">UGC</span>
-    </a>
-    <span class="footer-right">© 2026</span>
-  </footer>
 </div>
+
+<footer>
+  <a class="footer-logo" href="#">
+    <span class="footer-logo-yan">Yan</span>
+    <div class="footer-logo-dot"></div>
+    <span class="footer-logo-ugc">UGC</span>
+  </a>
+  <span class="footer-right">© 2026</span>
+</footer>
 
 <div class="modal-overlay" id="contactModal">
   <div class="modal">
@@ -491,69 +425,24 @@ footer{background:var(--char);padding:1.5rem 3rem;display:flex;justify-content:s
 </div>
 
 <script>
-const canvas = document.getElementById('ticker-canvas');
-const ctx = canvas.getContext('2d');
-const DPR = window.devicePixelRatio || 1;
-const SAGE = '#C2D4BB';
-function resize() {
-  const w=canvas.offsetWidth, h=canvas.offsetHeight;
-  canvas.width=w*DPR; canvas.height=h*DPR;
-  ctx.setTransform(1,0,0,1,0,0); ctx.scale(DPR,DPR);
-}
+const canvas=document.getElementById('ticker-canvas');
+const ctx=canvas.getContext('2d');
+const DPR=window.devicePixelRatio||1;
+const SAGE='#C2D4BB';
+function resize(){const w=canvas.offsetWidth,h=canvas.offsetHeight;canvas.width=w*DPR;canvas.height=h*DPR;ctx.setTransform(1,0,0,1,0,0);ctx.scale(DPR,DPR);}
 resize();
-window.addEventListener('resize',()=>{ resize(); buildLoop(); });
-const W=()=>canvas.offsetWidth, H=()=>canvas.offsetHeight;
-const FONT_SIZE=16,LETTER_SPACING=1.5,GAP=28;
-const WAVE_AMP=10,WAVE_FREQ=0.008,WAVE_SPEED=0.012,SCROLL_SPEED=0.55;
+window.addEventListener('resize',()=>{resize();buildLoop();});
+const W=()=>canvas.offsetWidth,H=()=>canvas.offsetHeight;
+const FONT_SIZE=16,LETTER_SPACING=1.5,GAP=28,WAVE_AMP=10,WAVE_FREQ=0.008,WAVE_SPEED=0.012,SCROLL_SPEED=0.55;
 const words=['UGC CREATOR','PHOTOGRAPHER','ENGINEER'];
 let offset=0,t=0,items=[],loopWidth=0;
 function waveY(x){return H()/2+Math.sin(x*WAVE_FREQ+t)*WAVE_AMP;}
 function waveAngle(x){return Math.atan(WAVE_AMP*WAVE_FREQ*Math.cos(x*WAVE_FREQ+t));}
-function drawHeart(cx,cy,size,angle){
-  ctx.save();ctx.translate(cx,cy);ctx.rotate(angle);
-  ctx.beginPath();const s=size/2;
-  ctx.moveTo(0,s*0.3);ctx.bezierCurveTo(-s*1.2,-s*0.8,-s*2.4,s*0.2,0,s*1.4);
-  ctx.bezierCurveTo(s*2.4,s*0.2,s*1.2,-s*0.8,0,s*0.3);
-  ctx.fillStyle='#1C1C19';ctx.fill();ctx.restore();
-}
-function drawLetters(text,startX){
-  ctx.font=`400 ${FONT_SIZE}px "Cormorant Garamond", serif`;
-  ctx.fillStyle='#1C1C19';ctx.textBaseline='middle';
-  let x=startX;
-  for(const ch of text){
-    const w=ctx.measureText(ch).width+LETTER_SPACING;
-    const wx=x+w/2,wy=waveY(wx+offset),angle=waveAngle(wx+offset);
-    ctx.save();ctx.translate(wx,wy);ctx.rotate(angle);
-    ctx.fillText(ch,-ctx.measureText(ch).width/2,0);
-    ctx.restore();x+=w;
-  }
-  return x;
-}
-function measureWord(text){
-  ctx.font=`400 ${FONT_SIZE}px "Cormorant Garamond", serif`;
-  let w=0;for(const ch of text)w+=ctx.measureText(ch).width+LETTER_SPACING;return w;
-}
-function buildLoop(){
-  items=[];loopWidth=0;
-  for(const word of words){
-    const tw=measureWord(word);
-    items.push({type:'word',text:word,width:tw});loopWidth+=tw+GAP;
-    items.push({type:'heart',width:18});loopWidth+=18+GAP;
-  }
-}
-function draw(){
-  ctx.fillStyle=SAGE;ctx.fillRect(0,0,W(),H());
-  const loops=Math.ceil((W()+loopWidth)/loopWidth)+2;
-  for(let loop=0;loop<loops;loop++){
-    let x=loop*loopWidth-(offset%loopWidth);
-    for(const item of items){
-      if(item.type==='word'){x=drawLetters(item.text,x);x+=GAP;}
-      else{drawHeart(x+9,waveY(x+offset+9),9,waveAngle(x+offset+9));x+=item.width+GAP;}
-    }
-  }
-  offset+=SCROLL_SPEED;t+=WAVE_SPEED;
-  requestAnimationFrame(draw);
-}
+function drawHeart(cx,cy,size,angle){ctx.save();ctx.translate(cx,cy);ctx.rotate(angle);ctx.beginPath();const s=size/2;ctx.moveTo(0,s*0.3);ctx.bezierCurveTo(-s*1.2,-s*0.8,-s*2.4,s*0.2,0,s*1.4);ctx.bezierCurveTo(s*2.4,s*0.2,s*1.2,-s*0.8,0,s*0.3);ctx.fillStyle='#1C1C19';ctx.fill();ctx.restore();}
+function drawLetters(text,startX){ctx.font=`400 ${FONT_SIZE}px "Cormorant Garamond", serif`;ctx.fillStyle='#1C1C19';ctx.textBaseline='middle';let x=startX;for(const ch of text){const w=ctx.measureText(ch).width+LETTER_SPACING;const wx=x+w/2,wy=waveY(wx+offset),angle=waveAngle(wx+offset);ctx.save();ctx.translate(wx,wy);ctx.rotate(angle);ctx.fillText(ch,-ctx.measureText(ch).width/2,0);ctx.restore();x+=w;}return x;}
+function measureWord(text){ctx.font=`400 ${FONT_SIZE}px "Cormorant Garamond", serif`;let w=0;for(const ch of text)w+=ctx.measureText(ch).width+LETTER_SPACING;return w;}
+function buildLoop(){items=[];loopWidth=0;for(const word of words){const tw=measureWord(word);items.push({type:'word',text:word,width:tw});loopWidth+=tw+GAP;items.push({type:'heart',width:18});loopWidth+=18+GAP;}}
+function draw(){ctx.fillStyle=SAGE;ctx.fillRect(0,0,W(),H());const loops=Math.ceil((W()+loopWidth)/loopWidth)+2;for(let loop=0;loop<loops;loop++){let x=loop*loopWidth-(offset%loopWidth);for(const item of items){if(item.type==='word'){x=drawLetters(item.text,x);x+=GAP;}else{drawHeart(x+9,waveY(x+offset+9),9,waveAngle(x+offset+9));x+=item.width+GAP;}}}offset+=SCROLL_SPEED;t+=WAVE_SPEED;requestAnimationFrame(draw);}
 document.fonts.ready.then(()=>{buildLoop();draw();});
 </script>
 </body>
