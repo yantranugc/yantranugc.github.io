@@ -300,9 +300,9 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
           </div>
           <ul class="hero-bullets">
             <li>Gen-Z Creator | 25 y.o. | Asian-American</li>
-            <li>Engineer in Tech</li>
+            <li>Engineer in tech</li>
             <li>Elopement Photographer</li>
-            <li>Traveled to 25+ Countries</li>
+            <li>Traveler | 25+ Countries</li>
             <li>Speak and can film in Vietnamese, Spanish, Cantonese, and Malay</li>
           </ul>
           <div class="hero-meta">
@@ -356,7 +356,7 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
       <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
       <div class="video-info">
         <p class="video-type-label">Paid</p>
-        <p class="video-type">Testimonial & Problem/Solution</p>
+        <p class="video-type">Problem/Solution</p>
         <p class="video-niche">Travel & Tech/Apps · Direct to Camera</p>
       </div>
     </div>
@@ -369,7 +369,7 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
       <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
       <div class="video-info">
         <p class="video-type-label">Organic</p>
-        <p class="video-type">Routine</p>
+        <p class="video-type">Routine + Lifestyle</p>
         <p class="video-niche">Lifestyle & Wellness · Voiceover</p>
       </div>
     </div>
@@ -382,7 +382,7 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
       <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
       <div class="video-info">
         <p class="video-type-label">Organic</p>
-        <p class="video-type">Humor & Relatable</p>
+        <p class="video-type">Humor + Relatable</p>
         <p class="video-niche">Wellness · Voiceover</p>
       </div>
     </div>
@@ -523,4 +523,9 @@ function drawHeart(cx,cy,size,angle){ctx.save();ctx.translate(cx,cy);ctx.rotate(
 function drawLetters(text,startX){ctx.font=`400 ${FONT_SIZE}px "Cormorant Garamond", serif`;ctx.fillStyle='#1C1C19';ctx.textBaseline='middle';let x=startX;for(const ch of text){const w=ctx.measureText(ch).width+LETTER_SPACING;const wx=x+w/2,wy=waveY(wx+offset),angle=waveAngle(wx+offset);ctx.save();ctx.translate(wx,wy);ctx.rotate(angle);ctx.fillText(ch,-ctx.measureText(ch).width/2,0);ctx.restore();x+=w;}return x;}
 function measureWord(text){ctx.font=`400 ${FONT_SIZE}px "Cormorant Garamond", serif`;let w=0;for(const ch of text)w+=ctx.measureText(ch).width+LETTER_SPACING;return w;}
 function buildLoop(){items=[];loopWidth=0;for(const word of words){const tw=measureWord(word);items.push({type:'word',text:word,width:tw});loopWidth+=tw+GAP;items.push({type:'heart',width:18});loopWidth+=18+GAP;}}
-function draw(){ctx.fillStyle=SAGE;ctx.fillRect(0,0,W(),H());const loops=Math.ceil((W()+loopWidth)/loopWidth)+2;for(let loo
+function draw(){ctx.fillStyle=SAGE;ctx.fillRect(0,0,W(),H());const loops=Math.ceil((W()+loopWidth)/loopWidth)+2;for(let loofunction draw(){ctx.fillStyle=SAGE;ctx.fillRect(0,0,W(),H());const loops=Math.ceil((W()+loopWidth)/loopWidth)+2;for(let loop=0;loop<loops;loop++){let x=loop*loopWidth-(offset%loopWidth);for(const item of items){if(item.type==='word'){x=drawLetters(item.text,x);x+=GAP;}else{drawHeart(x+9,waveY(x+offset+9),9,waveAngle(x+offset+9));x+=item.width+GAP;}}}offset+=SCROLL_SPEED;t+=WAVE_SPEED;requestAnimationFrame(draw);}
+buildLoop(); draw();
+document.fonts.ready.then(()=>{ buildLoop(); });
+</script>
+</body>
+</html>
