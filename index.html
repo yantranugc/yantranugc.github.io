@@ -24,15 +24,12 @@
 html{scroll-behavior:smooth}
 body{background:var(--cream);color:var(--char);font-family:'Outfit',sans-serif;font-weight:300;overflow-x:hidden}
 
-/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.2rem 3rem;background:var(--cream);border-bottom:1px solid var(--cream3)}
 .nav-favicon{display:inline-flex;align-items:center;text-decoration:none;flex-shrink:0}
 .nav-favicon img{width:32px;height:32px;border-radius:4px}
 .nav-links{display:flex;gap:2rem;list-style:none}
 .nav-links a{font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color 0.2s}
 .nav-links a:hover{color:var(--green)}
-
-/* HAMBURGER */
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
 .hamburger span{display:block;width:22px;height:2px;background:var(--char);border-radius:2px;transition:all 0.3s}
 .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
@@ -44,7 +41,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .mobile-menu a:last-child{border-bottom:none}
 .mobile-menu a:hover{color:var(--green)}
 
-/* HERO */
 .hero{min-height:100vh;display:flex;flex-direction:column;background:var(--sage);padding-top:64px}
 .hero-ticker{width:100%;background:var(--sage);padding:4rem 0 1rem;display:flex;align-items:center;justify-content:center;overflow:hidden}
 #ticker-canvas{display:block;width:100%;height:50px}
@@ -80,7 +76,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .btn-outline{background:transparent;color:var(--green);padding:0.75rem 1.4rem;font-family:'Outfit',sans-serif;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;border-radius:2px;border:1.5px solid var(--green);cursor:pointer;transition:all 0.2s;display:inline-block}
 .btn-outline:hover{background:var(--green);color:var(--cream);transform:translateY(-1px)}
 
-/* EXAMPLES */
 .examples-section{padding:5rem 3rem}
 .section-label{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--green2);margin-bottom:0.6rem}
 .section-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.6rem);font-weight:400;line-height:1.15;color:var(--char);margin-bottom:0.5rem}
@@ -90,29 +85,22 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .video-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
 .video-card{display:flex;flex-direction:column;cursor:pointer;transition:transform 0.25s}
 .video-card:hover{transform:translateY(-4px)}
-
-/* brand logo */
 .video-logo{height:64px;display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem}
 .video-logo img{max-height:48px;max-width:140px;object-fit:contain;display:block}
-
 .video-thumb{aspect-ratio:9/16;border-radius:8px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;margin-bottom:0.85rem}
 .phone-notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:40px;height:5px;background:rgba(0,0,0,0.2);border-radius:3px}
 .play-btn{width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(253,250,245,0.4);display:flex;align-items:center;justify-content:center;transition:background 0.2s,border-color 0.2s}
 .video-card:hover .play-btn{background:rgba(253,250,245,0.15);border-color:rgba(253,250,245,0.7)}
 .play-btn::after{content:'';width:0;height:0;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:12px solid rgba(253,250,245,0.75);margin-left:3px}
-
-/* video card colors */
 .video-card:nth-child(1) .video-thumb{background:#2A4A2C}
 .video-card:nth-child(2) .video-thumb{background:#2A3A4A}
 .video-card:nth-child(3) .video-thumb{background:#4A3C2A}
 .video-card:nth-child(4) .video-thumb{background:#3D2E1A}
-
 .video-info{padding:0 0.2rem}
 .video-type-label{font-size:0.82rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--green);margin-bottom:0.25rem;font-weight:600}
 .video-type{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--char);margin-bottom:0.25rem;line-height:1.2;font-weight:600}
 .video-niche{font-size:0.95rem;color:var(--char);opacity:0.6;font-weight:400}
 
-/* ABOUT */
 .about{background:var(--cream2);display:grid;grid-template-columns:1.2fr 0.8fr;gap:4rem;align-items:center;padding:6rem 3rem}
 .about-p{font-size:0.92rem;color:var(--gray);line-height:1.95;margin-bottom:1.25rem}
 .about-p strong{color:var(--char);font-weight:500}
@@ -123,7 +111,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .about-photo{border-radius:4px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;width:100%;height:100%}
 .about-photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
 
-/* PHOTOS */
 .photos{padding:6rem 3rem;background:var(--cream)}
 .masonry{columns:4;column-gap:12px}
 .photo-item{break-inside:avoid;margin-bottom:12px;border-radius:4px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
@@ -139,7 +126,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .photo-item::after{content:'';position:absolute;inset:0;background:rgba(42,74,44,0);transition:background 0.25s;border-radius:4px}
 .photo-item:hover::after{background:rgba(42,74,44,0.08)}
 
-/* WORKFLOW */
 .workflow{background:var(--green);padding:6rem 3rem}
 .workflow .section-label{color:var(--green3)}
 .workflow .section-heading{color:var(--cream)}
@@ -152,7 +138,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .step-title{font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--green3);margin-bottom:0.75rem}
 .step-body{font-size:0.83rem;color:rgba(197,213,188,0.55);line-height:1.8}
 
-/* CONTACT */
 .contact-wrap{background:var(--char);position:relative;overflow:hidden}
 .contact{padding:7rem 3rem;text-align:center;position:relative;z-index:2}
 .contact .section-label{color:var(--green3)}
@@ -172,7 +157,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .cutout-photo{width:100%;aspect-ratio:2/3;position:relative;overflow:hidden}
 .cutout-photo img{width:100%;height:100%;object-fit:cover;object-position:top;position:absolute;inset:0}
 
-/* FOOTER */
 footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:space-between;align-items:center}
 .footer-logo{display:inline-flex;align-items:center;gap:0.5rem;text-decoration:none}
 .footer-logo-yan{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--char);line-height:1}
@@ -245,7 +229,6 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a class="nav-favicon" href="#">
     <img src="favicon.svg" alt="Yan UGC">
@@ -263,7 +246,6 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
   </button>
 </nav>
 
-<!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="#" onclick="closeMenu()">Home</a>
   <a href="#examples" onclick="closeMenu()">Examples</a>
@@ -273,7 +255,6 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
   <a href="#contact" onclick="closeMenu()">Contact</a>
 </div>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-ticker">
     <canvas id="ticker-canvas"></canvas>
@@ -294,13 +275,13 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
           <h1 class="hero-hello">Hello, I'm <em>Yan.</em></h1>
           <p class="hero-subtitle">UGC Content Creator</p>
           <div class="hero-niche">
-            <a href="#examples" class="niche-link">Paid & Organic UGC</a>
+            <a href="#examples" class="niche-link">Paid &amp; Organic UGC</a>
             <span class="niche-sep">|</span>
             <a href="#photos" class="niche-link">Photography</a>
           </div>
           <ul class="hero-bullets">
             <li>Gen-Z Creator | 25 y.o. | Asian-American</li>
-            <li>Engineer in tech</li>
+            <li>Engineer in Tech</li>
             <li>Elopement Photographer</li>
             <li>Traveler | 25+ Countries</li>
             <li>Speak and can film in Vietnamese, Spanish, Cantonese, and Malay</li>
@@ -308,7 +289,7 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
           <div class="hero-meta">
             <div class="meta-row">
               <span class="meta-label">Email</span>
-              <a href="/cdn-cgi/l/email-protection#1d647c7333696f7c7333687a7e5d7a707c7471337e7270" class="meta-val"><span class="__cf_email__" data-cfemail="d2abb3bcfca6a0b3bcfca7b5b192b5bfb3bbbefcb1bdbf">[email&#160;protected]</span></a>
+              <a href="mailto:yan&#46;tran&#46;ugc&#64;gmail&#46;com" class="meta-val">yan.tran.ugc&#64;gmail.com</a>
             </div>
             <div class="meta-row">
               <span class="meta-label">Based in</span>
@@ -326,7 +307,6 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
   </div>
 </section>
 
-<!-- EXAMPLES — unified 4 cards -->
 <section class="examples-section" id="examples">
   <div class="section-top">
     <p class="section-label">Examples</p>
@@ -334,63 +314,45 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
     <div class="divider"></div>
   </div>
   <div class="video-grid">
-
-    <!-- Preply -->
     <div class="video-card">
-      <div class="video-logo">
-        <img src="images/preply-logo.png" alt="Preply">
-      </div>
+      <div class="video-logo"><img src="images/preply-logo.png" alt="Preply"></div>
       <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
       <div class="video-info">
         <p class="video-type-label">Paid</p>
         <p class="video-type">Product Demo</p>
-        <p class="video-niche">Education & Apps · Direct + Greenscreen</p>
+        <p class="video-niche">Education &amp; Apps &middot; Direct + Greenscreen</p>
       </div>
     </div>
-
-    <!-- Airalo -->
     <div class="video-card">
-      <div class="video-logo">
-        <img src="images/airalo_logo.svg.png" alt="Airalo">
-      </div>
+      <div class="video-logo"><img src="images/airalo_logo.svg.png" alt="Airalo"></div>
       <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
       <div class="video-info">
         <p class="video-type-label">Paid</p>
         <p class="video-type">Problem/Solution</p>
-        <p class="video-niche">Travel & Tech/Apps · Direct to Camera</p>
+        <p class="video-niche">Travel &amp; Tech/Apps &middot; Direct to Camera</p>
       </div>
     </div>
-
-    <!-- Hatch -->
     <div class="video-card">
-      <div class="video-logo">
-        <img src="images/hatch-logo-new.png" alt="Hatch">
-      </div>
+      <div class="video-logo"><img src="images/hatch-logo-new.png" alt="Hatch"></div>
       <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
       <div class="video-info">
         <p class="video-type-label">Organic</p>
         <p class="video-type">Routine + Lifestyle</p>
-        <p class="video-niche">Lifestyle & Wellness · Voiceover</p>
+        <p class="video-niche">Lifestyle &amp; Wellness &middot; Voiceover</p>
       </div>
     </div>
-
-    <!-- Haruharu Wonder -->
     <div class="video-card">
-      <div class="video-logo">
-        <img src="images/haruharu_logo.png" alt="Haruharu Wonder">
-      </div>
+      <div class="video-logo"><img src="images/haruharu_logo.png" alt="Haruharu Wonder"></div>
       <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
       <div class="video-info">
         <p class="video-type-label">Organic</p>
         <p class="video-type">Humor + Relatable</p>
-        <p class="video-niche">Wellness · Voiceover</p>
+        <p class="video-niche">Wellness &middot; Voiceover</p>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-text">
     <p class="section-label">About me</p>
@@ -412,7 +374,6 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
   </div>
 </section>
 
-<!-- PHOTOS -->
 <section class="photos" id="photos">
   <div class="section-top">
     <p class="section-label">Photography</p>
@@ -431,7 +392,6 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
   </div>
 </section>
 
-<!-- PROCESS -->
 <section class="workflow" id="process">
   <p class="section-label">My Process</p>
   <h2 class="section-heading">How it <em>works</em></h2>
@@ -439,12 +399,11 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
   <div class="steps">
     <div class="step"><span class="step-num">01</span><p class="step-title">Discovery</p><p class="step-body">You share the brief, product, and any examples. I ask a few questions to completely understand the scope of work.</p></div>
     <div class="step"><span class="step-num">02</span><p class="step-title">Concept</p><p class="step-body">I put together a short concept + hook + script for your approval before filming starts.</p></div>
-    <div class="step"><span class="step-num">03</span><p class="step-title">Creation</p><p class="step-body">I film, edit, and deliver raw + final files within 3–6 days — or the agreed upon timeline — of concept approval and receiving the product.</p></div>
+    <div class="step"><span class="step-num">03</span><p class="step-title">Creation</p><p class="step-body">I film, edit, and deliver raw + final files within 3-6 days of concept approval and receiving the product.</p></div>
     <div class="step"><span class="step-num">04</span><p class="step-title">Revisions</p><p class="step-body">One round of revisions included. I want you to love it — we'll get it right!</p></div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <div class="contact-wrap">
   <section class="contact" id="contact">
     <p class="section-label">Get in touch</p>
@@ -456,7 +415,7 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
       <div class="avail-dot"></div>
       <p class="contact-reply">Reply within 24 hours</p>
     </div>
-    <a href="/cdn-cgi/l/email-protection#1e677f70306a6c7f70306b797d5e79737f7772307d7173" class="contact-email"><span class="__cf_email__" data-cfemail="9ae3fbf4b4eee8fbf4b4effdf9dafdf7fbf3f6b4f9f5f7">[email&#160;protected]</span></a>
+    <a href="mailto:yan&#46;tran&#46;ugc&#64;gmail&#46;com" class="contact-email">yan.tran.ugc&#64;gmail.com</a>
     <p class="contact-or">or</p>
     <button class="btn-outline-light" onclick="document.getElementById('contactModal').classList.add('open')">Fill out my form</button>
   </section>
@@ -473,10 +432,9 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
     <div class="footer-logo-dot"></div>
     <span class="footer-logo-ugc">UGC</span>
   </a>
-  <span class="footer-right">© 2026</span>
+  <span class="footer-right">&#169; 2026</span>
 </footer>
 
-<!-- MODAL -->
 <div class="modal-overlay" id="contactModal">
   <div class="modal">
     <div class="modal-header">
@@ -484,19 +442,18 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
         <h3>Let's work together.</h3>
         <p>Fill out the form and I'll get back to you within 24 hours.</p>
       </div>
-      <button class="modal-close" onclick="document.getElementById('contactModal').classList.remove('open')">✕</button>
+      <button class="modal-close" onclick="document.getElementById('contactModal').classList.remove('open')">&#10005;</button>
     </div>
     <div class="modal-body">
-      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfjW5tRiwJ2z75v_N-AwM3vvAYi7X6UITsqDToIEkj62q-vZA/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfjW5tRiwJ2z75v_N-AwM3vvAYi7X6UITsqDToIEkj62q-vZA/viewform?embedded=true" width="100%" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading</iframe>
     </div>
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// HAMBURGER
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-hamburger.addEventListener('click', () => {
+<script>
+var hamburger = document.getElementById('hamburger');
+var mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', function() {
   hamburger.classList.toggle('open');
   mobileMenu.classList.toggle('open');
 });
@@ -505,27 +462,126 @@ function closeMenu() {
   mobileMenu.classList.remove('open');
 }
 
-// TICKER — starts immediately, rebuilds when fonts load
-const canvas=document.getElementById('ticker-canvas');
-const ctx=canvas.getContext('2d');
-const DPR=window.devicePixelRatio||1;
-const SAGE='#C2D4BB';
-function resize(){const w=canvas.offsetWidth,h=canvas.offsetHeight;canvas.width=w*DPR;canvas.height=h*DPR;ctx.setTransform(1,0,0,1,0,0);ctx.scale(DPR,DPR);}
+var canvas = document.getElementById('ticker-canvas');
+var ctx = canvas.getContext('2d');
+var DPR = window.devicePixelRatio || 1;
+var SAGE = '#C2D4BB';
+var FONT_SIZE = 16;
+var LETTER_SPACING = 1.5;
+var GAP = 28;
+var WAVE_AMP = 10;
+var WAVE_FREQ = 0.008;
+var WAVE_SPEED = 0.012;
+var SCROLL_SPEED = 0.55;
+var words = ['UGC CREATOR', 'PHOTOGRAPHER', 'ENGINEER'];
+var offset = 0;
+var t = 0;
+var items = [];
+var loopWidth = 0;
+
+function resize() {
+  var w = canvas.offsetWidth;
+  var h = canvas.offsetHeight;
+  canvas.width = w * DPR;
+  canvas.height = h * DPR;
+  ctx.setTransform(1, 0, 0, 1, 0, 0);
+  ctx.scale(DPR, DPR);
+}
+
+function W() { return canvas.offsetWidth; }
+function H() { return canvas.offsetHeight; }
+
+function waveY(x) {
+  return H() / 2 + Math.sin(x * WAVE_FREQ + t) * WAVE_AMP;
+}
+
+function waveAngle(x) {
+  return Math.atan(WAVE_AMP * WAVE_FREQ * Math.cos(x * WAVE_FREQ + t));
+}
+
+function drawHeart(cx, cy, size, angle) {
+  ctx.save();
+  ctx.translate(cx, cy);
+  ctx.rotate(angle);
+  ctx.beginPath();
+  var s = size / 2;
+  ctx.moveTo(0, s * 0.3);
+  ctx.bezierCurveTo(-s * 1.2, -s * 0.8, -s * 2.4, s * 0.2, 0, s * 1.4);
+  ctx.bezierCurveTo(s * 2.4, s * 0.2, s * 1.2, -s * 0.8, 0, s * 0.3);
+  ctx.fillStyle = '#1C1C19';
+  ctx.fill();
+  ctx.restore();
+}
+
+function drawLetters(text, startX) {
+  ctx.font = '400 ' + FONT_SIZE + 'px "Cormorant Garamond", serif';
+  ctx.fillStyle = '#1C1C19';
+  ctx.textBaseline = 'middle';
+  var x = startX;
+  for (var i = 0; i < text.length; i++) {
+    var ch = text[i];
+    var w = ctx.measureText(ch).width + LETTER_SPACING;
+    var wx = x + w / 2;
+    var wy = waveY(wx + offset);
+    var angle = waveAngle(wx + offset);
+    ctx.save();
+    ctx.translate(wx, wy);
+    ctx.rotate(angle);
+    ctx.fillText(ch, -ctx.measureText(ch).width / 2, 0);
+    ctx.restore();
+    x += w;
+  }
+  return x;
+}
+
+function measureWord(text) {
+  ctx.font = '400 ' + FONT_SIZE + 'px "Cormorant Garamond", serif';
+  var w = 0;
+  for (var i = 0; i < text.length; i++) {
+    w += ctx.measureText(text[i]).width + LETTER_SPACING;
+  }
+  return w;
+}
+
+function buildLoop() {
+  items = [];
+  loopWidth = 0;
+  for (var i = 0; i < words.length; i++) {
+    var tw = measureWord(words[i]);
+    items.push({ type: 'word', text: words[i], width: tw });
+    loopWidth += tw + GAP;
+    items.push({ type: 'heart', width: 18 });
+    loopWidth += 18 + GAP;
+  }
+}
+
+function draw() {
+  ctx.fillStyle = SAGE;
+  ctx.fillRect(0, 0, W(), H());
+  var loops = Math.ceil((W() + loopWidth) / loopWidth) + 2;
+  for (var loop = 0; loop < loops; loop++) {
+    var x = loop * loopWidth - (offset % loopWidth);
+    for (var i = 0; i < items.length; i++) {
+      var item = items[i];
+      if (item.type === 'word') {
+        x = drawLetters(item.text, x);
+        x += GAP;
+      } else {
+        drawHeart(x + 9, waveY(x + offset + 9), 9, waveAngle(x + offset + 9));
+        x += item.width + GAP;
+      }
+    }
+  }
+  offset += SCROLL_SPEED;
+  t += WAVE_SPEED;
+  requestAnimationFrame(draw);
+}
+
 resize();
-window.addEventListener('resize',()=>{resize();buildLoop();});
-const W=()=>canvas.offsetWidth,H=()=>canvas.offsetHeight;
-const FONT_SIZE=16,LETTER_SPACING=1.5,GAP=28,WAVE_AMP=10,WAVE_FREQ=0.008,WAVE_SPEED=0.012,SCROLL_SPEED=0.55;
-const words=['UGC CREATOR','PHOTOGRAPHER','ENGINEER'];
-let offset=0,t=0,items=[],loopWidth=0;
-function waveY(x){return H()/2+Math.sin(x*WAVE_FREQ+t)*WAVE_AMP;}
-function waveAngle(x){return Math.atan(WAVE_AMP*WAVE_FREQ*Math.cos(x*WAVE_FREQ+t));}
-function drawHeart(cx,cy,size,angle){ctx.save();ctx.translate(cx,cy);ctx.rotate(angle);ctx.beginPath();const s=size/2;ctx.moveTo(0,s*0.3);ctx.bezierCurveTo(-s*1.2,-s*0.8,-s*2.4,s*0.2,0,s*1.4);ctx.bezierCurveTo(s*2.4,s*0.2,s*1.2,-s*0.8,0,s*0.3);ctx.fillStyle='#1C1C19';ctx.fill();ctx.restore();}
-function drawLetters(text,startX){ctx.font=`400 ${FONT_SIZE}px "Cormorant Garamond", serif`;ctx.fillStyle='#1C1C19';ctx.textBaseline='middle';let x=startX;for(const ch of text){const w=ctx.measureText(ch).width+LETTER_SPACING;const wx=x+w/2,wy=waveY(wx+offset),angle=waveAngle(wx+offset);ctx.save();ctx.translate(wx,wy);ctx.rotate(angle);ctx.fillText(ch,-ctx.measureText(ch).width/2,0);ctx.restore();x+=w;}return x;}
-function measureWord(text){ctx.font=`400 ${FONT_SIZE}px "Cormorant Garamond", serif`;let w=0;for(const ch of text)w+=ctx.measureText(ch).width+LETTER_SPACING;return w;}
-function buildLoop(){items=[];loopWidth=0;for(const word of words){const tw=measureWord(word);items.push({type:'word',text:word,width:tw});loopWidth+=tw+GAP;items.push({type:'heart',width:18});loopWidth+=18+GAP;}}
-function draw(){ctx.fillStyle=SAGE;ctx.fillRect(0,0,W(),H());const loops=Math.ceil((W()+loopWidth)/loopWidth)+2;for(let loofunction draw(){ctx.fillStyle=SAGE;ctx.fillRect(0,0,W(),H());const loops=Math.ceil((W()+loopWidth)/loopWidth)+2;for(let loop=0;loop<loops;loop++){let x=loop*loopWidth-(offset%loopWidth);for(const item of items){if(item.type==='word'){x=drawLetters(item.text,x);x+=GAP;}else{drawHeart(x+9,waveY(x+offset+9),9,waveAngle(x+offset+9));x+=item.width+GAP;}}}offset+=SCROLL_SPEED;t+=WAVE_SPEED;requestAnimationFrame(draw);}
-buildLoop(); draw();
-document.fonts.ready.then(()=>{ buildLoop(); });
+window.addEventListener('resize', function() { resize(); buildLoop(); });
+buildLoop();
+draw();
+document.fonts.ready.then(function() { buildLoop(); });
 </script>
 </body>
 </html>
