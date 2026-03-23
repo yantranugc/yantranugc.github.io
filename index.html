@@ -92,8 +92,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .video-card:hover{transform:translateY(-4px)}
 
 /* brand logo */
-.video-logo{height:52px;display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem}
-.video-logo img{max-height:36px;max-width:110px;object-fit:contain;display:block}
+.video-logo{height:64px;display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem}
+.video-logo img{max-height:48px;max-width:140px;object-fit:contain;display:block}
 
 .video-thumb{aspect-ratio:9/16;border-radius:8px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;margin-bottom:0.85rem}
 .phone-notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:40px;height:5px;background:rgba(0,0,0,0.2);border-radius:3px}
@@ -108,9 +108,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .video-card:nth-child(4) .video-thumb{background:#3D2E1A}
 
 .video-info{padding:0 0.2rem}
-.video-type-label{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--green2);margin-bottom:0.2rem;font-weight:500}
-.video-type{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--char);margin-bottom:0.15rem;line-height:1.2;font-weight:600}
-.video-niche{font-size:0.82rem;color:var(--gray)}
+.video-type-label{font-size:0.82rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--green);margin-bottom:0.25rem;font-weight:600}
+.video-type{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--char);margin-bottom:0.25rem;line-height:1.2;font-weight:600}
+.video-niche{font-size:0.95rem;color:var(--char);opacity:0.6;font-weight:400}
 
 /* ABOUT */
 .about{background:var(--cream2);display:grid;grid-template-columns:1.2fr 0.8fr;gap:4rem;align-items:center;padding:6rem 3rem}
@@ -215,7 +215,9 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
   .about{grid-template-columns:1fr;gap:2.5rem;padding:4rem 1.5rem}
   .about-photos{max-width:280px;margin:0 auto;width:100%}
   .examples-section{padding:4rem 1.5rem}
-  .video-type{font-size:1.3rem}
+  .video-type{font-size:1.35rem}
+  .video-type-label{font-size:0.72rem}
+  .video-niche{font-size:0.82rem}
   .photos{padding:4rem 1.5rem}
   .masonry{columns:2;column-gap:8px}
   .photo-item:nth-child(1){height:300px}
@@ -237,7 +239,7 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
   .steps{grid-template-columns:1fr}
   .video-grid{grid-template-columns:repeat(2,1fr);gap:0.75rem}
   .video-type{font-size:1.1rem}
-  .video-logo img{max-height:28px;max-width:90px}
+  .video-logo img{max-height:32px;max-width:100px}
 }
 </style>
 </head>
@@ -292,9 +294,7 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
           <h1 class="hero-hello">Hello, I'm <em>Yan.</em></h1>
           <p class="hero-subtitle">UGC Content Creator</p>
           <div class="hero-niche">
-            <a href="#examples" class="niche-link">Paid UGC</a>
-            <span class="niche-sep">|</span>
-            <a href="#examples" class="niche-link">Organic UGC</a>
+            <a href="#examples" class="niche-link">Paid & Organic UGC</a>
             <span class="niche-sep">|</span>
             <a href="#photos" class="niche-link">Photography</a>
           </div>
@@ -308,7 +308,7 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
           <div class="hero-meta">
             <div class="meta-row">
               <span class="meta-label">Email</span>
-              <a href="mailto:yan.tran.ugc@gmail.com" class="meta-val">yan.tran.ugc@gmail.com</a>
+              <a href="/cdn-cgi/l/email-protection#1d647c7333696f7c7333687a7e5d7a707c7471337e7270" class="meta-val"><span class="__cf_email__" data-cfemail="d2abb3bcfca6a0b3bcfca7b5b192b5bfb3bbbefcb1bdbf">[email&#160;protected]</span></a>
             </div>
             <div class="meta-row">
               <span class="meta-label">Based in</span>
@@ -344,7 +344,7 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
       <div class="video-info">
         <p class="video-type-label">Paid</p>
         <p class="video-type">Product Demo</p>
-        <p class="video-niche">Education & Apps · Talking Head</p>
+        <p class="video-niche">Education & Apps · Direct + Greenscreen</p>
       </div>
     </div>
 
@@ -356,8 +356,8 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
       <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
       <div class="video-info">
         <p class="video-type-label">Paid</p>
-        <p class="video-type">Testimonial</p>
-        <p class="video-niche">Travel & Tech · Talking Head</p>
+        <p class="video-type">Testimonial & Problem/Solution</p>
+        <p class="video-niche">Travel & Tech/Apps · Direct to Camera</p>
       </div>
     </div>
 
@@ -382,8 +382,8 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
       <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
       <div class="video-info">
         <p class="video-type-label">Organic</p>
-        <p class="video-type">Humor & Review</p>
-        <p class="video-niche">Wellness & Beauty · Voiceover</p>
+        <p class="video-type">Humor & Relatable</p>
+        <p class="video-niche">Wellness · Voiceover</p>
       </div>
     </div>
 
@@ -398,7 +398,7 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
     <div class="divider"></div>
     <p class="about-p">I bring something unique — a technical and creative foundation. With a background in <strong>tech engineering</strong> and an elopement <strong>photography</strong> business built on raw, documentary-style <strong>storytelling</strong>, I understand both how products work and how to make them feel human on camera.</p>
     <p class="about-p">As a <strong>remote worker</strong> and <strong>traveler</strong>, I shoot not only in cozy homes, but also real <strong>destinations</strong>. Imagine your brand captured in the mountains, the beaches, or a charming city street. I create scroll-stopping content that positions your brand as part of a <strong>lifestyle experience</strong> and creates <strong>emotional connection</strong>. What I film also gives you <strong>evergreen assets</strong> — timeless visuals you can repurpose across campaigns, seasons, and platforms all year long.</p>
-    <p class="about-p">Whether it's <strong>paid content</strong> built to <strong>convert</strong> or <strong>organic content</strong> built to <strong>connect</strong> — I approach every project with a deep understanding of <strong>brand needs</strong> and alignment with your <strong>social strategy</strong>. From storyboarding to video editing, my <strong>UGC production</strong> spans direct-response ads, relatable day-in-the-life content, and everything in between.</p>
+    <p class="about-p">Whether it's <strong>paid</strong> content built to <strong>convert</strong> or <strong>organic</strong> content built to <strong>connect</strong> — I approach every project with a deep understanding of <strong>brand needs</strong> and alignment with your <strong>social strategy</strong>. From storyboarding to video editing, my UGC production spans direct-response ads, relatable day-in-the-life content, and everything in between.</p>
     <p class="about-p2">The result? Content that highlights what your product does, feels real to the people watching, builds brand awareness, and converts.</p>
     <div class="about-tags">
       <span class="tag">TikTok</span><span class="tag">Instagram Reels</span><span class="tag">YouTube Shorts</span><span class="tag">Talking Head</span><span class="tag">B-Roll</span><span class="tag">Paid Ads</span><span class="tag">Organic</span><span class="tag">Voiceover</span><span class="tag">Script Writing</span><span class="tag">Strong Hooks</span><span class="tag">Faceless</span><span class="tag">Professional Photography</span><span class="tag">Fast Turnaround</span><span class="tag">Aesthetic</span>
@@ -456,7 +456,7 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
       <div class="avail-dot"></div>
       <p class="contact-reply">Reply within 24 hours</p>
     </div>
-    <a href="mailto:yan.tran.ugc@gmail.com" class="contact-email">yan.tran.ugc@gmail.com</a>
+    <a href="/cdn-cgi/l/email-protection#1e677f70306a6c7f70306b797d5e79737f7772307d7173" class="contact-email"><span class="__cf_email__" data-cfemail="9ae3fbf4b4eee8fbf4b4effdf9dafdf7fbf3f6b4f9f5f7">[email&#160;protected]</span></a>
     <p class="contact-or">or</p>
     <button class="btn-outline-light" onclick="document.getElementById('contactModal').classList.add('open')">Fill out my form</button>
   </section>
@@ -492,7 +492,7 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
   </div>
 </div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // HAMBURGER
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
@@ -523,9 +523,4 @@ function drawHeart(cx,cy,size,angle){ctx.save();ctx.translate(cx,cy);ctx.rotate(
 function drawLetters(text,startX){ctx.font=`400 ${FONT_SIZE}px "Cormorant Garamond", serif`;ctx.fillStyle='#1C1C19';ctx.textBaseline='middle';let x=startX;for(const ch of text){const w=ctx.measureText(ch).width+LETTER_SPACING;const wx=x+w/2,wy=waveY(wx+offset),angle=waveAngle(wx+offset);ctx.save();ctx.translate(wx,wy);ctx.rotate(angle);ctx.fillText(ch,-ctx.measureText(ch).width/2,0);ctx.restore();x+=w;}return x;}
 function measureWord(text){ctx.font=`400 ${FONT_SIZE}px "Cormorant Garamond", serif`;let w=0;for(const ch of text)w+=ctx.measureText(ch).width+LETTER_SPACING;return w;}
 function buildLoop(){items=[];loopWidth=0;for(const word of words){const tw=measureWord(word);items.push({type:'word',text:word,width:tw});loopWidth+=tw+GAP;items.push({type:'heart',width:18});loopWidth+=18+GAP;}}
-function draw(){ctx.fillStyle=SAGE;ctx.fillRect(0,0,W(),H());const loops=Math.ceil((W()+loopWidth)/loopWidth)+2;for(let loop=0;loop<loops;loop++){let x=loop*loopWidth-(offset%loopWidth);for(const item of items){if(item.type==='word'){x=drawLetters(item.text,x);x+=GAP;}else{drawHeart(x+9,waveY(x+offset+9),9,waveAngle(x+offset+9));x+=item.width+GAP;}}}offset+=SCROLL_SPEED;t+=WAVE_SPEED;requestAnimationFrame(draw);}
-buildLoop(); draw();
-document.fonts.ready.then(()=>{ buildLoop(); });
-</script>
-</body>
-</html>
+function draw(){ctx.fillStyle=SAGE;ctx.fillRect(0,0,W(),H());const loops=Math.ceil((W()+loopWidth)/loopWidth)+2;for(let loo
