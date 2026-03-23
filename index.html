@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Yan UGC</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -22,6 +24,7 @@
 html{scroll-behavior:smooth}
 body{background:var(--cream);color:var(--char);font-family:'Outfit',sans-serif;font-weight:300;overflow-x:hidden}
 
+/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.2rem 3rem;background:var(--cream);border-bottom:1px solid var(--cream3)}
 .nav-favicon{display:inline-flex;align-items:center;text-decoration:none;flex-shrink:0}
 .nav-favicon img{width:32px;height:32px;border-radius:4px}
@@ -29,6 +32,19 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .nav-links a{font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color 0.2s}
 .nav-links a:hover{color:var(--green)}
 
+/* HAMBURGER */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--char);border-radius:2px;transition:all 0.3s}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{display:none;position:fixed;top:57px;left:0;right:0;background:var(--cream);border-bottom:1px solid var(--cream3);z-index:99;padding:1rem 1.5rem;flex-direction:column;gap:0}
+.mobile-menu.open{display:flex}
+.mobile-menu a{font-size:0.75rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gray);text-decoration:none;padding:0.85rem 0;border-bottom:1px solid var(--cream3);transition:color 0.2s}
+.mobile-menu a:last-child{border-bottom:none}
+.mobile-menu a:hover{color:var(--green)}
+
+/* HERO */
 .hero{min-height:100vh;display:flex;flex-direction:column;background:var(--sage);padding-top:64px}
 .hero-ticker{width:100%;background:var(--sage);padding:4rem 0 1rem;display:flex;align-items:center;justify-content:center;overflow:hidden}
 #ticker-canvas{display:block;width:100%;height:50px}
@@ -64,11 +80,40 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .btn-outline{background:transparent;color:var(--green);padding:0.75rem 1.4rem;font-family:'Outfit',sans-serif;font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;border-radius:2px;border:1.5px solid var(--green);cursor:pointer;transition:all 0.2s;display:inline-block}
 .btn-outline:hover{background:var(--green);color:var(--cream);transform:translateY(-1px)}
 
-.about{background:var(--cream2);display:grid;grid-template-columns:1.2fr 0.8fr;gap:4rem;align-items:center;padding:6rem 3rem}
+/* EXAMPLES */
+.examples-section{padding:5rem 3rem}
 .section-label{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--green2);margin-bottom:0.6rem}
 .section-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,3vw,2.6rem);font-weight:400;line-height:1.15;color:var(--char);margin-bottom:0.5rem}
 .section-heading em{font-style:italic;color:var(--green2)}
 .divider{width:40px;height:1px;background:var(--green3);margin:1.2rem 0 2rem}
+.section-top{margin-bottom:2.5rem}
+.video-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.video-card{display:flex;flex-direction:column;cursor:pointer;transition:transform 0.25s}
+.video-card:hover{transform:translateY(-4px)}
+
+/* brand logo */
+.video-logo{height:52px;display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem}
+.video-logo img{max-height:36px;max-width:110px;object-fit:contain;display:block}
+
+.video-thumb{aspect-ratio:9/16;border-radius:8px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;margin-bottom:0.85rem}
+.phone-notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:40px;height:5px;background:rgba(0,0,0,0.2);border-radius:3px}
+.play-btn{width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(253,250,245,0.4);display:flex;align-items:center;justify-content:center;transition:background 0.2s,border-color 0.2s}
+.video-card:hover .play-btn{background:rgba(253,250,245,0.15);border-color:rgba(253,250,245,0.7)}
+.play-btn::after{content:'';width:0;height:0;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:12px solid rgba(253,250,245,0.75);margin-left:3px}
+
+/* video card colors */
+.video-card:nth-child(1) .video-thumb{background:#2A4A2C}
+.video-card:nth-child(2) .video-thumb{background:#2A3A4A}
+.video-card:nth-child(3) .video-thumb{background:#4A3C2A}
+.video-card:nth-child(4) .video-thumb{background:#3D2E1A}
+
+.video-info{padding:0 0.2rem}
+.video-type-label{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--green2);margin-bottom:0.2rem;font-weight:500}
+.video-type{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--char);margin-bottom:0.15rem;line-height:1.2;font-weight:600}
+.video-niche{font-size:0.82rem;color:var(--gray)}
+
+/* ABOUT */
+.about{background:var(--cream2);display:grid;grid-template-columns:1.2fr 0.8fr;gap:4rem;align-items:center;padding:6rem 3rem}
 .about-p{font-size:0.92rem;color:var(--gray);line-height:1.95;margin-bottom:1.25rem}
 .about-p strong{color:var(--char);font-weight:500}
 .about-p2{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-style:italic;color:var(--green2);line-height:1.6;margin-bottom:2rem;padding-left:1.2rem;border-left:2px solid var(--green3)}
@@ -78,39 +123,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .about-photo{border-radius:4px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;width:100%;height:100%}
 .about-photo img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
 
-/* EXAMPLES */
-.examples-section{padding:5rem 3rem}
-.examples-section.alt{background:var(--cream2)}
-.section-top{margin-bottom:2.5rem}
-.video-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
-.video-card{display:flex;flex-direction:column;cursor:pointer;transition:transform 0.25s}
-.video-card:hover{transform:translateY(-4px)}
-
-/* brand logo slot above video */
-.video-logo{height:48px;display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem}
-.video-logo img{max-height:36px;max-width:100%;object-fit:contain}
-.video-logo-placeholder{width:80px;height:32px;border-radius:4px;background:var(--cream3);display:flex;align-items:center;justify-content:center}
-.video-logo-placeholder span{font-size:0.55rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gray)}
-
-.video-thumb{aspect-ratio:9/16;border-radius:8px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;margin-bottom:0.85rem}
-.phone-notch{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:40px;height:5px;background:rgba(0,0,0,0.2);border-radius:3px}
-.play-btn{width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(253,250,245,0.4);display:flex;align-items:center;justify-content:center;transition:background 0.2s,border-color 0.2s}
-.video-card:hover .play-btn{background:rgba(253,250,245,0.15);border-color:rgba(253,250,245,0.7)}
-.play-btn::after{content:'';width:0;height:0;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:12px solid rgba(253,250,245,0.75);margin-left:3px}
-.video-info{padding:0 0.2rem}
-.video-category{font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--green2);margin-bottom:0.2rem;font-weight:500}
-.video-type{font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--char);margin-bottom:0.15rem;line-height:1.2;font-weight:600}
-.video-brand{font-size:0.82rem;color:var(--gray)}
-
-#paid .video-card:nth-child(1) .video-thumb{background:#2A4A2C}
-#paid .video-card:nth-child(2) .video-thumb{background:#344F36}
-#paid .video-card:nth-child(3) .video-thumb{background:#3B6640}
-#paid .video-card:nth-child(4) .video-thumb{background:#1E3820}
-#organic .video-card:nth-child(1) .video-thumb{background:#4A3C2A}
-#organic .video-card:nth-child(2) .video-thumb{background:#5C4A35}
-#organic .video-card:nth-child(3) .video-thumb{background:#3D2E1A}
-#organic .video-card:nth-child(4) .video-thumb{background:#6B573E}
-
+/* PHOTOS */
 .photos{padding:6rem 3rem;background:var(--cream)}
 .masonry{columns:4;column-gap:12px}
 .photo-item{break-inside:avoid;margin-bottom:12px;border-radius:4px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center}
@@ -126,6 +139,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .photo-item::after{content:'';position:absolute;inset:0;background:rgba(42,74,44,0);transition:background 0.25s;border-radius:4px}
 .photo-item:hover::after{background:rgba(42,74,44,0.08)}
 
+/* WORKFLOW */
 .workflow{background:var(--green);padding:6rem 3rem}
 .workflow .section-label{color:var(--green3)}
 .workflow .section-heading{color:var(--cream)}
@@ -138,6 +152,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .step-title{font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--green3);margin-bottom:0.75rem}
 .step-body{font-size:0.83rem;color:rgba(197,213,188,0.55);line-height:1.8}
 
+/* CONTACT */
 .contact-wrap{background:var(--char);position:relative;overflow:hidden}
 .contact{padding:7rem 3rem;text-align:center;position:relative;z-index:2}
 .contact .section-label{color:var(--green3)}
@@ -157,6 +172,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .cutout-photo{width:100%;aspect-ratio:2/3;position:relative;overflow:hidden}
 .cutout-photo img{width:100%;height:100%;object-fit:cover;object-position:top;position:absolute;inset:0}
 
+/* FOOTER */
 footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:space-between;align-items:center}
 .footer-logo{display:inline-flex;align-items:center;gap:0.5rem;text-decoration:none}
 .footer-logo-yan{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--char);line-height:1}
@@ -183,10 +199,10 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
   .step:not(:first-child){padding-left:0!important}
 }
 @media(max-width:768px){
-  nav{padding:1rem 1.5rem;justify-content:space-between}
-  .nav-favicon img{width:24px;height:24px}
-  .nav-links{gap:1rem}
-  .nav-links a{font-size:0.6rem}
+  nav{padding:1rem 1.5rem}
+  .nav-links{display:none}
+  .hamburger{display:flex}
+  .nav-favicon img{width:26px;height:26px}
   #ticker-canvas{height:40px}
   .hero-ticker{padding:1.5rem 0 0.75rem}
   .hero-inner{padding:1rem 1.5rem 2rem}
@@ -220,26 +236,42 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
 @media(max-width:480px){
   .steps{grid-template-columns:1fr}
   .video-grid{grid-template-columns:repeat(2,1fr);gap:0.75rem}
-  .video-logo{height:40px}
   .video-type{font-size:1.1rem}
+  .video-logo img{max-height:28px;max-width:90px}
 }
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav>
   <a class="nav-favicon" href="#">
     <img src="favicon.svg" alt="Yan UGC">
   </a>
   <ul class="nav-links">
+    <li><a href="#">Home</a></li>
     <li><a href="#examples">Examples</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#photos">Photos</a></li>
     <li><a href="#process">Process</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
 
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#" onclick="closeMenu()">Home</a>
+  <a href="#examples" onclick="closeMenu()">Examples</a>
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#photos" onclick="closeMenu()">Photos</a>
+  <a href="#process" onclick="closeMenu()">Process</a>
+  <a href="#contact" onclick="closeMenu()">Contact</a>
+</div>
+
+<!-- HERO -->
 <section class="hero">
   <div class="hero-ticker">
     <canvas id="ticker-canvas"></canvas>
@@ -260,17 +292,17 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
           <h1 class="hero-hello">Hello, I'm <em>Yan.</em></h1>
           <p class="hero-subtitle">UGC Content Creator</p>
           <div class="hero-niche">
-            <a href="#paid" class="niche-link">Paid UGC</a>
+            <a href="#examples" class="niche-link">Paid UGC</a>
             <span class="niche-sep">|</span>
-            <a href="#organic" class="niche-link">Organic UGC</a>
+            <a href="#examples" class="niche-link">Organic UGC</a>
             <span class="niche-sep">|</span>
-            <a href="#photos" class="niche-link">Photo</a>
+            <a href="#photos" class="niche-link">Photography</a>
           </div>
           <ul class="hero-bullets">
-            <li>Gen-Z Creator | 25 Years Old | Asian-American</li>
+            <li>Gen-Z Creator | 25 y.o. | Asian-American</li>
             <li>Engineer in Tech</li>
             <li>Elopement Photographer</li>
-            <li>Traveler | 25+ countries so far!</li>
+            <li>Traveled to 25+ Countries</li>
             <li>Speak and can film in Vietnamese, Spanish, Cantonese, and Malay</li>
           </ul>
           <div class="hero-meta">
@@ -280,7 +312,7 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
             </div>
             <div class="meta-row">
               <span class="meta-label">Based in</span>
-              <span class="meta-val">USA</span>
+              <span class="meta-val">Seattle, USA</span>
             </div>
           </div>
           <div class="hero-ctas">
@@ -294,65 +326,67 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
   </div>
 </section>
 
-<!-- PAID UGC -->
+<!-- EXAMPLES — unified 4 cards -->
 <section class="examples-section" id="examples">
   <div class="section-top">
     <p class="section-label">Examples</p>
-    <h2 class="section-heading">Paid <em>UGC</em></h2>
-    <div class="divider"></div>
-  </div>
-  <div class="video-grid" id="paid">
-    <div class="video-card">
-      <div class="video-logo"><div class="video-logo-placeholder"><span>Brand Logo</span></div></div>
-      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
-      <div class="video-info"><p class="video-category">Direct Response</p><p class="video-type">Demo</p><p class="video-brand">Brand Name</p></div>
-    </div>
-    <div class="video-card">
-      <div class="video-logo"><div class="video-logo-placeholder"><span>Brand Logo</span></div></div>
-      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
-      <div class="video-info"><p class="video-category">Paid Ad</p><p class="video-type">Unboxing</p><p class="video-brand">Brand Name</p></div>
-    </div>
-    <div class="video-card">
-      <div class="video-logo"><div class="video-logo-placeholder"><span>Brand Logo</span></div></div>
-      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
-      <div class="video-info"><p class="video-category">Paid Ad</p><p class="video-type">Problem / Solution</p><p class="video-brand">Brand Name</p></div>
-    </div>
-    <div class="video-card">
-      <div class="video-logo"><div class="video-logo-placeholder"><span>Brand Logo</span></div></div>
-      <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
-      <div class="video-info"><p class="video-category">Paid Ad</p><p class="video-type">Greenscreen</p><p class="video-brand">Brand Name</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ORGANIC UGC -->
-<section class="examples-section alt" id="organic">
-  <div class="section-top">
-    <p class="section-label">Examples</p>
-    <h2 class="section-heading">Organic <em>UGC</em></h2>
+    <h2 class="section-heading">My <em>Work</em></h2>
     <div class="divider"></div>
   </div>
   <div class="video-grid">
+
+    <!-- Preply -->
     <div class="video-card">
-      <div class="video-logo"><div class="video-logo-placeholder"><span>Brand Logo</span></div></div>
+      <div class="video-logo">
+        <img src="images/preply-logo.png" alt="Preply">
+      </div>
       <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
-      <div class="video-info"><p class="video-category">Lifestyle</p><p class="video-type">Day in my Life</p><p class="video-brand">Brand Name</p></div>
+      <div class="video-info">
+        <p class="video-type-label">Paid</p>
+        <p class="video-type">Product Demo</p>
+        <p class="video-niche">Education & Apps · Talking Head</p>
+      </div>
     </div>
+
+    <!-- Airalo -->
     <div class="video-card">
-      <div class="video-logo"><div class="video-logo-placeholder"><span>Brand Logo</span></div></div>
+      <div class="video-logo">
+        <img src="images/airalo_logo.svg.png" alt="Airalo">
+      </div>
       <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
-      <div class="video-info"><p class="video-category">Soft Mention</p><p class="video-type">Routine</p><p class="video-brand">Brand Name</p></div>
+      <div class="video-info">
+        <p class="video-type-label">Paid</p>
+        <p class="video-type">Testimonial</p>
+        <p class="video-niche">Travel & Tech · Talking Head</p>
+      </div>
     </div>
+
+    <!-- Hatch -->
     <div class="video-card">
-      <div class="video-logo"><div class="video-logo-placeholder"><span>Brand Logo</span></div></div>
+      <div class="video-logo">
+        <img src="images/hatch-logo-new.png" alt="Hatch">
+      </div>
       <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
-      <div class="video-info"><p class="video-category">Travel</p><p class="video-type">Destination Vlog</p><p class="video-brand">Brand Name</p></div>
+      <div class="video-info">
+        <p class="video-type-label">Organic</p>
+        <p class="video-type">Routine</p>
+        <p class="video-niche">Lifestyle & Wellness · Voiceover</p>
+      </div>
     </div>
+
+    <!-- Haruharu Wonder -->
     <div class="video-card">
-      <div class="video-logo"><div class="video-logo-placeholder"><span>Brand Logo</span></div></div>
+      <div class="video-logo">
+        <img src="images/haruharu_logo.png" alt="Haruharu Wonder">
+      </div>
       <div class="video-thumb"><div class="phone-notch"></div><div class="play-btn"></div></div>
-      <div class="video-info"><p class="video-category">Organic</p><p class="video-type">Storytelling</p><p class="video-brand">Brand Name</p></div>
+      <div class="video-info">
+        <p class="video-type-label">Organic</p>
+        <p class="video-type">Humor & Review</p>
+        <p class="video-niche">Wellness & Beauty · Voiceover</p>
+      </div>
     </div>
+
   </div>
 </section>
 
@@ -363,11 +397,11 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
     <h2 class="section-heading">Why work <em>with me?</em></h2>
     <div class="divider"></div>
     <p class="about-p">I bring something unique — a technical and creative foundation. With a background in <strong>tech engineering</strong> and an elopement <strong>photography</strong> business built on raw, documentary-style <strong>storytelling</strong>, I understand both how products work and how to make them feel human on camera.</p>
-    <p class="about-p">As a <strong>remote worker</strong> and <strong>traveler</strong>, I shoot not only in studios but in real <strong>destinations</strong>. Imagine your brand captured in the mountains, on the beach, or in a charming city street — content that creates a genuine <strong>emotional connection</strong> and positions your brand as part of a <strong>lifestyle experience</strong>. What I film also gives you <strong>evergreen assets</strong> — timeless visuals you can repurpose across campaigns, seasons, and platforms all year long.</p>
-    <p class="about-p">Whether it's <strong>paid content</strong> built to convert or <strong>organic content</strong> built to connect — I approach every project with a deep understanding of <strong>brand needs</strong> and alignment with your <strong>social strategy</strong>. From storyboarding to video editing, my <strong>UGC production</strong> spans direct-response ads, relatable day-in-the-life content, and everything in between.</p>
+    <p class="about-p">As a <strong>remote worker</strong> and <strong>traveler</strong>, I shoot not only in cozy homes, but also real <strong>destinations</strong>. Imagine your brand captured in the mountains, the beaches, or a charming city street. I create scroll-stopping content that positions your brand as part of a <strong>lifestyle experience</strong> and creates <strong>emotional connection</strong>. What I film also gives you <strong>evergreen assets</strong> — timeless visuals you can repurpose across campaigns, seasons, and platforms all year long.</p>
+    <p class="about-p">Whether it's <strong>paid content</strong> built to <strong>convert</strong> or <strong>organic content</strong> built to <strong>connect</strong> — I approach every project with a deep understanding of <strong>brand needs</strong> and alignment with your <strong>social strategy</strong>. From storyboarding to video editing, my <strong>UGC production</strong> spans direct-response ads, relatable day-in-the-life content, and everything in between.</p>
     <p class="about-p2">The result? Content that highlights what your product does, feels real to the people watching, builds brand awareness, and converts.</p>
     <div class="about-tags">
-      <span class="tag">TikTok</span><span class="tag">Instagram Reels</span><span class="tag">YouTube Shorts</span><span class="tag">Talking Head</span><span class="tag">B-Roll</span><span class="tag">Paid Ads</span><span class="tag">Organic</span><span class="tag">Voiceover</span><span class="tag">Script Writing</span><span class="tag">Strong Hooks</span><span class="tag">Faceless</span><span class="tag">Professional Photography</span><span class="tag">Fast Turnaround</span>
+      <span class="tag">TikTok</span><span class="tag">Instagram Reels</span><span class="tag">YouTube Shorts</span><span class="tag">Talking Head</span><span class="tag">B-Roll</span><span class="tag">Paid Ads</span><span class="tag">Organic</span><span class="tag">Voiceover</span><span class="tag">Script Writing</span><span class="tag">Strong Hooks</span><span class="tag">Faceless</span><span class="tag">Professional Photography</span><span class="tag">Fast Turnaround</span><span class="tag">Aesthetic</span>
     </div>
   </div>
   <div class="about-photos">
@@ -442,6 +476,7 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
   <span class="footer-right">© 2026</span>
 </footer>
 
+<!-- MODAL -->
 <div class="modal-overlay" id="contactModal">
   <div class="modal">
     <div class="modal-header">
@@ -458,6 +493,19 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
 </div>
 
 <script>
+// HAMBURGER
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+function closeMenu() {
+  hamburger.classList.remove('open');
+  mobileMenu.classList.remove('open');
+}
+
+// TICKER — starts immediately, rebuilds when fonts load
 const canvas=document.getElementById('ticker-canvas');
 const ctx=canvas.getContext('2d');
 const DPR=window.devicePixelRatio||1;
@@ -476,7 +524,8 @@ function drawLetters(text,startX){ctx.font=`400 ${FONT_SIZE}px "Cormorant Garamo
 function measureWord(text){ctx.font=`400 ${FONT_SIZE}px "Cormorant Garamond", serif`;let w=0;for(const ch of text)w+=ctx.measureText(ch).width+LETTER_SPACING;return w;}
 function buildLoop(){items=[];loopWidth=0;for(const word of words){const tw=measureWord(word);items.push({type:'word',text:word,width:tw});loopWidth+=tw+GAP;items.push({type:'heart',width:18});loopWidth+=18+GAP;}}
 function draw(){ctx.fillStyle=SAGE;ctx.fillRect(0,0,W(),H());const loops=Math.ceil((W()+loopWidth)/loopWidth)+2;for(let loop=0;loop<loops;loop++){let x=loop*loopWidth-(offset%loopWidth);for(const item of items){if(item.type==='word'){x=drawLetters(item.text,x);x+=GAP;}else{drawHeart(x+9,waveY(x+offset+9),9,waveAngle(x+offset+9));x+=item.width+GAP;}}}offset+=SCROLL_SPEED;t+=WAVE_SPEED;requestAnimationFrame(draw);}
-document.fonts.ready.then(()=>{buildLoop();draw();});
+buildLoop(); draw();
+document.fonts.ready.then(()=>{ buildLoop(); });
 </script>
 </body>
 </html>
