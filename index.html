@@ -89,7 +89,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .video-logo img{max-height:48px;max-width:140px;object-fit:contain;display:block}
 .video-thumb{aspect-ratio:9/16;border-radius:8px;overflow:hidden;position:relative;display:flex;align-items:center;justify-content:center;margin-bottom:0.85rem;cursor:pointer;background:#1C1C19}
 .video-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:8px;z-index:2;transition:opacity 0.3s}
-.video-thumb iframe{position:absolute;inset:0;width:100%;height:100%;border:none;border-radius:8px;z-index:1;display:block}
+.video-thumb video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:8px;z-index:1;display:block}
 .play-btn{position:relative;z-index:3;width:42px;height:42px;border-radius:50%;border:1.5px solid rgba(253,250,245,0.7);display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.25);transition:background 0.2s,border-color 0.2s;flex-shrink:0}
 .video-thumb:hover .play-btn{background:rgba(0,0,0,0.45);border-color:rgba(253,250,245,1)}
 .play-btn::after{content:'';width:0;height:0;border-top:7px solid transparent;border-bottom:7px solid transparent;border-left:12px solid rgba(253,250,245,0.9);margin-left:3px}
@@ -102,12 +102,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .video-type-label{font-size:0.82rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--green);margin-bottom:0.25rem;font-weight:600}
 .video-type{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--char);margin-bottom:0.25rem;line-height:1.2;font-weight:600}
 .video-niche{font-size:0.95rem;color:var(--char);opacity:0.6;font-weight:400}
-
-/* drive download link */
-.drive-download{display:flex;align-items:center;justify-content:center;gap:0.6rem;margin-top:2.5rem;text-decoration:none;color:var(--gray);font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s}
-.drive-download:hover{color:var(--green)}
-.drive-icon{width:16px;height:16px;flex-shrink:0;opacity:0.6}
-.drive-download:hover .drive-icon{opacity:1}
 
 .about{background:var(--cream2);display:grid;grid-template-columns:1.2fr 0.8fr;gap:4rem;align-items:center;padding:6rem 3rem}
 .about-p{font-size:0.92rem;color:var(--gray);line-height:1.95;margin-bottom:1.25rem}
@@ -327,10 +321,10 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
     <!-- Preply -->
     <div class="video-card">
       <div class="video-logo"><img src="images/preply-logo.png" alt="Preply"></div>
-      <div class="video-thumb" onclick="playVideo(this)" data-src="https://player.vimeo.com/video/1176787127?autoplay=1">
+      <div class="video-thumb" onclick="playVideo(this)">
         <div class="phone-notch"></div>
         <img class="video-poster" src="images/preply_cover.png" alt="Preply">
-        <iframe src="" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <video src="videos/preply-copy.mp4" playsinline></video>
         <div class="play-btn"></div>
       </div>
       <div class="video-info">
@@ -358,10 +352,10 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
     <!-- Hatch -->
     <div class="video-card">
       <div class="video-logo"><img src="images/hatch-logo-new.png" alt="Hatch"></div>
-      <div class="video-thumb" onclick="playVideo(this)" data-src="https://player.vimeo.com/video/1176787144?autoplay=1">
+      <div class="video-thumb" onclick="playVideo(this)">
         <div class="phone-notch"></div>
         <img class="video-poster" src="images/hatch_cover.png" alt="Hatch">
-        <iframe src="" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <video src="videos/hatch.mp4" playsinline></video>
         <div class="play-btn"></div>
       </div>
       <div class="video-info">
@@ -374,10 +368,10 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
     <!-- Haruharu -->
     <div class="video-card">
       <div class="video-logo"><img src="images/haruharu_logo.png" alt="Haruharu Wonder"></div>
-      <div class="video-thumb" onclick="playVideo(this)" data-src="https://player.vimeo.com/video/1176787139?autoplay=1">
+      <div class="video-thumb" onclick="playVideo(this)">
         <div class="phone-notch"></div>
         <img class="video-poster" src="images/haruharu_cover.png" alt="Haruharu Wonder">
-        <iframe src="" allow="autoplay; fullscreen" allowfullscreen></iframe>
+        <video src="videos/haruharu.mp4" playsinline></video>
         <div class="play-btn"></div>
       </div>
       <div class="video-info">
@@ -396,6 +390,8 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
       Download all videos
     </a>
   </div>
+
+</section>
 
 <section class="about" id="about">
   <div class="about-text">
@@ -496,17 +492,15 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
 
 <script>
 function playVideo(thumb) {
-  var src = thumb.getAttribute('data-src');
-  if (!src) return;
-  var iframe = thumb.querySelector('iframe');
+  var video = thumb.querySelector('video');
   var poster = thumb.querySelector('.video-poster');
   var playBtn = thumb.querySelector('.play-btn');
-  iframe.src = src;
   poster.style.opacity = '0';
   poster.style.pointerEvents = 'none';
   playBtn.style.display = 'none';
   thumb.style.cursor = 'default';
   thumb.onclick = null;
+  video.play();
 }
 
 var hamburger = document.getElementById('hamburger');
