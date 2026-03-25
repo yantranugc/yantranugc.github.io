@@ -102,7 +102,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .video-type-label{font-size:0.82rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--green);margin-bottom:0.25rem;font-weight:600}
 .video-type{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--char);margin-bottom:0.25rem;line-height:1.2;font-weight:600}
 .video-niche{font-size:0.95rem;color:var(--char);opacity:0.6;font-weight:400}
-
+.mobile-break{display:none}
+  
 .about{background:var(--cream2);display:grid;grid-template-columns:1.2fr 0.8fr;gap:4rem;align-items:center;padding:6rem 3rem}
 .about-p{font-size:0.92rem;color:var(--gray);line-height:1.95;margin-bottom:1.25rem}
 .about-p strong{color:var(--char);font-weight:500}
@@ -226,6 +227,7 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
   .video-grid{grid-template-columns:repeat(2,1fr);gap:0.75rem}
   .video-type{font-size:1.1rem}
   .video-logo img{max-height:32px;max-width:100px}
+  .mobile-break{display:inline}
 }
 </style>
 </head>
@@ -329,7 +331,7 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
       <div class="video-info">
         <p class="video-type-label">Paid</p>
         <p class="video-type">Product Demo</p>
-        <p class="video-niche">Education &middot; Apps &middot; Direct to Camera + Greenscreen</p>
+        <p class="video-niche">Education &middot; Apps<span class="mobile-break"><br></span> Direct to Camera + Greenscreen</p>
       </div>
     </div>
     <!-- Airalo -->
@@ -343,7 +345,7 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
       <div class="video-info">
         <p class="video-type-label">Paid</p>
         <p class="video-type">Problem/Solution</p>
-        <p class="video-niche">Travel &middot; Tech &middot; Apps &middot; Direct to Camera</p>
+        <p class="video-niche">Travel &middot; Tech &middot; Apps<span class="mobile-break"><br></span> Direct to Camera</p>
       </div>
     </div>
     <!-- Hatch -->
@@ -358,7 +360,7 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
       <div class="video-info">
         <p class="video-type-label">Organic</p>
         <p class="video-type">Routine + Lifestyle</p>
-        <p class="video-niche">Lifestyle &middot; Wellness &middot; Voiceover</p>
+        <p class="video-niche">Lifestyle &middot; Wellness<span class="mobile-break"><br></span> Voiceover</p>
       </div>
     </div>
     <!-- Haruharu -->
@@ -380,16 +382,6 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
 
   <!-- Google Drive folder download link -->
   <div style="display:flex;justify-content:center;margin-top:2.8rem;padding-bottom:0">
-    <a href="https://drive.google.com/drive/folders/1jF8PRbc3cqB9HNN970SzDbvAUHLCTEJ1?usp=share_link" target="_blank" style="display:inline-flex;align-items:center;gap:0.6rem;background:var(--cream);border:1px solid var(--cream3);padding:0.55rem 1.5rem;border-radius:40px;font-size:0.82rem;color:var(--gray);letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;font-family:'Outfit',sans-serif;">
-      <svg width="16" height="16" viewBox="0 0 87.3 78" xmlns="http://www.w3.org/2000/svg"><path d="m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8h-27.5c0 1.55.4 3.1 1.2 4.5z" fill="#0066da"/><path d="m43.65 25-13.75-23.8c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44a9.06 9.06 0 0 0 -1.2 4.5h27.5z" fill="#00ac47"/><path d="m73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5h-27.502l5.852 11.5z" fill="#ea4335"/><path d="m43.65 25 13.75-23.8c-1.35-.8-2.9-1.2-4.5-1.2h-18.5c-1.6 0-3.15.45-4.5 1.2z" fill="#00832d"/><path d="m59.8 53h-32.3l-13.75 23.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z" fill="#2684fc"/><path d="m73.4 26.5-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3l-13.75 23.8 16.15 27h27.45c0-1.55-.4-3.1-1.2-4.5z" fill="#ffba00"/></svg>
-      Download all videos
-    </a>
-  </div>
-
-</section>
-
-  <!-- Google Drive folder download link -->
-  <div style="display:flex;justify-content:center;margin-top:2.8rem;padding-bottom:0.2rem">
     <a href="https://drive.google.com/drive/folders/1jF8PRbc3cqB9HNN970SzDbvAUHLCTEJ1?usp=share_link" target="_blank" style="display:inline-flex;align-items:center;gap:0.6rem;background:var(--cream);border:1px solid var(--cream3);padding:0.55rem 1.5rem;border-radius:40px;font-size:0.82rem;color:var(--gray);letter-spacing:0.14em;text-transform:uppercase;text-decoration:none;font-family:'Outfit',sans-serif;">
       <svg width="16" height="16" viewBox="0 0 87.3 78" xmlns="http://www.w3.org/2000/svg"><path d="m6.6 66.85 3.85 6.65c.8 1.4 1.95 2.5 3.3 3.3l13.75-23.8h-27.5c0 1.55.4 3.1 1.2 4.5z" fill="#0066da"/><path d="m43.65 25-13.75-23.8c-1.35.8-2.5 1.9-3.3 3.3l-25.4 44a9.06 9.06 0 0 0 -1.2 4.5h27.5z" fill="#00ac47"/><path d="m73.55 76.8c1.35-.8 2.5-1.9 3.3-3.3l1.6-2.75 7.65-13.25c.8-1.4 1.2-2.95 1.2-4.5h-27.502l5.852 11.5z" fill="#ea4335"/><path d="m43.65 25 13.75-23.8c-1.35-.8-2.9-1.2-4.5-1.2h-18.5c-1.6 0-3.15.45-4.5 1.2z" fill="#00832d"/><path d="m59.8 53h-32.3l-13.75 23.8c1.35.8 2.9 1.2 4.5 1.2h50.8c1.6 0 3.15-.45 4.5-1.2z" fill="#2684fc"/><path d="m73.4 26.5-12.7-22c-.8-1.4-1.95-2.5-3.3-3.3l-13.75 23.8 16.15 27h27.45c0-1.55-.4-3.1-1.2-4.5z" fill="#ffba00"/></svg>
       Download all videos
