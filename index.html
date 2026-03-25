@@ -500,6 +500,7 @@ function playVideo(thumb) {
   playBtn.style.display = 'none';
   thumb.style.cursor = 'default';
   thumb.onclick = null;
+  video.setAttribute('controls', true);
   video.play();
 }
 
