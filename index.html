@@ -336,18 +336,19 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
     </div>
     <!-- Airalo -->
     <div class="video-card">
-      <div class="video-logo"><img src="images/airalo_logo.svg.png" alt="Airalo"></div>
-      <div class="video-thumb" style="cursor:default">
-        <div class="phone-notch"></div>
-        <img class="video-poster" src="images/airalo_cover.png" alt="Airalo" style="opacity:0.6">
-        <div class="play-btn" style="opacity:0.3"></div>
-      </div>
-      <div class="video-info">
-        <p class="video-type-label">Paid</p>
-        <p class="video-type">Problem/Solution</p>
-        <p class="video-niche">Travel &amp; Tech/Apps &middot; Direct to Camera</p>
-      </div>
-    </div>
+  <div class="video-logo"><img src="images/airalo_logo.svg.png" alt="Airalo"></div>
+  <div class="video-thumb" onclick="playVideo(this)">
+    <div class="phone-notch"></div>
+    <img class="video-poster" src="images/airalo_cover.png" alt="Airalo">
+    <video src="videos/airalo.mp4" playsinline></video>
+    <div class="play-btn"></div>
+  </div>
+  <div class="video-info">
+    <p class="video-type-label">Paid</p>
+    <p class="video-type">Problem/Solution</p>
+    <p class="video-niche">Travel &amp; Tech/Apps &middot; Direct to Camera</p>
+  </div>
+</div>
     <!-- Hatch -->
     <div class="video-card">
       <div class="video-logo"><img src="images/hatch-logo-new.png" alt="Hatch"></div>
