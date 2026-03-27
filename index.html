@@ -25,8 +25,10 @@ html{scroll-behavior:smooth}
 body{background:var(--cream);color:var(--char);font-family:'Outfit',sans-serif;font-weight:300;overflow-x:hidden}
 
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.2rem 3rem;background:var(--cream);border-bottom:1px solid var(--cream3)}
-.nav-favicon{display:inline-flex;align-items:center;text-decoration:none;flex-shrink:0}
-.nav-favicon img{width:32px;height:32px;border-radius:4px}
+.nav-logo{display:inline-flex;align-items:center;gap:0.5rem;text-decoration:none}
+.nav-logo-yan{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--char);line-height:1}
+.nav-logo-dot{width:6px;height:6px;border-radius:50%;background:#4CAF50;flex-shrink:0}
+.nav-logo-ugc{font-size:0.55rem;letter-spacing:0.26em;text-transform:uppercase;color:var(--green2);font-weight:400}
 .nav-links{display:flex;gap:2rem;list-style:none}
 .nav-links a{font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gray);text-decoration:none;transition:color 0.2s}
 .nav-links a:hover{color:var(--green)}
@@ -103,7 +105,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .video-type{font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--char);margin-bottom:0.25rem;line-height:1.2;font-weight:600}
 .video-niche{font-size:0.95rem;color:var(--char);opacity:0.6;font-weight:400}
 .mobile-break{display:none}
-  
+
 .about{background:var(--cream2);display:grid;grid-template-columns:1.2fr 0.8fr;gap:4rem;align-items:center;padding:6rem 3rem}
 .about-p{font-size:0.92rem;color:var(--gray);line-height:1.95;margin-bottom:1.25rem}
 .about-p strong{color:var(--char);font-weight:500}
@@ -128,18 +130,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .photo-item:nth-child(8){height:440px;background:#D0DDC9}
 .photo-item::after{content:'';position:absolute;inset:0;background:rgba(42,74,44,0);transition:background 0.25s;border-radius:4px}
 .photo-item:hover::after{background:rgba(42,74,44,0.08)}
-
-.workflow{background:var(--green);padding:6rem 3rem}
-.workflow .section-label{color:var(--green3)}
-.workflow .section-heading{color:var(--cream)}
-.workflow .divider{background:rgba(197,213,188,0.3)}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
-.step{padding:2rem 2rem 2rem 0;border-top:1px solid rgba(197,213,188,0.2)}
-.step:not(:last-child){border-right:1px solid rgba(197,213,188,0.1)}
-.step:not(:first-child){padding-left:2rem}
-.step-num{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-style:italic;color:rgba(197,213,188,0.2);display:block;margin-bottom:1rem;line-height:1}
-.step-title{font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--green3);margin-bottom:0.75rem}
-.step-body{font-size:0.83rem;color:rgba(197,213,188,0.55);line-height:1.8}
 
 .contact-wrap{background:var(--char);position:relative;overflow:hidden}
 .contact{padding:7rem 3rem;text-align:center;position:relative;z-index:2}
@@ -181,15 +171,11 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
 @media(max-width:900px){
   .video-grid{grid-template-columns:repeat(2,1fr)}
   .masonry{columns:3}
-  .steps{grid-template-columns:1fr 1fr;gap:2rem}
-  .step{border-right:none!important;padding:1.5rem 0!important}
-  .step:not(:first-child){padding-left:0!important}
 }
 @media(max-width:768px){
   nav{padding:1rem 1.5rem}
   .nav-links{display:none}
   .hamburger{display:flex}
-  .nav-favicon img{width:26px;height:26px}
   #ticker-canvas{height:40px}
   .hero-ticker{padding:1.5rem 0 0.75rem}
   .hero-inner{padding:1rem 1.5rem 2rem}
@@ -216,14 +202,12 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
   .photo-item:nth-child(7){height:320px}
   .photo-item:nth-child(8){height:270px}
   .photo-item{margin-bottom:8px}
-  .workflow{padding:4rem 1.5rem}
   .contact{padding:5rem 1.5rem}
   .cutout-wrap{width:130px;right:0.5rem}
   footer{padding:1.2rem 1.5rem}
   .modal{max-height:85vh}
 }
 @media(max-width:480px){
-  .steps{grid-template-columns:1fr}
   .video-grid{grid-template-columns:repeat(2,1fr);gap:0.75rem}
   .video-type{font-size:1.1rem}
   .video-logo img{max-height:32px;max-width:100px}
@@ -234,15 +218,16 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
 <body>
 
 <nav>
-  <a class="nav-favicon" href="#">
-    <img src="favicon.svg" alt="Yan UGC">
+  <a class="nav-logo" href="#">
+    <span class="nav-logo-yan">Yan</span>
+    <div class="nav-logo-dot"></div>
+    <span class="nav-logo-ugc">UGC</span>
   </a>
   <ul class="nav-links">
     <li><a href="#">Home</a></li>
     <li><a href="#examples">Examples</a></li>
     <li><a href="#about">About</a></li>
     <li><a href="#photos">Photos</a></li>
-    <li><a href="#process">Process</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -255,7 +240,6 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
   <a href="#examples" onclick="closeMenu()">Examples</a>
   <a href="#about" onclick="closeMenu()">About</a>
   <a href="#photos" onclick="closeMenu()">Photos</a>
-  <a href="#process" onclick="closeMenu()">Process</a>
   <a href="#contact" onclick="closeMenu()">Contact</a>
 </div>
 
@@ -331,24 +315,24 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
       <div class="video-info">
         <p class="video-type-label">Paid</p>
         <p class="video-type">Product Demo</p>
-        <p class="video-niche">Education &amp; Apps &middot; Direct + Greenscreen</p>
+        <p class="video-niche">Education &middot; Apps &middot; Direct + Greenscreen</p>
       </div>
     </div>
     <!-- Airalo -->
     <div class="video-card">
-  <div class="video-logo"><img src="images/airalo_logo.svg.png" alt="Airalo"></div>
-  <div class="video-thumb" onclick="playVideo(this)">
-    <div class="phone-notch"></div>
-    <img class="video-poster" src="images/airalo_cover.png" alt="Airalo">
-    <video src="videos/airalo1.mp4" playsinline></video>
-    <div class="play-btn"></div>
-  </div>
-  <div class="video-info">
-    <p class="video-type-label">Paid</p>
-    <p class="video-type">Problem/Solution</p>
-    <p class="video-niche">Travel &amp; Tech/Apps &middot; Direct to Camera</p>
-  </div>
-</div>
+      <div class="video-logo"><img src="images/airalo_logo.svg.png" alt="Airalo"></div>
+      <div class="video-thumb" onclick="playVideo(this)">
+        <div class="phone-notch"></div>
+        <img class="video-poster" src="images/airalo_cover.png" alt="Airalo">
+        <video src="videos/airalo.mp4" playsinline></video>
+        <div class="play-btn"></div>
+      </div>
+      <div class="video-info">
+        <p class="video-type-label">Paid</p>
+        <p class="video-type">Problem/Solution</p>
+        <p class="video-niche">Travel &middot; Tech &middot; Apps &middot; Direct to Camera</p>
+      </div>
+    </div>
     <!-- Hatch -->
     <div class="video-card">
       <div class="video-logo"><img src="images/hatch-logo-new.png" alt="Hatch"></div>
@@ -361,7 +345,7 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
       <div class="video-info">
         <p class="video-type-label">Organic</p>
         <p class="video-type">Routine + Lifestyle</p>
-        <p class="video-niche">Lifestyle &amp; Wellness &middot; Voiceover</p>
+        <p class="video-niche">Lifestyle &middot; Wellness &middot; Voiceover</p>
       </div>
     </div>
     <!-- Haruharu -->
@@ -388,7 +372,6 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
       Download all videos
     </a>
   </div>
-
 </section>
 
 <section class="about" id="about">
@@ -396,9 +379,8 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
     <p class="section-label">About me</p>
     <h2 class="section-heading">Why work <em>with me?</em></h2>
     <div class="divider"></div>
-    <p class="about-p">I bring something unique — a technical and creative foundation. With a background in <strong>tech engineering</strong> and an elopement <strong>photography</strong> business built on raw, documentary-style <strong>storytelling</strong>, I understand both how products work and how to make them feel human on camera.</p>
-    <p class="about-p">As a <strong>remote worker</strong> and <strong>traveler</strong>, I shoot not only in cozy homes, but also real <strong>destinations</strong>. Imagine your brand captured in the mountains, the beaches, or a charming city street. I create scroll-stopping content that positions your brand as part of a <strong>lifestyle experience</strong> and creates <strong>emotional connection</strong>. What I film also gives you <strong>evergreen assets</strong> — timeless visuals you can repurpose across campaigns, seasons, and platforms all year long.</p>
-    <p class="about-p">Whether it's <strong>paid</strong> content built to <strong>convert</strong> or <strong>organic</strong> content built to <strong>connect</strong> — I approach every project with a deep understanding of <strong>brand needs</strong> and alignment with your <strong>social strategy</strong>. From storyboarding to video editing, my UGC production spans direct-response ads, relatable day-in-the-life content, and everything in between.</p>
+    <p class="about-p">I bring something unique — a technical and creative foundation. With a background in <strong>tech engineering</strong> and an elopement <strong>photography</strong> business built on raw, documentary-style <strong>storytelling</strong>, I understand both how products work and how to make them feel human on camera. As a <strong>remote worker</strong> and <strong>traveler</strong>, I shoot not only in cozy homes, but also real <strong>destinations</strong> — mountains, beaches, charming city streets — giving you <strong>evergreen assets</strong> across campaigns, seasons, and platforms.</p>
+    <p class="about-p">From relatable day-in-the-life to direct-response ads, whether it's <strong>paid</strong> content built to <strong>convert</strong> or <strong>organic</strong> content built to <strong>connect</strong> — I approach every project with a deep understanding of <strong>brand needs</strong> and your <strong>social strategy</strong>.</p>
     <p class="about-p2">The result? Content that highlights what your product does, feels real to the people watching, builds brand awareness, and converts.</p>
     <div class="about-tags">
       <span class="tag">TikTok</span><span class="tag">Instagram Reels</span><span class="tag">YouTube Shorts</span><span class="tag">Talking Head</span><span class="tag">B-Roll</span><span class="tag">Paid Ads</span><span class="tag">Organic</span><span class="tag">Voiceover</span><span class="tag">Script Writing</span><span class="tag">Strong Hooks</span><span class="tag">Faceless</span><span class="tag">Professional Photography</span><span class="tag">Fast Turnaround</span><span class="tag">Aesthetic</span>
@@ -430,6 +412,7 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
   </div>
 </section>
 
+<!--
 <section class="workflow" id="process">
   <p class="section-label">My Process</p>
   <h2 class="section-heading">How it <em>works</em></h2>
@@ -441,6 +424,7 @@ footer{background:var(--cream);padding:1.5rem 3rem;display:flex;justify-content:
     <div class="step"><span class="step-num">04</span><p class="step-title">Revisions</p><p class="step-body">One round of revisions included. I want you to love it — we'll get it right!</p></div>
   </div>
 </section>
+-->
 
 <div class="contact-wrap">
   <section class="contact" id="contact">
